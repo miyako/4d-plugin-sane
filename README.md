@@ -13,7 +13,7 @@ export LDFLAGS="-arch x86_64 -mmacosx-version-min=10.8"
 export CPPFLAGS="-arch x86_64 -mmacosx-version-min=10.8"
 export PRELOADABLE_BACKENDS=""
 
-./configure --enable-shared --enable-static --disable-dynamic --enable-preload
+./configure --enable-shared --enable-static
 ```
 
 ```
@@ -23,7 +23,7 @@ export CFLAGS="-arch i386 -mmacosx-version-min=10.8"
 export LDFLAGS="-arch i386 -mmacosx-version-min=10.8"
 export CPPFLAGS="-arch i386 -mmacosx-version-min=10.8"
 
-./configure --enable-shared --enable-static  --disable-dynamic --enable-preload
+./configure --enable-shared --enable-static
 ```
 
-**Note**: 10.8 SDK fails with ``-lcrypto.32`` error.
+**Note**: specifying an older (10.8) SDK fails with ``-lcrypto.32`` error.
