@@ -1,5 +1,5 @@
 # 4d-plugin-sane
-SANE for macOS
+SANE ([Scanner Access Now Easy](http://www.sane-project.org)) for macOS
 
 ---
 
