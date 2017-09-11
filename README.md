@@ -1,6 +1,10 @@
 # 4d-plugin-sane
 SANE ([Scanner Access Now Easy](http://www.sane-project.org)) for macOS
 
+### About
+
+SANE talks directly to the scanner over USB. You can use devices that do not offer a native (ICA) driver.
+
 ---
 
 ### Build
