@@ -25,3 +25,5 @@ IPv6 support:  yes
 Avahi support: no
 SNMP support:  yes
 ```
+
+**Note**: For technical reasons (``pthread`` crash), ``LIBUSB`` hotplug is disabled. The scanner must be connected to the computer before you load the plugin.
