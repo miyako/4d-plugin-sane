@@ -19,3 +19,9 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 ### Configure
 
 `--without-poppler-glib` `--enable-static`
+
+### Variants
+
+* 2.0.x: homebrew libusb+libsane, dynamic libraries
+* 2.1.x: custom libusb+libsane, static libraries
+* 2.2.x: 
