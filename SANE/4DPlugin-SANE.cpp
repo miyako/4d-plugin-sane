@@ -446,12 +446,72 @@ namespace PNG
 
 #pragma mark -
 
+bool isProcessOnExit()
+{
+    PA_long32 state, time;
+    
+    PA_long32 currentProcessNumber = PA_GetCurrentProcessNumber();
+    PA_Variable name = PA_GetProcessInfo_s(currentProcessNumber, &state, &time);
+    PA_Unistring u = PA_GetStringVariable(name);
+    CUTF16String procName(u.fString, u.fLength);
+    PA_Unichar _exitProcName[] = {'$', 'x', 'x', 0};
+    CUTF16String exitProcName((PA_Unichar *)_exitProcName);
+    bool isProcessOnExit = (!procName.compare(exitProcName));
+    PA_ClearVariable(&name);
+    
+    return isProcessOnExit;
+}
+
+void OnStartup()
+{
+    @autoreleasepool
+    {
+        NSBundle *thisBundle = [NSBundle bundleWithIdentifier:@"com.4D.SANE"];
+        if(thisBundle)
+        {
+            NSString *builtInPlugInsPath = [thisBundle builtInPlugInsPath];
+            setenv("SANE_LD_LIBRARY_PATH", [builtInPlugInsPath UTF8String], 1);//dll.c was modified to use this env var
+            NSString *resourcePath = [thisBundle resourcePath];
+            setenv("SANE_CONFIG_DIR", [[resourcePath stringByAppendingPathComponent:@"sane.d"]UTF8String], 1);
+        }
+    }
+    SANE_Status sane_init_status = sane_init (&SANE::version_code, NULL);//no authentication support
+    printf ("sane_init\n");
+    if(sane_init_status == SANE_STATUS_GOOD)
+    {
+        SANE::isReady = TRUE;
+    }
+}
+
+void OnCloseProcess()
+{
+    if(isProcessOnExit())
+    {
+        if(SANE::isReady)
+        {
+            sane_exit();
+            printf ("sane_exit\n");
+        }
+    }
+}
+
+#pragma mark -
+
 void PluginMain(PA_long32 selector, PA_PluginParameters params) {
     
 	try
 	{
         switch(selector)
         {
+            case kInitPlugin :
+            case kServerInitPlugin :
+                OnStartup();
+                break;
+                
+            case kCloseProcess :
+                OnCloseProcess();
+                break;
+                
 			// --- SANE
             
 			case 1 :

@@ -6060,6 +6060,34 @@ PA_long32 PA_CountTotalProcess()
 	return (PA_long32)eb.fParam1;
 }
 
+PA_Variable PA_GetProcessInfo_s( PA_long32 process, PA_long32* state, PA_long32* time )
+{
+    EngineBlock eb;
+    PA_Variable returned = PA_CreateVariable(eVK_Text);
+
+    eb.fParam1 = process;
+    eb.fString[0] = 0;
+    eb.fParam2 = 0;
+    eb.fParam3 = 0;
+    eb.fError  = eER_NoErr;
+
+    Call4D( EX_GET_PROCESS_INFO, &eb );
+    sErrorCode = (PA_ErrorCode) eb.fError;
+
+    if ( sErrorCode == eER_NoErr )
+    {
+        PA_Unistring ustr = PA_CreateUnistring(eb.fUString);
+        PA_SetStringVariable(&returned, &ustr);
+
+        if ( state )
+            *state = (PA_long32)eb.fParam2;
+
+        if ( time )
+            *time = (PA_long32)eb.fParam3;
+    }
+    
+    return returned;
+}
 
 void PA_GetProcessInfo( PA_long32 process, PA_Unichar* name, PA_long32* state, PA_long32* time )
 {
