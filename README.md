@@ -24,4 +24,4 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 * 2.0.x: homebrew libusb+libsane, dynamic libraries
 * 2.1.x: custom libusb+libsane, static libraries
-* 2.2.x: 
+* 2.2.x: homebrew libusb+custom libsane, static libraries
