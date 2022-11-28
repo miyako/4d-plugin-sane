@@ -18,10 +18,6 @@
 		D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D130064E12F02D9700702C0E /* Cocoa.framework */; };
 		D13116A91A03ACB700DE1322 /* 4DPluginAPI.c in Sources */ = {isa = PBXBuildFile; fileRef = D13116A81A03ACB700DE1322 /* 4DPluginAPI.c */; settings = {COMPILER_FLAGS = "-Wno-multichar"; }; };
 		D134D4AC1A030BA0008D14EF /* manifest.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = D134D4A91A030B06008D14EF /* manifest.json */; };
-		D1359CEB2935439B00C5CB6C /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1359CE92935439B00C5CB6C /* libusb-1.0.0.dylib */; };
-		D1359CEC2935439B00C5CB6C /* libusb-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1359CE92935439B00C5CB6C /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		D1359CED2935439B00C5CB6C /* libsane.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1359CEA2935439B00C5CB6C /* libsane.1.dylib */; };
-		D1359CEE2935439B00C5CB6C /* libsane.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1359CEA2935439B00C5CB6C /* libsane.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D143E90D29343CAB00E908DB /* libtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90929343CAB00E908DB /* libtiff.a */; };
 		D143E90E29343CAB00E908DB /* libjsoncpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90A29343CAB00E908DB /* libjsoncpp.a */; };
 		D143E90F29343CAB00E908DB /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90B29343CAB00E908DB /* libjpeg.a */; };
@@ -36,6 +32,8 @@
 		D143E9212934400300E908DB /* C_LONGINT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143E91F2934400300E908DB /* C_LONGINT.cpp */; };
 		D143E9222934400300E908DB /* C_LONGINT.h in Headers */ = {isa = PBXBuildFile; fileRef = D143E9202934400300E908DB /* C_LONGINT.h */; };
 		D143E9242934475E00E908DB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E9232934475E00E908DB /* libz.tbd */; };
+		D14CFFC629354C1D002A614E /* libusb-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEB029345D4700FA32A4 /* libusb-1.0.a */; };
+		D14CFFC729354C25002A614E /* libsane.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEA629345B8E00FA32A4 /* libsane.a */; };
 		D1FCBEAA29345BC800FA32A4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEA929345BC800FA32A4 /* IOKit.framework */; };
 		D1FCBEAC29345BD200FA32A4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEAB29345BD200FA32A4 /* Security.framework */; };
 		D1FCBEAE29345BE900FA32A4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEAD29345BDE00FA32A4 /* libxml2.tbd */; };
@@ -50,18 +48,6 @@
 			files = (
 				D134D4AC1A030BA0008D14EF /* manifest.json in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D1359CEF2935439B00C5CB6C /* Embed Libraries */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 6;
-			files = (
-				D1359CEE2935439B00C5CB6C /* libsane.1.dylib in Embed Libraries */,
-				D1359CEC2935439B00C5CB6C /* libusb-1.0.0.dylib in Embed Libraries */,
-			);
-			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -114,15 +100,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D143E9242934475E00E908DB /* libz.tbd in Frameworks */,
-				D1359CEB2935439B00C5CB6C /* libusb-1.0.0.dylib in Frameworks */,
 				D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */,
 				D143E90D29343CAB00E908DB /* libtiff.a in Frameworks */,
 				D143E90F29343CAB00E908DB /* libjpeg.a in Frameworks */,
+				D14CFFC629354C1D002A614E /* libusb-1.0.a in Frameworks */,
 				D1FCBEAC29345BD200FA32A4 /* Security.framework in Frameworks */,
-				D1359CED2935439B00C5CB6C /* libsane.1.dylib in Frameworks */,
 				D143E91029343CAB00E908DB /* libpng16.a in Frameworks */,
 				D143E90E29343CAB00E908DB /* libjsoncpp.a in Frameworks */,
 				D1FCBEAA29345BC800FA32A4 /* IOKit.framework in Frameworks */,
+				D14CFFC729354C25002A614E /* libsane.a in Frameworks */,
 				D1FCBEAE29345BE900FA32A4 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +253,6 @@
 				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
 				8D01CCCF0486CAD60068D4B7 /* Rez */,
 				D1292E7B22C4A91E00CB5A8C /* ShellScript */,
-				D1359CEF2935439B00C5CB6C /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -414,10 +399,12 @@
 					"$(PROJECT_DIR)/a",
 					"$(PROJECT_DIR)/a/brew",
 					"$(PROJECT_DIR)/lib/brew",
+					"$(PROJECT_DIR)/a/arm",
+					"$(PROJECT_DIR)/a/intel",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.2.2;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -469,10 +456,12 @@
 					"$(PROJECT_DIR)/a",
 					"$(PROJECT_DIR)/a/brew",
 					"$(PROJECT_DIR)/lib/brew",
+					"$(PROJECT_DIR)/a/arm",
+					"$(PROJECT_DIR)/a/intel",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.2.2;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -522,10 +511,12 @@
 					"$(PROJECT_DIR)/a",
 					"$(PROJECT_DIR)/a/brew",
 					"$(PROJECT_DIR)/lib/brew",
+					"$(PROJECT_DIR)/a/arm",
+					"$(PROJECT_DIR)/a/intel",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.2.2;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
