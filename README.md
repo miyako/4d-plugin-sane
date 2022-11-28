@@ -16,6 +16,8 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 * libsub/darwin_usb: ignore hotplug. reason: ``pthread`` crash). scanner must be connected to the computer before you load the plugin.
 
+### Configure
 
+`--without-poppler-glib`
 
 
