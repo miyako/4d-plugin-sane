@@ -1,0 +1,31 @@
+{
+    "name": "SANE",
+    "id": 20000,
+    "commands": [
+        {
+            "theme": "SANE",
+            "syntax": "SANE SCANNERS LIST(&Y)",
+            "threadSafe": true
+        },
+        {
+            "theme": "SANE",
+            "syntax": "SANE Scan(&T;&L):P",
+            "threadSafe": true
+        },
+        {
+            "theme": "SANE",
+            "syntax": "SANE SCAN OPTION VALUES(&T;&Y)",
+            "threadSafe": true
+        },
+        {
+            "theme": "SANE",
+            "syntax": "SANE SET SCAN OPTION(&T;&T;&T)",
+            "threadSafe": true
+        },
+        {
+            "theme": "SANE",
+            "syntax": "SANE Get scan option(&T;&T):T",
+            "threadSafe": true
+        }
+    ]
+}
