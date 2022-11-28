@@ -1,1 +1,0 @@
-﻿{"name":"SANE","id":20000,"commands":[{"theme":"SANE","syntax":"SANE SCANNERS LIST(&Y)"},{"theme":"SANE","syntax":"SANE Scan(&T;&L):P"},{"theme":"SANE","syntax":"SANE SCAN OPTION VALUES(&T;&Y)"},{"theme":"SANE","syntax":"SANE SET SCAN OPTION(&T;&T;&T)"},{"theme":"SANE","syntax":"SANE Get scan option(&T;&T):T"}]}
