@@ -24,24 +24,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/libsane.1.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			EEeOaq0vGZDNTIshAk5rihmyoeA=
-			</data>
-			<key>requirement</key>
-			<string>identifier "libsane.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
-		</dict>
-		<key>Frameworks/libusb-1.0.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			xgh0LqjSUBUGYIoOeb+t/SedLWs=
-			</data>
-			<key>requirement</key>
-			<string>identifier "libusb-1-55554944b22d780c5db230e2b3e5650a9d8e8481" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
-		</dict>
 		<key>QuickLook/Thumbnail.png</key>
 		<dict>
 			<key>hash2</key>

@@ -56,7 +56,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 6;
 			files = (
 				D1359CEE2935439B00C5CB6C /* libsane.1.dylib in Embed Libraries */,
 				D1359CEC2935439B00C5CB6C /* libusb-1.0.0.dylib in Embed Libraries */,
