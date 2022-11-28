@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qR5bMg7/Ph0bUPoijJyS2/8lhTo=
+			vrw3EOzW3wJCGCh8P7rF3Qu8wTY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -24,24 +24,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>MacOS/libsane.1.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			DQsx42gD+8AUyVCbCytevuYhMPg=
-			</data>
-			<key>requirement</key>
-			<string>anchor apple generic and identifier "libsane.1" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B)</string>
-		</dict>
-		<key>MacOS/libusb-1.0.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			Y7gokG6QTkLxliF2qB//PZgipfk=
-			</data>
-			<key>requirement</key>
-			<string>anchor apple generic and identifier "libusb-1-55554944b22d780c5db230e2b3e5650a9d8e8481" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B)</string>
-		</dict>
 		<key>QuickLook/Thumbnail.png</key>
 		<dict>
 			<key>hash2</key>
@@ -53,7 +35,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			29Ix6UZMRRZBNSHqdRAdsdHr6w4XC/3hG9FiPMk9C8w=
+			P2/LMrRjCmGzBptA9pe4CMyGgr+GXCUYcfnjn4l3keU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -70,13 +52,6 @@
 			<key>hash2</key>
 			<data>
 			uRWUWYcH++xpFiU/SVQUAl1sscDy1BJ7Kk01AKboefk=
-			</data>
-		</dict>
-		<key>Windows64/SANE.4DX</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			xZ0isPdvytfz/ISMhvmTet0RKxwRCg6HeDepN7N2icI=
 			</data>
 		</dict>
 	</dict>
