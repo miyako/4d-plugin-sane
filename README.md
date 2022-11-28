@@ -18,6 +18,4 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 ### Configure
 
-`--without-poppler-glib`
-
-
+`--without-poppler-glib` `--enable-static`
