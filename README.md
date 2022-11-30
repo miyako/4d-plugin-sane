@@ -14,7 +14,7 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 * sane-backends/backends/dll.c: reference ``SANE_LD_LIBRARY_PATH`` instead of ``LD_LIBRARY_PATH`` for portability.
 
-* libsub/darwin_usb: ignore hotplug. reason: ``pthread`` crash). 
+* libsub/darwin_usb: ignore hotplug to avoid ``pthread`` crash. 
 
 ### Configure
 
