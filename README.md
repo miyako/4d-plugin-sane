@@ -20,6 +20,23 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 `--without-poppler-glib` `--enable-static`
 
+#### linked to libjpeg
+
+* libsane-dc210
+* libsane-epsonds
+* libsane-pixma
+* libsane-dc240
+* libsane-xerox_mfp
+
+#### linked to libtiff
+
+* libsane-hp3900 (x86_64)
+* libsane-genesys (x86_64)
+
+libusb-1.0.0.dylib for the sane shared objects are compiled without hotplug.
+
+libusb.a for the main plugin is compiled with hotplug.
+
 ```
 -> Network parameters:
 Build saned:   yes
@@ -112,4 +129,3 @@ umax1220u
 xerox_mfp 
 p5 
 ```
-
