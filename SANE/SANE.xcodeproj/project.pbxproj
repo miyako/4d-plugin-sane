@@ -34,6 +34,93 @@
 		D143E9242934475E00E908DB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E9232934475E00E908DB /* libz.tbd */; };
 		D14CFFC629354C1D002A614E /* libusb-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEB029345D4700FA32A4 /* libusb-1.0.a */; };
 		D14CFFC729354C25002A614E /* libsane.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEA629345B8E00FA32A4 /* libsane.a */; };
+		D1A93E5129379C530045B2DE /* libzstd.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E4C29379C530045B2DE /* libzstd.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93E5529379C530045B2DE /* libtiff.5.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E4E29379C530045B2DE /* libtiff.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93E5729379C530045B2DE /* libusb-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93E5A2937A2BA0045B2DE /* libjpeg.9.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E592937A2BA0045B2DE /* libjpeg.9.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EAE2937A3090045B2DE /* libsane-sharp.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E5B2937A3080045B2DE /* libsane-sharp.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EAF2937A3090045B2DE /* libsane-fujitsu.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E5C2937A3080045B2DE /* libsane-fujitsu.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB02937A3090045B2DE /* libsane-dc210.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E5D2937A3080045B2DE /* libsane-dc210.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB12937A3090045B2DE /* libsane-microtek.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E5E2937A3080045B2DE /* libsane-microtek.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB22937A3090045B2DE /* libsane-plustek.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E5F2937A3080045B2DE /* libsane-plustek.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB32937A3090045B2DE /* libsane-epsonds.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E602937A3080045B2DE /* libsane-epsonds.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB42937A3090045B2DE /* libsane-hp.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E612937A3080045B2DE /* libsane-hp.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB52937A3090045B2DE /* libsane-mustek_usb2.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E622937A3080045B2DE /* libsane-mustek_usb2.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB62937A3090045B2DE /* libsane-hp5400.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E632937A3080045B2DE /* libsane-hp5400.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB72937A3090045B2DE /* libsane-pixma.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E642937A3080045B2DE /* libsane-pixma.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB82937A3090045B2DE /* libsane-snapscan.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E652937A3080045B2DE /* libsane-snapscan.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EB92937A3090045B2DE /* libsane-epson2.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E662937A3080045B2DE /* libsane-epson2.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EBA2937A3090045B2DE /* libsane-lexmark.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E672937A3080045B2DE /* libsane-lexmark.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EBB2937A3090045B2DE /* libsane-hp3500.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E682937A3080045B2DE /* libsane-hp3500.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EBC2937A3090045B2DE /* libsane-stv680.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E692937A3080045B2DE /* libsane-stv680.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EBD2937A3090045B2DE /* libsane-sp15c.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E6A2937A3080045B2DE /* libsane-sp15c.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EBE2937A3090045B2DE /* libsane-canon_lide70.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E6B2937A3080045B2DE /* libsane-canon_lide70.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EBF2937A3090045B2DE /* libsane-sceptre.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E6C2937A3080045B2DE /* libsane-sceptre.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC02937A3090045B2DE /* libsane-canon_dr.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E6D2937A3080045B2DE /* libsane-canon_dr.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC12937A3090045B2DE /* libsane-mustek_usb.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E6E2937A3080045B2DE /* libsane-mustek_usb.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC22937A3090045B2DE /* libsane-as6e.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E6F2937A3080045B2DE /* libsane-as6e.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC32937A3090045B2DE /* libsane-nec.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E702937A3080045B2DE /* libsane-nec.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC42937A3090045B2DE /* libsane-matsushita.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E712937A3080045B2DE /* libsane-matsushita.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC52937A3090045B2DE /* libsane-cardscan.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E722937A3080045B2DE /* libsane-cardscan.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC62937A3090045B2DE /* libsane-canon.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E732937A3080045B2DE /* libsane-canon.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC72937A3090045B2DE /* libsane-dll.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E742937A3080045B2DE /* libsane-dll.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC82937A3090045B2DE /* libsane-abaton.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E752937A3080045B2DE /* libsane-abaton.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EC92937A3090045B2DE /* libsane-sm3840.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E762937A3080045B2DE /* libsane-sm3840.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ECA2937A3090045B2DE /* libsane-coolscan.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E772937A3080045B2DE /* libsane-coolscan.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ECB2937A3090045B2DE /* libsane-teco2.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E782937A3080045B2DE /* libsane-teco2.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ECC2937A3090045B2DE /* libsane-hp5590.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E792937A3080045B2DE /* libsane-hp5590.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ECD2937A3090045B2DE /* libsane-hp4200.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E7A2937A3080045B2DE /* libsane-hp4200.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ECE2937A3090045B2DE /* libsane-genesys.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E7B2937A3080045B2DE /* libsane-genesys.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ECF2937A3090045B2DE /* libsane-dmc.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E7C2937A3080045B2DE /* libsane-dmc.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED02937A3090045B2DE /* libsane-bh.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E7D2937A3080045B2DE /* libsane-bh.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED12937A3090045B2DE /* libsane-teco1.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E7E2937A3080045B2DE /* libsane-teco1.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED22937A3090045B2DE /* libsane-coolscan3.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E7F2937A3080045B2DE /* libsane-coolscan3.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED32937A3090045B2DE /* libsane-test.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E802937A3080045B2DE /* libsane-test.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED42937A3090045B2DE /* libsane-ricoh.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E812937A3080045B2DE /* libsane-ricoh.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED52937A3090045B2DE /* libsane-s9036.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E822937A3080045B2DE /* libsane-s9036.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED62937A3090045B2DE /* libsane-umax.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E832937A3090045B2DE /* libsane-umax.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED72937A3090045B2DE /* libsane-dc240.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E842937A3090045B2DE /* libsane-dc240.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED82937A3090045B2DE /* libsane-magicolor.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E852937A3090045B2DE /* libsane-magicolor.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93ED92937A3090045B2DE /* libsane-avision.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E862937A3090045B2DE /* libsane-avision.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EDA2937A3090045B2DE /* libsane-artec_eplus48u.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E872937A3090045B2DE /* libsane-artec_eplus48u.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EDB2937A3090045B2DE /* libsane-st400.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E882937A3090045B2DE /* libsane-st400.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EDC2937A3090045B2DE /* libsane-leo.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E892937A3090045B2DE /* libsane-leo.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EDD2937A3090045B2DE /* libsane-dc25.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E8A2937A3090045B2DE /* libsane-dc25.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EDE2937A3090045B2DE /* libsane-ma1509.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E8B2937A3090045B2DE /* libsane-ma1509.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EDF2937A3090045B2DE /* libsane-teco3.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E8C2937A3090045B2DE /* libsane-teco3.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE02937A3090045B2DE /* libsane-coolscan2.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E8D2937A3090045B2DE /* libsane-coolscan2.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE12937A30A0045B2DE /* libsane-umax_pp.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E8E2937A3090045B2DE /* libsane-umax_pp.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE22937A30A0045B2DE /* libsane-apple.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E8F2937A3090045B2DE /* libsane-apple.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE32937A30A0045B2DE /* libsane-xerox_mfp.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E902937A3090045B2DE /* libsane-xerox_mfp.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE42937A30A0045B2DE /* libsane-microtek2.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E912937A3090045B2DE /* libsane-microtek2.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE52937A30A0045B2DE /* libsane-hp3900.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E922937A3090045B2DE /* libsane-hp3900.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE62937A30A0045B2DE /* libsane-ricoh2.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E932937A3090045B2DE /* libsane-ricoh2.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE72937A30A0045B2DE /* libsane-ibm.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E942937A3090045B2DE /* libsane-ibm.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE82937A30A0045B2DE /* libsane-gt68xx.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E952937A3090045B2DE /* libsane-gt68xx.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EE92937A30A0045B2DE /* libsane-epson.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E962937A3090045B2DE /* libsane-epson.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EEA2937A30A0045B2DE /* libsane-agfafocus.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E972937A3090045B2DE /* libsane-agfafocus.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EEB2937A30A0045B2DE /* libsane-net.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E982937A3090045B2DE /* libsane-net.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EEC2937A30A0045B2DE /* libsane-canon630u.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E992937A3090045B2DE /* libsane-canon630u.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EED2937A30A0045B2DE /* libsane-pie.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E9A2937A3090045B2DE /* libsane-pie.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EEE2937A30A0045B2DE /* libsane-pieusb.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E9B2937A3090045B2DE /* libsane-pieusb.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EEF2937A30A0045B2DE /* libsane-kvs20xx.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E9C2937A3090045B2DE /* libsane-kvs20xx.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF02937A30A0045B2DE /* libsane-kvs1025.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E9D2937A3090045B2DE /* libsane-kvs1025.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF12937A30A0045B2DE /* libsane-sm3600.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E9E2937A3090045B2DE /* libsane-sm3600.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF22937A30A0045B2DE /* libsane-plustek_pp.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E9F2937A3090045B2DE /* libsane-plustek_pp.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF32937A30A0045B2DE /* libsane-p5.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA02937A3090045B2DE /* libsane-p5.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF42937A30A0045B2DE /* libsane-hs2p.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA12937A3090045B2DE /* libsane-hs2p.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF52937A30A0045B2DE /* libsane-artec.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA22937A3090045B2DE /* libsane-artec.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF62937A30A0045B2DE /* libsane-kvs40xx.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA32937A3090045B2DE /* libsane-kvs40xx.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF72937A30A0045B2DE /* libsane-kodakaio.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA42937A3090045B2DE /* libsane-kodakaio.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF82937A30A0045B2DE /* libsane-umax1220u.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA52937A3090045B2DE /* libsane-umax1220u.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EF92937A30A0045B2DE /* libsane-kodak.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA62937A3090045B2DE /* libsane-kodak.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EFA2937A30A0045B2DE /* libsane-rts8891.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA72937A3090045B2DE /* libsane-rts8891.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EFB2937A30A0045B2DE /* libsane-u12.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA82937A3090045B2DE /* libsane-u12.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EFC2937A30A0045B2DE /* libsane-epjitsu.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EA92937A3090045B2DE /* libsane-epjitsu.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EFD2937A30A0045B2DE /* libsane-hpljm1005.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EAA2937A3090045B2DE /* libsane-hpljm1005.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EFE2937A30A0045B2DE /* libsane-mustek.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EAB2937A3090045B2DE /* libsane-mustek.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93EFF2937A30A0045B2DE /* libsane-niash.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EAC2937A3090045B2DE /* libsane-niash.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1A93F002937A30A0045B2DE /* libsane-tamarack.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93EAD2937A3090045B2DE /* libsane-tamarack.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D1FCBEAA29345BC800FA32A4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEA929345BC800FA32A4 /* IOKit.framework */; };
 		D1FCBEAC29345BD200FA32A4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEAB29345BD200FA32A4 /* Security.framework */; };
 		D1FCBEAE29345BE900FA32A4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEAD29345BDE00FA32A4 /* libxml2.tbd */; };
@@ -48,6 +135,103 @@
 			files = (
 				D134D4AC1A030BA0008D14EF /* manifest.json in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1A93E5829379C530045B2DE /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D1A93EAE2937A3090045B2DE /* libsane-sharp.1.so in Embed Libraries */,
+				D1A93EAF2937A3090045B2DE /* libsane-fujitsu.1.so in Embed Libraries */,
+				D1A93EB02937A3090045B2DE /* libsane-dc210.1.so in Embed Libraries */,
+				D1A93EB12937A3090045B2DE /* libsane-microtek.1.so in Embed Libraries */,
+				D1A93EB22937A3090045B2DE /* libsane-plustek.1.so in Embed Libraries */,
+				D1A93EB32937A3090045B2DE /* libsane-epsonds.1.so in Embed Libraries */,
+				D1A93EB42937A3090045B2DE /* libsane-hp.1.so in Embed Libraries */,
+				D1A93EB52937A3090045B2DE /* libsane-mustek_usb2.1.so in Embed Libraries */,
+				D1A93EB62937A3090045B2DE /* libsane-hp5400.1.so in Embed Libraries */,
+				D1A93EB72937A3090045B2DE /* libsane-pixma.1.so in Embed Libraries */,
+				D1A93EB82937A3090045B2DE /* libsane-snapscan.1.so in Embed Libraries */,
+				D1A93EB92937A3090045B2DE /* libsane-epson2.1.so in Embed Libraries */,
+				D1A93EBA2937A3090045B2DE /* libsane-lexmark.1.so in Embed Libraries */,
+				D1A93EBB2937A3090045B2DE /* libsane-hp3500.1.so in Embed Libraries */,
+				D1A93EBC2937A3090045B2DE /* libsane-stv680.1.so in Embed Libraries */,
+				D1A93EBD2937A3090045B2DE /* libsane-sp15c.1.so in Embed Libraries */,
+				D1A93EBE2937A3090045B2DE /* libsane-canon_lide70.1.so in Embed Libraries */,
+				D1A93EBF2937A3090045B2DE /* libsane-sceptre.1.so in Embed Libraries */,
+				D1A93EC02937A3090045B2DE /* libsane-canon_dr.1.so in Embed Libraries */,
+				D1A93EC12937A3090045B2DE /* libsane-mustek_usb.1.so in Embed Libraries */,
+				D1A93EC22937A3090045B2DE /* libsane-as6e.1.so in Embed Libraries */,
+				D1A93EC32937A3090045B2DE /* libsane-nec.1.so in Embed Libraries */,
+				D1A93EC42937A3090045B2DE /* libsane-matsushita.1.so in Embed Libraries */,
+				D1A93EC52937A3090045B2DE /* libsane-cardscan.1.so in Embed Libraries */,
+				D1A93EC62937A3090045B2DE /* libsane-canon.1.so in Embed Libraries */,
+				D1A93EC72937A3090045B2DE /* libsane-dll.1.so in Embed Libraries */,
+				D1A93EC82937A3090045B2DE /* libsane-abaton.1.so in Embed Libraries */,
+				D1A93EC92937A3090045B2DE /* libsane-sm3840.1.so in Embed Libraries */,
+				D1A93ECA2937A3090045B2DE /* libsane-coolscan.1.so in Embed Libraries */,
+				D1A93ECB2937A3090045B2DE /* libsane-teco2.1.so in Embed Libraries */,
+				D1A93ECC2937A3090045B2DE /* libsane-hp5590.1.so in Embed Libraries */,
+				D1A93ECD2937A3090045B2DE /* libsane-hp4200.1.so in Embed Libraries */,
+				D1A93ECE2937A3090045B2DE /* libsane-genesys.1.so in Embed Libraries */,
+				D1A93ECF2937A3090045B2DE /* libsane-dmc.1.so in Embed Libraries */,
+				D1A93ED02937A3090045B2DE /* libsane-bh.1.so in Embed Libraries */,
+				D1A93ED12937A3090045B2DE /* libsane-teco1.1.so in Embed Libraries */,
+				D1A93ED22937A3090045B2DE /* libsane-coolscan3.1.so in Embed Libraries */,
+				D1A93ED32937A3090045B2DE /* libsane-test.1.so in Embed Libraries */,
+				D1A93ED42937A3090045B2DE /* libsane-ricoh.1.so in Embed Libraries */,
+				D1A93ED52937A3090045B2DE /* libsane-s9036.1.so in Embed Libraries */,
+				D1A93ED62937A3090045B2DE /* libsane-umax.1.so in Embed Libraries */,
+				D1A93ED72937A3090045B2DE /* libsane-dc240.1.so in Embed Libraries */,
+				D1A93ED82937A3090045B2DE /* libsane-magicolor.1.so in Embed Libraries */,
+				D1A93ED92937A3090045B2DE /* libsane-avision.1.so in Embed Libraries */,
+				D1A93EDA2937A3090045B2DE /* libsane-artec_eplus48u.1.so in Embed Libraries */,
+				D1A93EDB2937A3090045B2DE /* libsane-st400.1.so in Embed Libraries */,
+				D1A93EDC2937A3090045B2DE /* libsane-leo.1.so in Embed Libraries */,
+				D1A93EDD2937A3090045B2DE /* libsane-dc25.1.so in Embed Libraries */,
+				D1A93EDE2937A3090045B2DE /* libsane-ma1509.1.so in Embed Libraries */,
+				D1A93EDF2937A3090045B2DE /* libsane-teco3.1.so in Embed Libraries */,
+				D1A93EE02937A3090045B2DE /* libsane-coolscan2.1.so in Embed Libraries */,
+				D1A93EE12937A30A0045B2DE /* libsane-umax_pp.1.so in Embed Libraries */,
+				D1A93EE22937A30A0045B2DE /* libsane-apple.1.so in Embed Libraries */,
+				D1A93EE32937A30A0045B2DE /* libsane-xerox_mfp.1.so in Embed Libraries */,
+				D1A93EE42937A30A0045B2DE /* libsane-microtek2.1.so in Embed Libraries */,
+				D1A93EE52937A30A0045B2DE /* libsane-hp3900.1.so in Embed Libraries */,
+				D1A93EE62937A30A0045B2DE /* libsane-ricoh2.1.so in Embed Libraries */,
+				D1A93EE72937A30A0045B2DE /* libsane-ibm.1.so in Embed Libraries */,
+				D1A93EE82937A30A0045B2DE /* libsane-gt68xx.1.so in Embed Libraries */,
+				D1A93EE92937A30A0045B2DE /* libsane-epson.1.so in Embed Libraries */,
+				D1A93EEA2937A30A0045B2DE /* libsane-agfafocus.1.so in Embed Libraries */,
+				D1A93EEB2937A30A0045B2DE /* libsane-net.1.so in Embed Libraries */,
+				D1A93EEC2937A30A0045B2DE /* libsane-canon630u.1.so in Embed Libraries */,
+				D1A93EED2937A30A0045B2DE /* libsane-pie.1.so in Embed Libraries */,
+				D1A93EEE2937A30A0045B2DE /* libsane-pieusb.1.so in Embed Libraries */,
+				D1A93EEF2937A30A0045B2DE /* libsane-kvs20xx.1.so in Embed Libraries */,
+				D1A93EF02937A30A0045B2DE /* libsane-kvs1025.1.so in Embed Libraries */,
+				D1A93EF12937A30A0045B2DE /* libsane-sm3600.1.so in Embed Libraries */,
+				D1A93EF22937A30A0045B2DE /* libsane-plustek_pp.1.so in Embed Libraries */,
+				D1A93EF32937A30A0045B2DE /* libsane-p5.1.so in Embed Libraries */,
+				D1A93EF42937A30A0045B2DE /* libsane-hs2p.1.so in Embed Libraries */,
+				D1A93EF52937A30A0045B2DE /* libsane-artec.1.so in Embed Libraries */,
+				D1A93EF62937A30A0045B2DE /* libsane-kvs40xx.1.so in Embed Libraries */,
+				D1A93EF72937A30A0045B2DE /* libsane-kodakaio.1.so in Embed Libraries */,
+				D1A93EF82937A30A0045B2DE /* libsane-umax1220u.1.so in Embed Libraries */,
+				D1A93EF92937A30A0045B2DE /* libsane-kodak.1.so in Embed Libraries */,
+				D1A93EFA2937A30A0045B2DE /* libsane-rts8891.1.so in Embed Libraries */,
+				D1A93EFB2937A30A0045B2DE /* libsane-u12.1.so in Embed Libraries */,
+				D1A93EFC2937A30A0045B2DE /* libsane-epjitsu.1.so in Embed Libraries */,
+				D1A93EFD2937A30A0045B2DE /* libsane-hpljm1005.1.so in Embed Libraries */,
+				D1A93EFE2937A30A0045B2DE /* libsane-mustek.1.so in Embed Libraries */,
+				D1A93EFF2937A30A0045B2DE /* libsane-niash.1.so in Embed Libraries */,
+				D1A93F002937A30A0045B2DE /* libsane-tamarack.1.so in Embed Libraries */,
+				D1A93E5A2937A2BA0045B2DE /* libjpeg.9.dylib in Embed Libraries */,
+				D1A93E5529379C530045B2DE /* libtiff.5.dylib in Embed Libraries */,
+				D1A93E5129379C530045B2DE /* libzstd.1.dylib in Embed Libraries */,
+				D1A93E5729379C530045B2DE /* libusb-1.0.0.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -66,10 +250,6 @@
 		D130064E12F02D9700702C0E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		D13116A81A03ACB700DE1322 /* 4DPluginAPI.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = 4DPluginAPI.c; sourceTree = "<group>"; };
 		D134D4A91A030B06008D14EF /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
-		D1359CE92935439B00C5CB6C /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "lib/brew/libusb-1.0.0.dylib"; sourceTree = "<group>"; };
-		D1359CEA2935439B00C5CB6C /* libsane.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsane.1.dylib; path = lib/brew/libsane.1.dylib; sourceTree = "<group>"; };
-		D143E90229343B0500E908DB /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "lib/libusb-1.0.0.dylib"; sourceTree = "<group>"; };
-		D143E90329343B0500E908DB /* libsane.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsane.1.dylib; path = lib/libsane.1.dylib; sourceTree = "<group>"; };
 		D143E90929343CAB00E908DB /* libtiff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtiff.a; path = a/libtiff.a; sourceTree = "<group>"; };
 		D143E90A29343CAB00E908DB /* libjsoncpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjsoncpp.a; path = a/libjsoncpp.a; sourceTree = "<group>"; };
 		D143E90B29343CAB00E908DB /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = a/libjpeg.a; sourceTree = "<group>"; };
@@ -85,7 +265,94 @@
 		D143E9202934400300E908DB /* C_LONGINT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = C_LONGINT.h; path = "4D Plugin API/Classes/C_LONGINT.h"; sourceTree = "<group>"; };
 		D143E9232934475E00E908DB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D14D10DD1A03A8A5008B3411 /* constants.xlf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = constants.xlf; sourceTree = "<group>"; };
-		D1FCBEA529345B8E00FA32A4 /* libusb-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libusb-1.0.a"; path = "a/libusb-1.0.a"; sourceTree = "<group>"; };
+		D1A93E4C29379C530045B2DE /* libzstd.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzstd.1.dylib; path = lib/libzstd.1.dylib; sourceTree = "<group>"; };
+		D1A93E4D29379C530045B2DE /* libjpeg.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.8.dylib; path = lib/libjpeg.8.dylib; sourceTree = "<group>"; };
+		D1A93E4E29379C530045B2DE /* libtiff.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtiff.5.dylib; path = lib/libtiff.5.dylib; sourceTree = "<group>"; };
+		D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "lib/libusb-1.0.0.dylib"; sourceTree = "<group>"; };
+		D1A93E592937A2BA0045B2DE /* libjpeg.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.9.dylib; path = lib/libjpeg.9.dylib; sourceTree = "<group>"; };
+		D1A93E5B2937A3080045B2DE /* libsane-sharp.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-sharp.1.so"; path = "sane/libsane-sharp.1.so"; sourceTree = "<group>"; };
+		D1A93E5C2937A3080045B2DE /* libsane-fujitsu.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-fujitsu.1.so"; path = "sane/libsane-fujitsu.1.so"; sourceTree = "<group>"; };
+		D1A93E5D2937A3080045B2DE /* libsane-dc210.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-dc210.1.so"; path = "sane/libsane-dc210.1.so"; sourceTree = "<group>"; };
+		D1A93E5E2937A3080045B2DE /* libsane-microtek.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-microtek.1.so"; path = "sane/libsane-microtek.1.so"; sourceTree = "<group>"; };
+		D1A93E5F2937A3080045B2DE /* libsane-plustek.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-plustek.1.so"; path = "sane/libsane-plustek.1.so"; sourceTree = "<group>"; };
+		D1A93E602937A3080045B2DE /* libsane-epsonds.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-epsonds.1.so"; path = "sane/libsane-epsonds.1.so"; sourceTree = "<group>"; };
+		D1A93E612937A3080045B2DE /* libsane-hp.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hp.1.so"; path = "sane/libsane-hp.1.so"; sourceTree = "<group>"; };
+		D1A93E622937A3080045B2DE /* libsane-mustek_usb2.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-mustek_usb2.1.so"; path = "sane/libsane-mustek_usb2.1.so"; sourceTree = "<group>"; };
+		D1A93E632937A3080045B2DE /* libsane-hp5400.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hp5400.1.so"; path = "sane/libsane-hp5400.1.so"; sourceTree = "<group>"; };
+		D1A93E642937A3080045B2DE /* libsane-pixma.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-pixma.1.so"; path = "sane/libsane-pixma.1.so"; sourceTree = "<group>"; };
+		D1A93E652937A3080045B2DE /* libsane-snapscan.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-snapscan.1.so"; path = "sane/libsane-snapscan.1.so"; sourceTree = "<group>"; };
+		D1A93E662937A3080045B2DE /* libsane-epson2.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-epson2.1.so"; path = "sane/libsane-epson2.1.so"; sourceTree = "<group>"; };
+		D1A93E672937A3080045B2DE /* libsane-lexmark.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-lexmark.1.so"; path = "sane/libsane-lexmark.1.so"; sourceTree = "<group>"; };
+		D1A93E682937A3080045B2DE /* libsane-hp3500.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hp3500.1.so"; path = "sane/libsane-hp3500.1.so"; sourceTree = "<group>"; };
+		D1A93E692937A3080045B2DE /* libsane-stv680.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-stv680.1.so"; path = "sane/libsane-stv680.1.so"; sourceTree = "<group>"; };
+		D1A93E6A2937A3080045B2DE /* libsane-sp15c.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-sp15c.1.so"; path = "sane/libsane-sp15c.1.so"; sourceTree = "<group>"; };
+		D1A93E6B2937A3080045B2DE /* libsane-canon_lide70.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-canon_lide70.1.so"; path = "sane/libsane-canon_lide70.1.so"; sourceTree = "<group>"; };
+		D1A93E6C2937A3080045B2DE /* libsane-sceptre.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-sceptre.1.so"; path = "sane/libsane-sceptre.1.so"; sourceTree = "<group>"; };
+		D1A93E6D2937A3080045B2DE /* libsane-canon_dr.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-canon_dr.1.so"; path = "sane/libsane-canon_dr.1.so"; sourceTree = "<group>"; };
+		D1A93E6E2937A3080045B2DE /* libsane-mustek_usb.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-mustek_usb.1.so"; path = "sane/libsane-mustek_usb.1.so"; sourceTree = "<group>"; };
+		D1A93E6F2937A3080045B2DE /* libsane-as6e.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-as6e.1.so"; path = "sane/libsane-as6e.1.so"; sourceTree = "<group>"; };
+		D1A93E702937A3080045B2DE /* libsane-nec.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-nec.1.so"; path = "sane/libsane-nec.1.so"; sourceTree = "<group>"; };
+		D1A93E712937A3080045B2DE /* libsane-matsushita.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-matsushita.1.so"; path = "sane/libsane-matsushita.1.so"; sourceTree = "<group>"; };
+		D1A93E722937A3080045B2DE /* libsane-cardscan.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-cardscan.1.so"; path = "sane/libsane-cardscan.1.so"; sourceTree = "<group>"; };
+		D1A93E732937A3080045B2DE /* libsane-canon.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-canon.1.so"; path = "sane/libsane-canon.1.so"; sourceTree = "<group>"; };
+		D1A93E742937A3080045B2DE /* libsane-dll.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-dll.1.so"; path = "sane/libsane-dll.1.so"; sourceTree = "<group>"; };
+		D1A93E752937A3080045B2DE /* libsane-abaton.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-abaton.1.so"; path = "sane/libsane-abaton.1.so"; sourceTree = "<group>"; };
+		D1A93E762937A3080045B2DE /* libsane-sm3840.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-sm3840.1.so"; path = "sane/libsane-sm3840.1.so"; sourceTree = "<group>"; };
+		D1A93E772937A3080045B2DE /* libsane-coolscan.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-coolscan.1.so"; path = "sane/libsane-coolscan.1.so"; sourceTree = "<group>"; };
+		D1A93E782937A3080045B2DE /* libsane-teco2.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-teco2.1.so"; path = "sane/libsane-teco2.1.so"; sourceTree = "<group>"; };
+		D1A93E792937A3080045B2DE /* libsane-hp5590.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hp5590.1.so"; path = "sane/libsane-hp5590.1.so"; sourceTree = "<group>"; };
+		D1A93E7A2937A3080045B2DE /* libsane-hp4200.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hp4200.1.so"; path = "sane/libsane-hp4200.1.so"; sourceTree = "<group>"; };
+		D1A93E7B2937A3080045B2DE /* libsane-genesys.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-genesys.1.so"; path = "sane/libsane-genesys.1.so"; sourceTree = "<group>"; };
+		D1A93E7C2937A3080045B2DE /* libsane-dmc.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-dmc.1.so"; path = "sane/libsane-dmc.1.so"; sourceTree = "<group>"; };
+		D1A93E7D2937A3080045B2DE /* libsane-bh.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-bh.1.so"; path = "sane/libsane-bh.1.so"; sourceTree = "<group>"; };
+		D1A93E7E2937A3080045B2DE /* libsane-teco1.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-teco1.1.so"; path = "sane/libsane-teco1.1.so"; sourceTree = "<group>"; };
+		D1A93E7F2937A3080045B2DE /* libsane-coolscan3.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-coolscan3.1.so"; path = "sane/libsane-coolscan3.1.so"; sourceTree = "<group>"; };
+		D1A93E802937A3080045B2DE /* libsane-test.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-test.1.so"; path = "sane/libsane-test.1.so"; sourceTree = "<group>"; };
+		D1A93E812937A3080045B2DE /* libsane-ricoh.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-ricoh.1.so"; path = "sane/libsane-ricoh.1.so"; sourceTree = "<group>"; };
+		D1A93E822937A3080045B2DE /* libsane-s9036.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-s9036.1.so"; path = "sane/libsane-s9036.1.so"; sourceTree = "<group>"; };
+		D1A93E832937A3090045B2DE /* libsane-umax.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-umax.1.so"; path = "sane/libsane-umax.1.so"; sourceTree = "<group>"; };
+		D1A93E842937A3090045B2DE /* libsane-dc240.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-dc240.1.so"; path = "sane/libsane-dc240.1.so"; sourceTree = "<group>"; };
+		D1A93E852937A3090045B2DE /* libsane-magicolor.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-magicolor.1.so"; path = "sane/libsane-magicolor.1.so"; sourceTree = "<group>"; };
+		D1A93E862937A3090045B2DE /* libsane-avision.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-avision.1.so"; path = "sane/libsane-avision.1.so"; sourceTree = "<group>"; };
+		D1A93E872937A3090045B2DE /* libsane-artec_eplus48u.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-artec_eplus48u.1.so"; path = "sane/libsane-artec_eplus48u.1.so"; sourceTree = "<group>"; };
+		D1A93E882937A3090045B2DE /* libsane-st400.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-st400.1.so"; path = "sane/libsane-st400.1.so"; sourceTree = "<group>"; };
+		D1A93E892937A3090045B2DE /* libsane-leo.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-leo.1.so"; path = "sane/libsane-leo.1.so"; sourceTree = "<group>"; };
+		D1A93E8A2937A3090045B2DE /* libsane-dc25.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-dc25.1.so"; path = "sane/libsane-dc25.1.so"; sourceTree = "<group>"; };
+		D1A93E8B2937A3090045B2DE /* libsane-ma1509.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-ma1509.1.so"; path = "sane/libsane-ma1509.1.so"; sourceTree = "<group>"; };
+		D1A93E8C2937A3090045B2DE /* libsane-teco3.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-teco3.1.so"; path = "sane/libsane-teco3.1.so"; sourceTree = "<group>"; };
+		D1A93E8D2937A3090045B2DE /* libsane-coolscan2.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-coolscan2.1.so"; path = "sane/libsane-coolscan2.1.so"; sourceTree = "<group>"; };
+		D1A93E8E2937A3090045B2DE /* libsane-umax_pp.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-umax_pp.1.so"; path = "sane/libsane-umax_pp.1.so"; sourceTree = "<group>"; };
+		D1A93E8F2937A3090045B2DE /* libsane-apple.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-apple.1.so"; path = "sane/libsane-apple.1.so"; sourceTree = "<group>"; };
+		D1A93E902937A3090045B2DE /* libsane-xerox_mfp.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-xerox_mfp.1.so"; path = "sane/libsane-xerox_mfp.1.so"; sourceTree = "<group>"; };
+		D1A93E912937A3090045B2DE /* libsane-microtek2.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-microtek2.1.so"; path = "sane/libsane-microtek2.1.so"; sourceTree = "<group>"; };
+		D1A93E922937A3090045B2DE /* libsane-hp3900.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hp3900.1.so"; path = "sane/libsane-hp3900.1.so"; sourceTree = "<group>"; };
+		D1A93E932937A3090045B2DE /* libsane-ricoh2.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-ricoh2.1.so"; path = "sane/libsane-ricoh2.1.so"; sourceTree = "<group>"; };
+		D1A93E942937A3090045B2DE /* libsane-ibm.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-ibm.1.so"; path = "sane/libsane-ibm.1.so"; sourceTree = "<group>"; };
+		D1A93E952937A3090045B2DE /* libsane-gt68xx.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-gt68xx.1.so"; path = "sane/libsane-gt68xx.1.so"; sourceTree = "<group>"; };
+		D1A93E962937A3090045B2DE /* libsane-epson.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-epson.1.so"; path = "sane/libsane-epson.1.so"; sourceTree = "<group>"; };
+		D1A93E972937A3090045B2DE /* libsane-agfafocus.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-agfafocus.1.so"; path = "sane/libsane-agfafocus.1.so"; sourceTree = "<group>"; };
+		D1A93E982937A3090045B2DE /* libsane-net.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-net.1.so"; path = "sane/libsane-net.1.so"; sourceTree = "<group>"; };
+		D1A93E992937A3090045B2DE /* libsane-canon630u.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-canon630u.1.so"; path = "sane/libsane-canon630u.1.so"; sourceTree = "<group>"; };
+		D1A93E9A2937A3090045B2DE /* libsane-pie.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-pie.1.so"; path = "sane/libsane-pie.1.so"; sourceTree = "<group>"; };
+		D1A93E9B2937A3090045B2DE /* libsane-pieusb.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-pieusb.1.so"; path = "sane/libsane-pieusb.1.so"; sourceTree = "<group>"; };
+		D1A93E9C2937A3090045B2DE /* libsane-kvs20xx.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-kvs20xx.1.so"; path = "sane/libsane-kvs20xx.1.so"; sourceTree = "<group>"; };
+		D1A93E9D2937A3090045B2DE /* libsane-kvs1025.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-kvs1025.1.so"; path = "sane/libsane-kvs1025.1.so"; sourceTree = "<group>"; };
+		D1A93E9E2937A3090045B2DE /* libsane-sm3600.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-sm3600.1.so"; path = "sane/libsane-sm3600.1.so"; sourceTree = "<group>"; };
+		D1A93E9F2937A3090045B2DE /* libsane-plustek_pp.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-plustek_pp.1.so"; path = "sane/libsane-plustek_pp.1.so"; sourceTree = "<group>"; };
+		D1A93EA02937A3090045B2DE /* libsane-p5.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-p5.1.so"; path = "sane/libsane-p5.1.so"; sourceTree = "<group>"; };
+		D1A93EA12937A3090045B2DE /* libsane-hs2p.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hs2p.1.so"; path = "sane/libsane-hs2p.1.so"; sourceTree = "<group>"; };
+		D1A93EA22937A3090045B2DE /* libsane-artec.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-artec.1.so"; path = "sane/libsane-artec.1.so"; sourceTree = "<group>"; };
+		D1A93EA32937A3090045B2DE /* libsane-kvs40xx.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-kvs40xx.1.so"; path = "sane/libsane-kvs40xx.1.so"; sourceTree = "<group>"; };
+		D1A93EA42937A3090045B2DE /* libsane-kodakaio.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-kodakaio.1.so"; path = "sane/libsane-kodakaio.1.so"; sourceTree = "<group>"; };
+		D1A93EA52937A3090045B2DE /* libsane-umax1220u.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-umax1220u.1.so"; path = "sane/libsane-umax1220u.1.so"; sourceTree = "<group>"; };
+		D1A93EA62937A3090045B2DE /* libsane-kodak.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-kodak.1.so"; path = "sane/libsane-kodak.1.so"; sourceTree = "<group>"; };
+		D1A93EA72937A3090045B2DE /* libsane-rts8891.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-rts8891.1.so"; path = "sane/libsane-rts8891.1.so"; sourceTree = "<group>"; };
+		D1A93EA82937A3090045B2DE /* libsane-u12.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-u12.1.so"; path = "sane/libsane-u12.1.so"; sourceTree = "<group>"; };
+		D1A93EA92937A3090045B2DE /* libsane-epjitsu.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-epjitsu.1.so"; path = "sane/libsane-epjitsu.1.so"; sourceTree = "<group>"; };
+		D1A93EAA2937A3090045B2DE /* libsane-hpljm1005.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-hpljm1005.1.so"; path = "sane/libsane-hpljm1005.1.so"; sourceTree = "<group>"; };
+		D1A93EAB2937A3090045B2DE /* libsane-mustek.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-mustek.1.so"; path = "sane/libsane-mustek.1.so"; sourceTree = "<group>"; };
+		D1A93EAC2937A3090045B2DE /* libsane-niash.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-niash.1.so"; path = "sane/libsane-niash.1.so"; sourceTree = "<group>"; };
+		D1A93EAD2937A3090045B2DE /* libsane-tamarack.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-tamarack.1.so"; path = "sane/libsane-tamarack.1.so"; sourceTree = "<group>"; };
 		D1FCBEA629345B8E00FA32A4 /* libsane.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsane.a; path = a/libsane.a; sourceTree = "<group>"; };
 		D1FCBEA929345BC800FA32A4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		D1FCBEAB29345BD200FA32A4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -119,6 +386,90 @@
 		089C166AFE841209C02AAC07 /* SANE */ = {
 			isa = PBXGroup;
 			children = (
+				D1A93E752937A3080045B2DE /* libsane-abaton.1.so */,
+				D1A93E972937A3090045B2DE /* libsane-agfafocus.1.so */,
+				D1A93E8F2937A3090045B2DE /* libsane-apple.1.so */,
+				D1A93E872937A3090045B2DE /* libsane-artec_eplus48u.1.so */,
+				D1A93EA22937A3090045B2DE /* libsane-artec.1.so */,
+				D1A93E6F2937A3080045B2DE /* libsane-as6e.1.so */,
+				D1A93E862937A3090045B2DE /* libsane-avision.1.so */,
+				D1A93E7D2937A3080045B2DE /* libsane-bh.1.so */,
+				D1A93E6D2937A3080045B2DE /* libsane-canon_dr.1.so */,
+				D1A93E6B2937A3080045B2DE /* libsane-canon_lide70.1.so */,
+				D1A93E732937A3080045B2DE /* libsane-canon.1.so */,
+				D1A93E992937A3090045B2DE /* libsane-canon630u.1.so */,
+				D1A93E722937A3080045B2DE /* libsane-cardscan.1.so */,
+				D1A93E772937A3080045B2DE /* libsane-coolscan.1.so */,
+				D1A93E8D2937A3090045B2DE /* libsane-coolscan2.1.so */,
+				D1A93E7F2937A3080045B2DE /* libsane-coolscan3.1.so */,
+				D1A93E8A2937A3090045B2DE /* libsane-dc25.1.so */,
+				D1A93E5D2937A3080045B2DE /* libsane-dc210.1.so */,
+				D1A93E842937A3090045B2DE /* libsane-dc240.1.so */,
+				D1A93E742937A3080045B2DE /* libsane-dll.1.so */,
+				D1A93E7C2937A3080045B2DE /* libsane-dmc.1.so */,
+				D1A93EA92937A3090045B2DE /* libsane-epjitsu.1.so */,
+				D1A93E962937A3090045B2DE /* libsane-epson.1.so */,
+				D1A93E662937A3080045B2DE /* libsane-epson2.1.so */,
+				D1A93E602937A3080045B2DE /* libsane-epsonds.1.so */,
+				D1A93E5C2937A3080045B2DE /* libsane-fujitsu.1.so */,
+				D1A93E7B2937A3080045B2DE /* libsane-genesys.1.so */,
+				D1A93E952937A3090045B2DE /* libsane-gt68xx.1.so */,
+				D1A93E612937A3080045B2DE /* libsane-hp.1.so */,
+				D1A93E682937A3080045B2DE /* libsane-hp3500.1.so */,
+				D1A93E922937A3090045B2DE /* libsane-hp3900.1.so */,
+				D1A93E7A2937A3080045B2DE /* libsane-hp4200.1.so */,
+				D1A93E632937A3080045B2DE /* libsane-hp5400.1.so */,
+				D1A93E792937A3080045B2DE /* libsane-hp5590.1.so */,
+				D1A93EAA2937A3090045B2DE /* libsane-hpljm1005.1.so */,
+				D1A93EA12937A3090045B2DE /* libsane-hs2p.1.so */,
+				D1A93E942937A3090045B2DE /* libsane-ibm.1.so */,
+				D1A93EA62937A3090045B2DE /* libsane-kodak.1.so */,
+				D1A93EA42937A3090045B2DE /* libsane-kodakaio.1.so */,
+				D1A93E9C2937A3090045B2DE /* libsane-kvs20xx.1.so */,
+				D1A93EA32937A3090045B2DE /* libsane-kvs40xx.1.so */,
+				D1A93E9D2937A3090045B2DE /* libsane-kvs1025.1.so */,
+				D1A93E892937A3090045B2DE /* libsane-leo.1.so */,
+				D1A93E672937A3080045B2DE /* libsane-lexmark.1.so */,
+				D1A93E8B2937A3090045B2DE /* libsane-ma1509.1.so */,
+				D1A93E852937A3090045B2DE /* libsane-magicolor.1.so */,
+				D1A93E712937A3080045B2DE /* libsane-matsushita.1.so */,
+				D1A93E5E2937A3080045B2DE /* libsane-microtek.1.so */,
+				D1A93E912937A3090045B2DE /* libsane-microtek2.1.so */,
+				D1A93E6E2937A3080045B2DE /* libsane-mustek_usb.1.so */,
+				D1A93E622937A3080045B2DE /* libsane-mustek_usb2.1.so */,
+				D1A93EAB2937A3090045B2DE /* libsane-mustek.1.so */,
+				D1A93E702937A3080045B2DE /* libsane-nec.1.so */,
+				D1A93E982937A3090045B2DE /* libsane-net.1.so */,
+				D1A93EAC2937A3090045B2DE /* libsane-niash.1.so */,
+				D1A93EA02937A3090045B2DE /* libsane-p5.1.so */,
+				D1A93E9A2937A3090045B2DE /* libsane-pie.1.so */,
+				D1A93E9B2937A3090045B2DE /* libsane-pieusb.1.so */,
+				D1A93E642937A3080045B2DE /* libsane-pixma.1.so */,
+				D1A93E9F2937A3090045B2DE /* libsane-plustek_pp.1.so */,
+				D1A93E5F2937A3080045B2DE /* libsane-plustek.1.so */,
+				D1A93E812937A3080045B2DE /* libsane-ricoh.1.so */,
+				D1A93E932937A3090045B2DE /* libsane-ricoh2.1.so */,
+				D1A93EA72937A3090045B2DE /* libsane-rts8891.1.so */,
+				D1A93E822937A3080045B2DE /* libsane-s9036.1.so */,
+				D1A93E6C2937A3080045B2DE /* libsane-sceptre.1.so */,
+				D1A93E5B2937A3080045B2DE /* libsane-sharp.1.so */,
+				D1A93E9E2937A3090045B2DE /* libsane-sm3600.1.so */,
+				D1A93E762937A3080045B2DE /* libsane-sm3840.1.so */,
+				D1A93E652937A3080045B2DE /* libsane-snapscan.1.so */,
+				D1A93E6A2937A3080045B2DE /* libsane-sp15c.1.so */,
+				D1A93E882937A3090045B2DE /* libsane-st400.1.so */,
+				D1A93E692937A3080045B2DE /* libsane-stv680.1.so */,
+				D1A93EAD2937A3090045B2DE /* libsane-tamarack.1.so */,
+				D1A93E7E2937A3080045B2DE /* libsane-teco1.1.so */,
+				D1A93E782937A3080045B2DE /* libsane-teco2.1.so */,
+				D1A93E8C2937A3090045B2DE /* libsane-teco3.1.so */,
+				D1A93E802937A3080045B2DE /* libsane-test.1.so */,
+				D1A93EA82937A3090045B2DE /* libsane-u12.1.so */,
+				D1A93E8E2937A3090045B2DE /* libsane-umax_pp.1.so */,
+				D1A93E832937A3090045B2DE /* libsane-umax.1.so */,
+				D1A93EA52937A3090045B2DE /* libsane-umax1220u.1.so */,
+				D1A93E902937A3090045B2DE /* libsane-xerox_mfp.1.so */,
+				D1A93E592937A2BA0045B2DE /* libjpeg.9.dylib */,
 				D143E91929343F4800E908DB /* ARRAY_TEXT.cpp */,
 				D143E91829343F4800E908DB /* ARRAY_TEXT.h */,
 				D143E91F2934400300E908DB /* C_LONGINT.cpp */,
@@ -198,22 +549,21 @@
 		D16FBB3C22A4C07E008F0416 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D1359CEA2935439B00C5CB6C /* libsane.1.dylib */,
-				D1359CE92935439B00C5CB6C /* libusb-1.0.0.dylib */,
+				D1A93E4D29379C530045B2DE /* libjpeg.8.dylib */,
+				D1A93E4E29379C530045B2DE /* libtiff.5.dylib */,
+				D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */,
+				D1A93E4C29379C530045B2DE /* libzstd.1.dylib */,
 				D1FCBEB029345D4700FA32A4 /* libusb-1.0.a */,
 				D1FCBEAF29345BF300FA32A4 /* libexpat.1.tbd */,
 				D1FCBEAD29345BDE00FA32A4 /* libxml2.tbd */,
 				D1FCBEAB29345BD200FA32A4 /* Security.framework */,
 				D1FCBEA929345BC800FA32A4 /* IOKit.framework */,
 				D1FCBEA629345B8E00FA32A4 /* libsane.a */,
-				D1FCBEA529345B8E00FA32A4 /* libusb-1.0.a */,
 				D143E9232934475E00E908DB /* libz.tbd */,
 				D143E90B29343CAB00E908DB /* libjpeg.a */,
 				D143E90A29343CAB00E908DB /* libjsoncpp.a */,
 				D143E90C29343CAB00E908DB /* libpng16.a */,
 				D143E90929343CAB00E908DB /* libtiff.a */,
-				D143E90329343B0500E908DB /* libsane.1.dylib */,
-				D143E90229343B0500E908DB /* libusb-1.0.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,6 +603,7 @@
 				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
 				8D01CCCF0486CAD60068D4B7 /* Rez */,
 				D1292E7B22C4A91E00CB5A8C /* ShellScript */,
+				D1A93E5829379C530045B2DE /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -404,7 +755,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.3.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -461,7 +812,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.3.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -516,7 +867,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.3.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";

@@ -543,7 +543,7 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
 
 void SANE_SCANNERS_LIST(PA_PluginParameters params) {
 
-    sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+//    sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
     ARRAY_TEXT Param1;
