@@ -12,9 +12,9 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 ### Patches
 
-* sane-backends/backends/dll.c: reference ``SANE_LD_LIBRARY_PATH`` instead of ``LD_LIBRARY_PATH`` can't remember why this was necessary.
+* sane-backends/backends/dll.c: reference ``SANE_LD_LIBRARY_PATH`` instead of ``LD_LIBRARY_PATH`` for portability.
 
-* libsub/darwin_usb: ignore hotplug. reason: ``pthread`` crash). scanner must be connected to the computer before you load the plugin.
+* libsub/darwin_usb: ignore hotplug. reason: ``pthread`` crash). 
 
 ### Configure
 
