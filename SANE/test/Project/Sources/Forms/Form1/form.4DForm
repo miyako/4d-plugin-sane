@@ -1,0 +1,132 @@
+{
+	"destination": "detailScreen",
+	"rightMargin": 5,
+	"bottomMargin": 5,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onUnload",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "842pt",
+		"paperHeight": "595pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"<>SCAN_IMAGE": {
+					"type": "input",
+					"top": 95,
+					"left": 5,
+					"width": 465,
+					"height": 145,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "<>SCAN_IMAGE",
+					"dataSourceTypeHint": "picture",
+					"focusable": false,
+					"fill": "#FFFACD",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"contextMenu": "none",
+					"pictureFormat": "proportionalTopLeft",
+					"dragging": "none"
+				},
+				"SCAN": {
+					"type": "button",
+					"top": 26,
+					"left": 5,
+					"width": 90,
+					"height": 64,
+					"text": "SCAN JPG",
+					"fontWeight": "bold",
+					"stroke": "#008000",
+					"focusable": false,
+					"method": "ObjectMethods/SCAN.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"<>DEFAULT_SCANNER": {
+					"type": "input",
+					"top": 5,
+					"left": 85,
+					"width": 339,
+					"height": 17,
+					"dataSource": "<>DEFAULT_SCANNER",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text": {
+					"type": "text",
+					"top": 5,
+					"left": 5,
+					"width": 73,
+					"height": 17,
+					"text": "scanner id:"
+				},
+				"SCAN1": {
+					"type": "button",
+					"top": 26,
+					"left": 220,
+					"width": 90,
+					"height": 64,
+					"text": "SCAN PNG",
+					"fontWeight": "bold",
+					"stroke": "#0000CD",
+					"focusable": false,
+					"method": "ObjectMethods/SCAN1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"SCAN2": {
+					"type": "button",
+					"top": 26,
+					"left": 100,
+					"width": 115,
+					"height": 64,
+					"text": "SCAN JPG GREY",
+					"fontWeight": "bold",
+					"stroke": "#696969",
+					"focusable": false,
+					"method": "ObjectMethods/SCAN2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"SCAN3": {
+					"type": "button",
+					"top": 26,
+					"left": 315,
+					"width": 155,
+					"height": 64,
+					"sizingX": "grow",
+					"text": "SCAN PNG GREY",
+					"fontWeight": "bold",
+					"stroke": "#696969",
+					"focusable": false,
+					"method": "ObjectMethods/SCAN3.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	]
+}
