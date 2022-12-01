@@ -1,6 +1,1 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
-    <header>
-        <note>SANE</note>
-    </header>
-</xliff>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">    <header>        <note>SANE</note>    </header>    <group resname="themes">        <trans-unit id="" resname="83026AD3620F49E29F6D2ABD74C7704A" translate="no">            <source>Scanner Image Types</source>        </trans-unit>    </group>    <group restype="x-4DK#" d4:groupName="83026AD3620F49E29F6D2ABD74C7704A">        <trans-unit d4:value="0:L" id="83026AD3620F49E29F6D2ABD74C7704A.1">            <source>Scanner image type JPEG</source>        </trans-unit>        <trans-unit d4:value="1:L" id="83026AD3620F49E29F6D2ABD74C7704A.2">            <source>Scanner image type TIFF</source>        </trans-unit>        <trans-unit d4:value="2:L" id="83026AD3620F49E29F6D2ABD74C7704A.3">            <source>Scanner image type PNG</source>        </trans-unit>    </group></xliff>

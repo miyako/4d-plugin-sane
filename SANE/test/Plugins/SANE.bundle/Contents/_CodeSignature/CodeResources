@@ -8,18 +8,18 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pq9Q7k6+laNPRDN7vNmf/VJZlqw=
+			F17djylovmqYnfyIpSNfRB4PvgA=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/constants.xlf</key>
 		<data>
-		L9PZX3BbWcryeME9Bri1JzVKX98=
+		wllaWrBac1J/Jbgkwc5m3eKoVJ4=
 		</data>
 		<key>Resources/manifest.json</key>
 		<data>
-		BNGwpWk9VhAcHit5JLk/Lr3DHa8=
+		Zod7L4/QO6dqwRK/VrA0J6oBSRE=
 		</data>
 		<key>Resources/sane.d/abaton.conf</key>
 		<data>
@@ -1118,7 +1118,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LAeoQgbT3wAsXvwPLBp5dSoA0tFVPN0MkTFW2YWKiLQ=
+			yYg6jisuJejzQyHD2DY2aXzeXFuSbV/YXhIQl0NSRzk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1127,14 +1127,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LzxjRhZjim5Yhcj2UTr4C+o+Cqa8TisTOPPgwj0cUiE=
+			pq6JICYzmt3Qy+E70T99q2tSdhGrxfQqe5wNzvdfxeA=
 			</data>
 		</dict>
 		<key>Resources/manifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uRWUWYcH++xpFiU/SVQUAl1sscDy1BJ7Kk01AKboefk=
+			ghhTxplEFYQ9yuiZAMJFg4cKn5dqmlHggl4jrmmyrTI=
 			</data>
 		</dict>
 		<key>Resources/sane.d/abaton.conf</key>

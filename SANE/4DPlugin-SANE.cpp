@@ -287,7 +287,7 @@ namespace JPG
             {
                 for(int y = 0; y < height; y++)
                 {
-                    if((y % 0x2000)==0) PA_YieldAbsolute();
+//                    if((y % 0x2000)==0) PA_YieldAbsolute();
                     
                     if(depth == 1)
                     {
@@ -407,7 +407,7 @@ namespace PNG
                     
                     for(int y = 0; y < height; y++)
                     {
-                        if((y % 0x2000)==0) PA_YieldAbsolute();
+//                        if((y % 0x2000)==0) PA_YieldAbsolute();
                         
                         //byteswap for depth 16
                         if (depth == 16)
@@ -462,6 +462,31 @@ bool isProcessOnExit()
     return isProcessOnExit;
 }
 
+static void sane_cleanup() {
+
+    if(SANE::isReady)
+    {
+        sane_exit();
+        printf ("sane_exit\n");
+        
+        SANE::isReady = FALSE;
+    }
+    
+}
+
+static void sane_setup() {
+    
+    sane_cleanup();
+    
+    SANE_Status sane_init_status = sane_init (&SANE::version_code, NULL);
+    printf ("sane_init\n");
+    
+    if(sane_init_status == SANE_STATUS_GOOD)
+    {
+        SANE::isReady = TRUE;
+    }
+}
+
 void OnStartup()
 {
     @autoreleasepool
@@ -470,16 +495,11 @@ void OnStartup()
         if(thisBundle)
         {
             NSString *builtInPlugInsPath = [thisBundle builtInPlugInsPath];
-            setenv("SANE_LD_LIBRARY_PATH", [builtInPlugInsPath UTF8String], 1);//dll.c was modified to use this env var
+            setenv("SANE_LD_LIBRARY_PATH", [builtInPlugInsPath UTF8String], 1);
+            //dll.c was modified to use this env var
             NSString *resourcePath = [thisBundle resourcePath];
             setenv("SANE_CONFIG_DIR", [[resourcePath stringByAppendingPathComponent:@"sane.d"]UTF8String], 1);
         }
-    }
-    SANE_Status sane_init_status = sane_init (&SANE::version_code, NULL);//no authentication support
-    printf ("sane_init\n");
-    if(sane_init_status == SANE_STATUS_GOOD)
-    {
-        SANE::isReady = TRUE;
     }
 }
 
@@ -487,11 +507,7 @@ void OnCloseProcess()
 {
     if(isProcessOnExit())
     {
-        if(SANE::isReady)
-        {
-            sane_exit();
-            printf ("sane_exit\n");
-        }
+        sane_cleanup();
     }
 }
 
@@ -507,7 +523,7 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
             case kServerInitPlugin :
                 OnStartup();
                 break;
-                
+                                
             case kCloseProcess :
                 OnCloseProcess();
                 break;
@@ -515,19 +531,24 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
 			// --- SANE
             
 			case 1 :
-				SANE_SCANNERS_LIST(params);
+                PA_RunInMainProcess((PA_RunInMainProcessProcPtr)SANE_SCANNERS_LIST, params);
+//				SANE_SCANNERS_LIST(params);
 				break;
 			case 2 :
-				SANE_Scan(params);
+                PA_RunInMainProcess((PA_RunInMainProcessProcPtr)SANE_Scan, params);
+//				SANE_Scan(params);
 				break;
 			case 3 :
-				SANE_SCAN_OPTION_VALUES(params);
+                PA_RunInMainProcess((PA_RunInMainProcessProcPtr)SANE_SCAN_OPTION_VALUES, params);
+//				SANE_SCAN_OPTION_VALUES(params);
 				break;
 			case 4 :
-				SANE_SET_SCAN_OPTION(params);
+                PA_RunInMainProcess((PA_RunInMainProcessProcPtr)SANE_SET_SCAN_OPTION, params);
+//				SANE_SET_SCAN_OPTION(params);
 				break;
 			case 5 :
-				SANE_Get_scan_option(params);
+                PA_RunInMainProcess((PA_RunInMainProcessProcPtr)SANE_Get_scan_option, params);
+//				SANE_Get_scan_option(params);
 				break;
 
         }
@@ -543,7 +564,6 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
 
 void SANE_SCANNERS_LIST(PA_PluginParameters params) {
 
-//    sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
     ARRAY_TEXT Param1;
@@ -552,11 +572,13 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
     
     Json::Value json_scanners(Json::arrayValue);
     
+    sane_setup();
+    
     if(SANE::isReady)
     {
         const SANE_Device **device_list;
         //SANE_FALSE: list includes all remote devices that are accessible to the SANE library
-        if(SANE_STATUS_GOOD == sane_get_devices(&device_list, SANE_FALSE))
+        if(SANE_STATUS_GOOD == sane_get_devices(&device_list, SANE_FALSE ))
         {
             for(unsigned int i = 0; device_list[i]; ++i)
             {
@@ -568,7 +590,6 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
                 json_scanner["vendor"] = (char *)device_list_item->vendor;
                 json_scanner["model"] = (char *)device_list_item->model;
                 json_scanner["type"] = (char *)device_list_item->type;
-                json_scanner["name"] = (char *)device_list_item->name;
 
                 json_scanners.append(json_scanner);
 
@@ -720,6 +741,7 @@ void SANE_Scan(PA_PluginParameters params) {
                                 }
                             }
                         }
+                        
                         PA_YieldAbsolute();
                         
                     } while((sane_read_status == SANE_STATUS_GOOD) && ([NSDate timeIntervalSinceReferenceDate] < end));
@@ -774,7 +796,6 @@ void SANE_Scan(PA_PluginParameters params) {
 
 void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
 
-//    sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
     C_TEXT Param1_scanner_id;
@@ -784,17 +805,17 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     Param2_options.setSize(1);
         
     Json::Value json_scanner_options(Json::arrayValue);
+
+    SANE_Int option_index = 0;
+    SANE_Int resolution_option_index = 0;
+    SANE_Int resolution_option_index_x = 0;
+    SANE_Int resolution_option_index_y = 0;
     
     //SANE::isReady is tested in get_device
     SANE_Handle device = SANE::get_device(Param1_scanner_id);
     
     if(device)
     {
-        SANE_Int option_index = 0;
-        SANE_Int resolution_option_index = 0;
-        SANE_Int resolution_option_index_x = 0;
-        SANE_Int resolution_option_index_y = 0;
-        
         const SANE_Option_Descriptor *option;
         
         do {
@@ -803,23 +824,74 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
             {
                 Json::Value json_scanner_option(Json::objectValue);
                 
+                json_scanner_option["option"] = (int)option_index;
+    
                 json_scanner_option["name"] = (char *)option->name;
                 json_scanner_option["title"] = (char *)option->title;
-                json_scanner_option["option"] = (int)option_index;
+                json_scanner_option["desc"] = (char *)option->desc;
+                
                 json_scanner_option["type"] = (int)option->type;
-                json_scanner_option["name"] = (char *)option->name;
-                json_scanner_option["name"] = (char *)option->name;
+                
+                switch (option->type) {
+                    case SANE_TYPE_BOOL:
+                        json_scanner_option["_type"] = "SANE_TYPE_BOOL";
+                        break;
+                    case SANE_TYPE_INT:
+                        json_scanner_option["_type"] = "SANE_TYPE_INT";
+                        break;
+                    case SANE_TYPE_FIXED:
+                        json_scanner_option["_type"] = "SANE_TYPE_FIXED";
+                        break;
+                    case SANE_TYPE_STRING:
+                        json_scanner_option["_type"] = "SANE_TYPE_STRING";
+                        break;
+                    case SANE_TYPE_BUTTON:
+                        json_scanner_option["_type"] = "SANE_TYPE_BUTTON";
+                        break;
+                    case SANE_TYPE_GROUP:
+                        json_scanner_option["_type"] = "SANE_TYPE_GROUP";
+                        break;
+                    default:
+                        break;
+                }
+                                   
+                json_scanner_option["unit"] = (int)option->unit;
+                
+                switch (option->unit) {
+                    case SANE_UNIT_NONE:
+                        json_scanner_option["_unit"] = "SANE_UNIT_NONE";
+                        break;
+                    case SANE_UNIT_PIXEL:
+                        json_scanner_option["_unit"] = "SANE_UNIT_PIXEL";
+                        break;
+                    case SANE_UNIT_BIT:
+                        json_scanner_option["_unit"] = "SANE_UNIT_BIT";
+                        break;
+                    case SANE_UNIT_MM:
+                        json_scanner_option["_unit"] = "SANE_UNIT_MM";
+                        break;
+                    case SANE_UNIT_DPI:
+                        json_scanner_option["_unit"] = "SANE_UNIT_DPI";
+                        break;
+                    case SANE_UNIT_PERCENT:
+                        json_scanner_option["_unit"] = "SANE_UNIT_PERCENT";
+                        break;
+                    case SANE_UNIT_MICROSECOND:
+                        json_scanner_option["_unit"] = "SANE_UNIT_MICROSECOND";
+                        break;
+                    default:
+                        break;
+                }
+                
+                json_scanner_option["size"] = (int)option->size;
+                json_scanner_option["cap"] = (int)option->cap;
                 
                 Json::Value json_scanner_flags(Json::objectValue);
-                
                 json_scanner_flags["automatic"] = (option->cap & SANE_CAP_AUTOMATIC) != 0;
                 json_scanner_flags["selectable"] = (option->cap & SANE_CAP_SOFT_SELECT) != 0;
                 json_scanner_flags["detectable"] = (option->cap & SANE_CAP_SOFT_DETECT) != 0;
+                json_scanner_option["flags"] = json_scanner_flags;
                 
-                Json::Value json_option(Json::objectValue);
-                json_option["flags"] = json_scanner_flags;
-                json_scanner_option.append(json_option);
-
                 /* Look for scan resolution */
                 if ((option->type == SANE_TYPE_FIXED
                          || option->type == SANE_TYPE_INT)
@@ -849,39 +921,32 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
                     case SANE_CONSTRAINT_STRING_LIST:
                     {
                         Json::Value json_constraint_string_list(Json::arrayValue);
-                        
                         const SANE_String_Const *sl = option->constraint.string_list;
                         do {
                             if(*sl)
                             {
-                                json_constraint_string_list.append((char *)*sl++);
+                                std::string constraint_str((char *)*sl++);
+                                json_constraint_string_list.append(constraint_str);
                             }
-                            
                         }while(*sl);
-                        
-                        Json::Value json_option(Json::objectValue);
-                        json_option["values"] = json_constraint_string_list;
-                        json_scanner_option.append(json_option);
+                                                
+                        json_scanner_option["values"] = json_constraint_string_list;
                     }
                         break;
                     case SANE_CONSTRAINT_WORD_LIST:
                     {
                         Json::Value json_constraint_word_list(Json::arrayValue);
-                        
                         const SANE_Word *wl = option->constraint.word_list;
                         do {
                             if(*wl)
                             {
-                                Json::Value e(Json::objectValue);
-                                json_constraint_word_list.append(*wl++);
+                                int constraint_word = *wl++;
+                                json_constraint_word_list.append(constraint_word);
                             }
                             
                         }while(*wl);
                         
-                        Json::Value json_option(Json::objectValue);
-                        json_option["values"] = json_constraint_word_list;
-                        json_scanner_option.append(json_option);
-
+                        json_scanner_option["values"] = json_constraint_word_list;
                     }
                         break;
                     case SANE_CONSTRAINT_RANGE:
@@ -893,8 +958,7 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
                         json_constraint_range["max"] = range->max;
                         json_constraint_range["quant"] = range->quant;
                         Json::Value json_option(Json::objectValue);
-                        json_option["values"] = json_constraint_range;
-                        json_scanner_option.append(json_option);
+                        json_scanner_option["values"] = json_constraint_range;
                     }
                         break;
                     default:
@@ -912,24 +976,20 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     }//device
     
     //dump details in element 0
-    
     Json::StreamWriterBuilder writer;
     writer["indentation"] = "";
     std::string scannersJson = Json::writeString(writer, json_scanner_options);
-    
     C_TEXT t;
-    t.setUTF8String((const uint8_t *)scannersJson.c_str(), scannersJson.length());
-    
+    t.setUTF8String((const uint8_t *)scannersJson.c_str(),
+                    (unsigned int)scannersJson.length());
     CUTF16String json;
     t.copyUTF16String(&json);
     Param2_options.setUTF16StringAtIndex(&json, 0);
-    
     Param2_options.toParamAtIndex(pParams, 2);
 }
 
 void SANE_SET_SCAN_OPTION(PA_PluginParameters params) {
 
-//    sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
     C_TEXT Param1_scanner_id;

@@ -266,7 +266,6 @@
 		D143E9232934475E00E908DB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D14D10DD1A03A8A5008B3411 /* constants.xlf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = constants.xlf; sourceTree = "<group>"; };
 		D1A93E4C29379C530045B2DE /* libzstd.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzstd.1.dylib; path = lib/libzstd.1.dylib; sourceTree = "<group>"; };
-		D1A93E4D29379C530045B2DE /* libjpeg.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.8.dylib; path = lib/libjpeg.8.dylib; sourceTree = "<group>"; };
 		D1A93E4E29379C530045B2DE /* libtiff.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtiff.5.dylib; path = lib/libtiff.5.dylib; sourceTree = "<group>"; };
 		D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "lib/libusb-1.0.0.dylib"; sourceTree = "<group>"; };
 		D1A93E592937A2BA0045B2DE /* libjpeg.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.9.dylib; path = lib/libjpeg.9.dylib; sourceTree = "<group>"; };
@@ -366,17 +365,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D143E9242934475E00E908DB /* libz.tbd in Frameworks */,
-				D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */,
-				D143E90D29343CAB00E908DB /* libtiff.a in Frameworks */,
-				D143E90F29343CAB00E908DB /* libjpeg.a in Frameworks */,
 				D14CFFC629354C1D002A614E /* libusb-1.0.a in Frameworks */,
-				D1FCBEAC29345BD200FA32A4 /* Security.framework in Frameworks */,
+				D143E9242934475E00E908DB /* libz.tbd in Frameworks */,
+				D143E90F29343CAB00E908DB /* libjpeg.a in Frameworks */,
+				D143E90D29343CAB00E908DB /* libtiff.a in Frameworks */,
 				D143E91029343CAB00E908DB /* libpng16.a in Frameworks */,
 				D143E90E29343CAB00E908DB /* libjsoncpp.a in Frameworks */,
-				D1FCBEAA29345BC800FA32A4 /* IOKit.framework in Frameworks */,
 				D14CFFC729354C25002A614E /* libsane.a in Frameworks */,
 				D1FCBEAE29345BE900FA32A4 /* libxml2.tbd in Frameworks */,
+				D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */,
+				D1FCBEAC29345BD200FA32A4 /* Security.framework in Frameworks */,
+				D1FCBEAA29345BC800FA32A4 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +548,6 @@
 		D16FBB3C22A4C07E008F0416 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D1A93E4D29379C530045B2DE /* libjpeg.8.dylib */,
 				D1A93E4E29379C530045B2DE /* libtiff.5.dylib */,
 				D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */,
 				D1A93E4C29379C530045B2DE /* libzstd.1.dylib */,
@@ -755,7 +753,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -812,7 +810,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -867,7 +865,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
