@@ -637,181 +637,339 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
 
 void SANE_Scan(PA_PluginParameters params) {
     
+    /* SANE-FLOW-DIAGRAMM
+
+       - sane_init() : initialize backend, attach scanners
+       . - sane_get_devices() : query list of scanner-devices
+       . - sane_open() : open a particular scanner-device
+       . . - sane_set_io_mode : set blocking-mode
+       . . - sane_get_select_fd : get scanner-fd
+       . . - sane_get_option_descriptor() : get option information
+       . . - sane_control_option() : change option values
+       . .
+       . . - sane_start() : start image acquisition
+       . .   - sane_get_parameters() : returns actual scan-parameters
+       . .   - sane_read() : read image-data (from pipe)
+       . .
+       . . - sane_cancel() : cancel operation
+       . - sane_close() : close opened scanner-device
+       - sane_exit() : terminate use of backend
+     */
+    
     sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
+    PA_CollectionRef images = PA_CreateCollection();
+    
     C_TEXT Param1_scanner_id;
-    C_LONGINT Param2_format;
-    
     Param1_scanner_id.fromParamAtIndex(pParams, 1);
-    Param2_format.fromParamAtIndex(pParams, 2);
-    
     SANE_Handle device = SANE::get_device(Param1_scanner_id);
     
-    if(device)
-    {
-        SANE_Int option_index = 0;
-        SANE_Int resolution_option_index = 0;
-        SANE_Int resolution_option_index_x = 0;
-        SANE_Int resolution_option_index_y = 0;
-        
-        const SANE_Option_Descriptor *option;
-        
-        do {
-            option = sane_get_option_descriptor(device, option_index);
-            if(option)
-            {
-                /* Look for scan resolution */
-                if ((option->type == SANE_TYPE_FIXED
-                     || option->type == SANE_TYPE_INT)
-                    && option->size == sizeof (SANE_Int)
-                    && (option->unit == SANE_UNIT_DPI)
-                    && (strcmp (option->name, SANE_NAME_SCAN_RESOLUTION) == 0))
-                {
-                    resolution_option_index = option_index;
-                }else if ((option->type == SANE_TYPE_FIXED
-                           || option->type == SANE_TYPE_INT)
-                          && option->size == sizeof (SANE_Int)
-                          && (option->unit == SANE_UNIT_DPI)
-                          && (strcmp (option->name, SANE_NAME_SCAN_X_RESOLUTION) == 0))
-                {
-                    resolution_option_index_x = option_index;
-                }else if ((option->type == SANE_TYPE_FIXED
-                           || option->type == SANE_TYPE_INT)
-                          && option->size == sizeof (SANE_Int)
-                          && (option->unit == SANE_UNIT_DPI)
-                          && (strcmp (option->name, SANE_NAME_SCAN_Y_RESOLUTION) == 0))
-                {
-                    resolution_option_index_y = option_index;
-                }
-            }
-            option_index++;
-        }while(option);
-        
-        SANE_Status sane_start_status = sane_start(device);
-        
-        if (SANE_STATUS_GOOD == sane_start_status)
+    C_LONGINT Param2_format;
+    Param2_format.fromParamAtIndex(pParams, 2);
+    SANE::image_type_t image_type = (SANE::image_type_t)Param2_format.getIntValue();
+    
+    auto func = [images, device, image_type]() {
+      
+        if(device)
         {
-            sane_set_io_mode(device, SANE_FALSE);//can be called only after sane_start
+            //per session
+            SANE_Bool end_of_scan = false;
+            SANE_Int option_index = 0;
+            SANE_Int resolution_option_index = 0;
+            SANE_Int resolution_option_index_x = 0;
+            SANE_Int resolution_option_index_y = 0;
+
+            const SANE_Option_Descriptor *option;
             
-            //call sane_get_parameters after sane_start for accurate measurements
-            SANE_Parameters params;
-            if(SANE_STATUS_GOOD == sane_get_parameters(device, &params))
-            {
-                C_BLOB data;
-                std::vector<unsigned char>buf(BUFFER_SIZE);
-                SANE_Int len = 0;
-                SANE_Status sane_read_status;
-                
-                @autoreleasepool
+            do {
+                option = sane_get_option_descriptor(device, option_index);
+                if(option)
                 {
-                    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
-                    NSTimeInterval end = now + READ_TIMEOUT;
-                    NSUInteger count = end - now;
-                    
-                    SANE_Frame format;
-                    SANE_Bool last_frame;
-                    SANE_Int bytes_per_line;
-                    SANE_Int pixels_per_line;
-                    SANE_Int lines;
-                    SANE_Int depth;
-                    bool incremental_image_generation = false;
-                    //incremental_image_generation not supported
-                    SANE::image_type_t image_type = (SANE::image_type_t)Param2_format.getIntValue();
-                    
-                    do {
-                        
-                        now = [NSDate timeIntervalSinceReferenceDate];
-                        if(count != (NSUInteger)(end - now))
-                        {
-                            count = end - now;
-                            printf("%s will run for %i more seconds\n", "sane_read", (int)count);
-                        }
-                        
-                        format = params.format;
-                        last_frame = params.last_frame;//only 0 for 3-frame scan in SANE v1
-                        bytes_per_line = params.bytes_per_line;//should be >0
-                        pixels_per_line= params.pixels_per_line;
-                        lines = params.lines;//could be -1
-                        depth = params.depth;//only 1 or n*8
-                        
-                        //special cases:
-                        //bytes_per_line=0 means line length is not constant (SANE v2 only)
-                        //lines=-1 means length is unknown; contiue sane_read until SANE_STATUS_EOF
-                        
-                        //3-frame scan is not supported in this code
-                        if((format == SANE_FRAME_RGB) || (format == SANE_FRAME_GRAY))
-                        {
-                            if(last_frame)
-                            {
-                                sane_read_status = sane_read(device, &buf[0], BUFFER_SIZE, &len);
-                                if(sane_read_status == SANE_STATUS_GOOD)
-                                {
-                                    if(len)
-                                    {
-                                        if(incremental_image_generation)
-                                        {
-                                            //TODO:incremental_image_generation
-                                        }else
-                                        {
-                                            //buffer
-                                            data.addBytes(&buf[0], len);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
-                        PA_YieldAbsolute();
-                        
-                    } while((sane_read_status == SANE_STATUS_GOOD) && ([NSDate timeIntervalSinceReferenceDate] < end));
-                    
-                    if(!incremental_image_generation)
+                    /* Look for scan resolution */
+                    if ((option->type == SANE_TYPE_FIXED
+                         || option->type == SANE_TYPE_INT)
+                        && option->size == sizeof (SANE_Int)
+                        && (option->unit == SANE_UNIT_DPI)
+                        && (strcmp (option->name, SANE_NAME_SCAN_RESOLUTION) == 0))
                     {
-                        int dpi_x = 0;
-                        int dpi_y = 0;
-                        
-                        SANE::get_resolution(device,
-                                             resolution_option_index,
-                                             resolution_option_index_x,
-                                             resolution_option_index_y, &dpi_x, &dpi_y);
-                        switch (image_type)
-                        {
-                            case SANE::image_type_jpg:
-                            {
-                                *(PA_Picture*) pResult = JPG::write_data(
-                                                                         data,
-                                                                         pixels_per_line,
-                                                                         lines,
-                                                                         depth,
-                                                                         bytes_per_line,
-                                                                         format,
-                                                                         dpi_x,
-                                                                         dpi_y);
-                            }
-                                break;
-                            case SANE::image_type_png:
-                            default:
-                            {
-                                *(PA_Picture*) pResult = PNG::write_data(
-                                                                         data,
-                                                                         pixels_per_line,
-                                                                         lines,
-                                                                         depth,
-                                                                         bytes_per_line,
-                                                                         format,
-                                                                         dpi_x,
-                                                                         dpi_y);
-                            }
-                                break;
-                        }//switch
+                        resolution_option_index = option_index;
+                    }else if ((option->type == SANE_TYPE_FIXED
+                               || option->type == SANE_TYPE_INT)
+                              && option->size == sizeof (SANE_Int)
+                              && (option->unit == SANE_UNIT_DPI)
+                              && (strcmp (option->name, SANE_NAME_SCAN_X_RESOLUTION) == 0))
+                    {
+                        resolution_option_index_x = option_index;
+                    }else if ((option->type == SANE_TYPE_FIXED
+                               || option->type == SANE_TYPE_INT)
+                              && option->size == sizeof (SANE_Int)
+                              && (option->unit == SANE_UNIT_DPI)
+                              && (strcmp (option->name, SANE_NAME_SCAN_Y_RESOLUTION) == 0))
+                    {
+                        resolution_option_index_y = option_index;
                     }
                 }
-            }
-            sane_cancel (device);
-        }//sane_start
-        sane_close(device);
-    }
+                option_index++;
+            }while(option);
+            
+            do {
+                //per scan
+                SANE_Bool first_frame = true;
+                SANE_Bool last_frame = false;
+                
+                SANE_Status sane_start_status = sane_start(device);
+                
+                if (SANE_STATUS_GOOD == sane_start_status)
+                {
+                    if(first_frame) {
+                        //can be called only after sane_start
+                        sane_set_io_mode(device, SANE_FALSE);
+                    }
+                    
+                    do {
+                        //per page
+                        //call sane_get_parameters after sane_start for accurate measurements
+                        SANE_Parameters params;
+                        if(SANE_STATUS_GOOD == sane_get_parameters(device, &params))
+                        {
+                            C_BLOB data;
+                            std::vector<unsigned char>rgb(0);
+                            std::vector<unsigned char>buf(BUFFER_SIZE);
+                            SANE_Int len = 0;
+                            SANE_Status sane_read_status;
+                            
+                            NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+                            NSTimeInterval end = now + READ_TIMEOUT;
+                            NSUInteger count = end - now;
+                            
+                            SANE_Frame format;
+                            
+                            SANE_Int bytes_per_line;
+                            SANE_Int pixels_per_line;
+                            SANE_Int lines;
+                            SANE_Int depth;
+                            SANE_Int height;
+                            
+                            SANE_Int must_buffer = 0;
+                            SANE_Bool supported_format = false;
+                            
+                            do {
+                                
+                                //hard-coded timeout
+                                now = [NSDate timeIntervalSinceReferenceDate];
+                                if(count != (NSUInteger)(end - now))
+                                {
+                                    count = end - now;
+                                    printf("%s will run for %i more seconds\n", "sane_read", (int)count);
+                                }
+                                
+                                format = params.format;
+                                last_frame = params.last_frame;
+                                bytes_per_line = params.bytes_per_line;
+                                pixels_per_line= params.pixels_per_line;
+                                lines = params.lines;
+                                depth = params.depth;
+                                
+                                if (lines >= 0) {
+                                    height = lines;
+                                    /*
+                                     width:pixels_per_line
+                                     height:lines
+                                     depth:(format == SANE_FRAME_RGB ? 3 : 1)
+                                     */
+                                }else{
+                                    height = 0;
+                                    /*
+                                     width:pixels_per_line
+                                     height:variable
+                                     depth:(format == SANE_FRAME_RGB ? 3 : 1)
+                                     */
+                                }
+
+                                if (first_frame)
+                                {
+                                    switch (format)
+                                    {
+                                        case SANE_FRAME_RED:
+                                        case SANE_FRAME_GREEN:
+                                        case SANE_FRAME_BLUE:
+                                            if (depth == 8) {
+                                                must_buffer = 1;//3-frame RGB
+                                                /*
+                                                 red  :0
+                                                 green:1
+                                                 blue :2
+                                                 */
+                                                rgb.clear();
+                                                supported_format = true;
+                                            }
+                                            break;
+                                        case SANE_FRAME_RGB:
+                                            if ((depth == 8) || (depth == 16)) {
+                                                if (lines < 0)
+                                                {
+                                                    must_buffer = 1;
+                                                }
+                                                supported_format = true;
+                                            }
+                                            break;
+                                        case SANE_FRAME_GRAY:
+                                            if ((depth == 1) || (depth == 8) || (depth == 16)) {
+                                                if (lines < 0)
+                                                {
+                                                    must_buffer = 1;
+                                                }
+                                                supported_format = true;
+                                            }
+                                            break;
+                                    }
+                                }
+
+                                if(supported_format) {
+                                    
+                                    do {
+                                        
+                                        sane_read_status = sane_read(device, &buf[0], BUFFER_SIZE, &len);
+                                        
+                                        switch (sane_read_status) {
+                                            case SANE_STATUS_GOOD:
+                                                if(len)
+                                                {
+                                                    if(must_buffer)
+                                                    {
+                                                        switch (format) {
+                                                            case SANE_FRAME_RED:
+                                                                rgb.resize(rgb.size() + (3 * len));
+                                                                for (size_t i = 0; i < len; ++i)
+                                                                {
+                                                                    rgb[0 + 3 * i] = buf[i];
+                                                                }
+                                                                break;
+                                                            case SANE_FRAME_GREEN:
+                                                                for (size_t i = 0; i < len; ++i)
+                                                                {
+                                                                    rgb[1 + 3 * i] = buf[i];
+                                                                }
+                                                                break;
+                                                            case SANE_FRAME_BLUE:
+                                                                for (size_t i = 0; i < len; ++i)
+                                                                {
+                                                                    rgb[2 + 3 * i] = buf[i];
+                                                                }
+                                                                break;
+                                                            case SANE_FRAME_RGB:
+                                                            case SANE_FRAME_GRAY:
+                                                                data.addBytes(&buf[0], len);
+                                                                break;
+                                                            default:
+                                                                break;
+                                                        }
+                                                    }else
+                                                    {
+                                                        data.addBytes(&buf[0], len);
+                                                    }
+                                                }
+                                                break;
+                                            case SANE_STATUS_EOF:
+                                            case SANE_STATUS_NO_DOCS:
+                                                break;
+                                            default:
+                                                end_of_scan = true;
+                                                break;
+                                        }
+                                      
+                                    } while((sane_read_status == SANE_STATUS_GOOD) && ([NSDate timeIntervalSinceReferenceDate] < end));
+                                    
+                                    if(sane_read_status == SANE_STATUS_GOOD
+                                       || sane_read_status == SANE_STATUS_EOF
+                                       || sane_read_status == SANE_STATUS_NO_DOCS)
+                                    {
+                                        switch (format) {
+                                            case SANE_FRAME_RED:
+                                            case SANE_FRAME_GREEN:
+                                            case SANE_FRAME_BLUE:
+                                                if(rgb.size() != 0) {
+                                                    data.addBytes(rgb.data(), (uint32_t)rgb.size());
+                                                }
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                        
+                                        if(data.getBytesLength() != 0) {
+                                            
+                                            int dpi_x = 0;
+                                            int dpi_y = 0;
+                                            
+                                            SANE::get_resolution(device,
+                                                                 resolution_option_index,
+                                                                 resolution_option_index_x,
+                                                                 resolution_option_index_y, &dpi_x, &dpi_y);
+                                            
+                                            PA_Picture image;
+                                            
+                                            switch (image_type)
+                                            {
+                                                case SANE::image_type_jpg:
+                                                {
+                                                    image = JPG::write_data(
+                                                                            data,
+                                                                            pixels_per_line,
+                                                                            height,
+                                                                            depth,
+                                                                            bytes_per_line,
+                                                                            format,
+                                                                            dpi_x,
+                                                                            dpi_y);
+                                                }
+                                                    break;
+                                                case SANE::image_type_png:
+                                                default:
+                                                {
+                                                    image = PNG::write_data(
+                                                                            data,
+                                                                            pixels_per_line,
+                                                                            height,
+                                                                            depth,
+                                                                            bytes_per_line,
+                                                                            format,
+                                                                            dpi_x,
+                                                                            dpi_y);
+                                                }
+                                                    break;
+                                            }//switch
+                                            
+                                            PA_Variable v = PA_CreateVariable(eVK_Picture);
+                                            PA_SetPictureVariable(&v, image);
+                                            PA_SetCollectionElement(images, PA_GetCollectionLength(images), v);
+                                        }
+                                        
+                                    }
+                                        
+                                }
+                                
+                            } while (!last_frame);
+                            
+                        }
+                        first_frame = false;
+                    } while(!last_frame);
+                    sane_cancel (device);
+                }//sane_start
+                sane_close(device);
+            } while(!end_of_scan);
+            
+        }
+        
+    };
+
+    std::future<void> future = std::async(std::launch::async, func);
+    
+    do {
+        PA_YieldAbsolute();
+    } while (future.wait_for(std::chrono::seconds(1)) != std::future_status::ready);
+    
+    PA_ReturnCollection(params, images);
 }
 
 void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
