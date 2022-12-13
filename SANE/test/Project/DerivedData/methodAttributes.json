@@ -1,52 +1,52 @@
 {
 	"methods": {
 		"scan_png": {
-			"timeStamp": "2022-12-13T04:39:52.191Z",
+			"timeStamp": "2022-12-13T04:39:52Z",
 			"attributes": {
 				"invisible": true
 			}
 		},
 		"set_option_gray": {
-			"timeStamp": "2022-12-01T04:24:28.370Z",
+			"timeStamp": "2022-12-01T04:24:28Z",
 			"attributes": {
 				"invisible": true
 			}
 		},
 		"get_options": {
-			"timeStamp": "2022-12-01T04:24:28.368Z",
+			"timeStamp": "2022-12-01T04:24:28Z",
 			"attributes": {
 				"invisible": true
 			}
 		},
 		"get_list": {
-			"timeStamp": "2022-12-01T04:24:28.368Z",
+			"timeStamp": "2022-12-01T04:24:28Z",
 			"attributes": {
 				"invisible": true
 			}
 		},
 		"scan_jpeg_gray": {
-			"timeStamp": "2022-12-13T04:39:36.654Z",
+			"timeStamp": "2022-12-13T04:39:36Z",
 			"attributes": {
 				"invisible": true
 			}
 		},
 		"TEST": {
-			"timeStamp": "2022-12-13T01:40:54.071Z"
+			"timeStamp": "2022-12-13T05:21:11Z"
 		},
 		"scan_png_gray": {
-			"timeStamp": "2022-12-13T04:39:51.124Z",
+			"timeStamp": "2022-12-13T04:39:51Z",
 			"attributes": {
 				"invisible": true
 			}
 		},
 		"set_option": {
-			"timeStamp": "2022-12-01T04:24:28.369Z",
+			"timeStamp": "2022-12-01T04:24:28Z",
 			"attributes": {
 				"invisible": true
 			}
 		},
 		"scan_jpeg": {
-			"timeStamp": "2022-12-13T04:39:47.235Z",
+			"timeStamp": "2022-12-13T04:39:47Z",
 			"attributes": {
 				"invisible": true
 			}

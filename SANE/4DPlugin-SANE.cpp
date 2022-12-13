@@ -121,10 +121,7 @@ void get_resolution(SANE_Handle device,
 {
     int resolution = get_resoution_i(device, resolution_option_index);
     int dpi = resolution ? resolution : DEFAULT_RESOLUTION;
-    
-    //        int resolution_x = resolution ? resolution : get_resoution_i(device, resolution_option_index_x);
-    //        int resolution_y = resolution ? resolution : get_resoution_i(device, resolution_option_index_y);
-    
+        
     *dpi_x = dpi;
     *dpi_y = dpi;
 }
@@ -656,7 +653,6 @@ void SANE_Scan(PA_PluginParameters params) {
        - sane_exit() : terminate use of backend
      */
     
-    sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
     PA_CollectionRef images = PA_CreateCollection();
@@ -981,188 +977,173 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     
     ARRAY_TEXT Param2_options;
     Param2_options.setSize(1);
-    
-    Json::Value json_scanner_options(Json::arrayValue);
-    
-    SANE_Int option_index = 0;
-    SANE_Int resolution_option_index = 0;
-    SANE_Int resolution_option_index_x = 0;
-    SANE_Int resolution_option_index_y = 0;
-    
+        
     //SANE::isReady is tested in get_device
     SANE_Handle device = SANE::get_device(Param1_scanner_id);
-    
-    if(device)
-    {
-        const SANE_Option_Descriptor *option;
         
-        do {
-            option = sane_get_option_descriptor(device, option_index);
-            if(option && option_index)
-            {
-                Json::Value json_scanner_option(Json::objectValue);
-                
-                json_scanner_option["option"] = (int)option_index;
-                
-                json_scanner_option["name"] = (char *)option->name;
-                json_scanner_option["title"] = (char *)option->title;
-                json_scanner_option["desc"] = (char *)option->desc;
-                
-                json_scanner_option["type"] = (int)option->type;
-                
-                switch (option->type) {
-                    case SANE_TYPE_BOOL:
-                        json_scanner_option["_type"] = "SANE_TYPE_BOOL";
-                        break;
-                    case SANE_TYPE_INT:
-                        json_scanner_option["_type"] = "SANE_TYPE_INT";
-                        break;
-                    case SANE_TYPE_FIXED:
-                        json_scanner_option["_type"] = "SANE_TYPE_FIXED";
-                        break;
-                    case SANE_TYPE_STRING:
-                        json_scanner_option["_type"] = "SANE_TYPE_STRING";
-                        break;
-                    case SANE_TYPE_BUTTON:
-                        json_scanner_option["_type"] = "SANE_TYPE_BUTTON";
-                        break;
-                    case SANE_TYPE_GROUP:
-                        json_scanner_option["_type"] = "SANE_TYPE_GROUP";
-                        break;
-                    default:
-                        break;
-                }
-                
-                json_scanner_option["unit"] = (int)option->unit;
-                
-                switch (option->unit) {
-                    case SANE_UNIT_NONE:
-                        json_scanner_option["_unit"] = "SANE_UNIT_NONE";
-                        break;
-                    case SANE_UNIT_PIXEL:
-                        json_scanner_option["_unit"] = "SANE_UNIT_PIXEL";
-                        break;
-                    case SANE_UNIT_BIT:
-                        json_scanner_option["_unit"] = "SANE_UNIT_BIT";
-                        break;
-                    case SANE_UNIT_MM:
-                        json_scanner_option["_unit"] = "SANE_UNIT_MM";
-                        break;
-                    case SANE_UNIT_DPI:
-                        json_scanner_option["_unit"] = "SANE_UNIT_DPI";
-                        break;
-                    case SANE_UNIT_PERCENT:
-                        json_scanner_option["_unit"] = "SANE_UNIT_PERCENT";
-                        break;
-                    case SANE_UNIT_MICROSECOND:
-                        json_scanner_option["_unit"] = "SANE_UNIT_MICROSECOND";
-                        break;
-                    default:
-                        break;
-                }
-                
-                json_scanner_option["size"] = (int)option->size;
-                json_scanner_option["cap"] = (int)option->cap;
-                
-                Json::Value json_scanner_flags(Json::objectValue);
-                json_scanner_flags["automatic"] = (option->cap & SANE_CAP_AUTOMATIC) != 0;
-                json_scanner_flags["selectable"] = (option->cap & SANE_CAP_SOFT_SELECT) != 0;
-                json_scanner_flags["detectable"] = (option->cap & SANE_CAP_SOFT_DETECT) != 0;
-                json_scanner_option["flags"] = json_scanner_flags;
-                
-                /* Look for scan resolution */
-                if ((option->type == SANE_TYPE_FIXED
-                     || option->type == SANE_TYPE_INT)
-                    && option->size == sizeof (SANE_Int)
-                    && (option->unit == SANE_UNIT_DPI)
-                    && (strcmp (option->name, SANE_NAME_SCAN_RESOLUTION) == 0))
-                {
-                    resolution_option_index = option_index;
-                }else if ((option->type == SANE_TYPE_FIXED
-                           || option->type == SANE_TYPE_INT)
-                          && option->size == sizeof (SANE_Int)
-                          && (option->unit == SANE_UNIT_DPI)
-                          && (strcmp (option->name, SANE_NAME_SCAN_X_RESOLUTION) == 0))
-                {
-                    resolution_option_index_x = option_index;
-                }else if ((option->type == SANE_TYPE_FIXED
-                           || option->type == SANE_TYPE_INT)
-                          && option->size == sizeof (SANE_Int)
-                          && (option->unit == SANE_UNIT_DPI)
-                          && (strcmp (option->name, SANE_NAME_SCAN_Y_RESOLUTION) == 0))
-                {
-                    resolution_option_index_y = option_index;
-                }
-                
-                switch (option->constraint_type)
-                {
-                    case SANE_CONSTRAINT_STRING_LIST:
-                    {
-                        Json::Value json_constraint_string_list(Json::arrayValue);
-                        const SANE_String_Const *sl = option->constraint.string_list;
-                        do {
-                            if(*sl)
-                            {
-                                std::string constraint_str((char *)*sl++);
-                                json_constraint_string_list.append(constraint_str);
-                            }
-                        }while(*sl);
-                        
-                        json_scanner_option["values"] = json_constraint_string_list;
-                    }
-                        break;
-                    case SANE_CONSTRAINT_WORD_LIST:
-                    {
-                        Json::Value json_constraint_word_list(Json::arrayValue);
-                        const SANE_Word *wl = option->constraint.word_list;
-                        do {
-                            if(*wl)
-                            {
-                                int constraint_word = *wl++;
-                                json_constraint_word_list.append(constraint_word);
-                            }
-                            
-                        }while(*wl);
-                        
-                        json_scanner_option["values"] = json_constraint_word_list;
-                    }
-                        break;
-                    case SANE_CONSTRAINT_RANGE:
-                    {
-                        const SANE_Range *range = option->constraint.range;
-                        
-                        Json::Value json_constraint_range(Json::objectValue);
-                        json_constraint_range["min"] = range->min;
-                        json_constraint_range["max"] = range->max;
-                        json_constraint_range["quant"] = range->quant;
-                        Json::Value json_option(Json::objectValue);
-                        json_scanner_option["values"] = json_constraint_range;
-                    }
-                        break;
-                    default:
-                        break;
-                }
-                
-                json_scanner_options.append(json_scanner_option);
-                
-                CUTF8String name = (const uint8_t *)option->name;
-                Param2_options.appendUTF8String(&name);
-            }
-            option_index++;
-        }while(option);
-        sane_close(device);
-    }//device
+    auto func = [device, &Param2_options]() {
+   
+        Json::Value json_scanner_options(Json::arrayValue);
     
-    //dump details in element 0
-    Json::StreamWriterBuilder writer;
-    writer["indentation"] = "";
-    std::string scannersJson = Json::writeString(writer, json_scanner_options);
-    C_TEXT t;
-    t.setUTF8String((const uint8_t *)scannersJson.c_str(),
-                    (unsigned int)scannersJson.length());
-    CUTF16String json;
-    t.copyUTF16String(&json);
-    Param2_options.setUTF16StringAtIndex(&json, 0);
+        SANE_Int option_index = 0;
+        
+        if(device)
+        {
+            const SANE_Option_Descriptor *option;
+            
+            do {
+                option = sane_get_option_descriptor(device, option_index);
+                if(option && option_index)
+                {
+                    Json::Value json_scanner_option(Json::objectValue);
+                    
+                    json_scanner_option["option"] = (int)option_index;
+                    
+                    json_scanner_option["name"] = (char *)option->name;
+                    json_scanner_option["title"] = (char *)option->title;
+                    json_scanner_option["desc"] = (char *)option->desc;
+                    
+                    json_scanner_option["type"] = (int)option->type;
+                    
+                    switch (option->type) {
+                        case SANE_TYPE_BOOL:
+                            json_scanner_option["_type"] = "SANE_TYPE_BOOL";
+                            break;
+                        case SANE_TYPE_INT:
+                            json_scanner_option["_type"] = "SANE_TYPE_INT";
+                            break;
+                        case SANE_TYPE_FIXED:
+                            json_scanner_option["_type"] = "SANE_TYPE_FIXED";
+                            break;
+                        case SANE_TYPE_STRING:
+                            json_scanner_option["_type"] = "SANE_TYPE_STRING";
+                            break;
+                        case SANE_TYPE_BUTTON:
+                            json_scanner_option["_type"] = "SANE_TYPE_BUTTON";
+                            break;
+                        case SANE_TYPE_GROUP:
+                            json_scanner_option["_type"] = "SANE_TYPE_GROUP";
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    json_scanner_option["unit"] = (int)option->unit;
+                    
+                    switch (option->unit) {
+                        case SANE_UNIT_NONE:
+                            json_scanner_option["_unit"] = "SANE_UNIT_NONE";
+                            break;
+                        case SANE_UNIT_PIXEL:
+                            json_scanner_option["_unit"] = "SANE_UNIT_PIXEL";
+                            break;
+                        case SANE_UNIT_BIT:
+                            json_scanner_option["_unit"] = "SANE_UNIT_BIT";
+                            break;
+                        case SANE_UNIT_MM:
+                            json_scanner_option["_unit"] = "SANE_UNIT_MM";
+                            break;
+                        case SANE_UNIT_DPI:
+                            json_scanner_option["_unit"] = "SANE_UNIT_DPI";
+                            break;
+                        case SANE_UNIT_PERCENT:
+                            json_scanner_option["_unit"] = "SANE_UNIT_PERCENT";
+                            break;
+                        case SANE_UNIT_MICROSECOND:
+                            json_scanner_option["_unit"] = "SANE_UNIT_MICROSECOND";
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    json_scanner_option["size"] = (int)option->size;
+                    json_scanner_option["cap"] = (int)option->cap;
+                    
+                    Json::Value json_scanner_flags(Json::objectValue);
+                    json_scanner_flags["automatic"] = (option->cap & SANE_CAP_AUTOMATIC) != 0;
+                    json_scanner_flags["selectable"] = (option->cap & SANE_CAP_SOFT_SELECT) != 0;
+                    json_scanner_flags["detectable"] = (option->cap & SANE_CAP_SOFT_DETECT) != 0;
+                    json_scanner_option["flags"] = json_scanner_flags;
+                    
+                    switch (option->constraint_type)
+                    {
+                        case SANE_CONSTRAINT_STRING_LIST:
+                        {
+                            Json::Value json_constraint_string_list(Json::arrayValue);
+                            const SANE_String_Const *sl = option->constraint.string_list;
+                            do {
+                                if(*sl)
+                                {
+                                    std::string constraint_str((char *)*sl++);
+                                    json_constraint_string_list.append(constraint_str);
+                                }
+                            }while(*sl);
+                            
+                            json_scanner_option["values"] = json_constraint_string_list;
+                        }
+                            break;
+                        case SANE_CONSTRAINT_WORD_LIST:
+                        {
+                            Json::Value json_constraint_word_list(Json::arrayValue);
+                            const SANE_Word *wl = option->constraint.word_list;
+                            do {
+                                if(*wl)
+                                {
+                                    int constraint_word = *wl++;
+                                    json_constraint_word_list.append(constraint_word);
+                                }
+                                
+                            }while(*wl);
+                            
+                            json_scanner_option["values"] = json_constraint_word_list;
+                        }
+                            break;
+                        case SANE_CONSTRAINT_RANGE:
+                        {
+                            const SANE_Range *range = option->constraint.range;
+                            
+                            Json::Value json_constraint_range(Json::objectValue);
+                            json_constraint_range["min"] = range->min;
+                            json_constraint_range["max"] = range->max;
+                            json_constraint_range["quant"] = range->quant;
+                            Json::Value json_option(Json::objectValue);
+                            json_scanner_option["values"] = json_constraint_range;
+                        }
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    json_scanner_options.append(json_scanner_option);
+                    
+                    CUTF8String name = (const uint8_t *)option->name;
+                    Param2_options.appendUTF8String(&name);
+                }
+                option_index++;
+            }while(option);
+            sane_close(device);
+        }//device
+        
+        //dump details in element 0
+        Json::StreamWriterBuilder writer;
+        writer["indentation"] = "";
+        std::string scannersJson = Json::writeString(writer, json_scanner_options);
+        C_TEXT t;
+        t.setUTF8String((const uint8_t *)scannersJson.c_str(),
+                        (unsigned int)scannersJson.length());
+        CUTF16String json;
+        t.copyUTF16String(&json);
+    
+        Param2_options.setUTF16StringAtIndex(&json, 0);
+        
+    };
+    
+    std::future<void> future = std::async(std::launch::async, func);
+    
+    do {
+        PA_YieldAbsolute();
+    } while (future.wait_for(std::chrono::seconds(1)) != std::future_status::ready);
+    
     Param2_options.toParamAtIndex(pParams, 2);
 }
 
