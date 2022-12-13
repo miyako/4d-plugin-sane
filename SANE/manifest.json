@@ -4,12 +4,12 @@
     "commands": [
         {
             "theme": "SANE",
-            "syntax": "SANE SCANNERS LIST(&Y)",
+            "syntax": "SANE Scanners list(&Y):C",
             "threadSafe": false
         },
         {
             "theme": "SANE",
-            "syntax": "SANE Scan(&T;&L):P",
+            "syntax": "SANE Scan(&T;&L):C",
             "threadSafe": false
         },
         {

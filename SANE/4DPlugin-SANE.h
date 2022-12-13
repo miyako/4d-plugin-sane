@@ -28,6 +28,8 @@
 
 #include "json.h"
 
+#include "4DPlugin-JSON.h"
+
 #define BUFFER_SIZE 8192
 #define READ_TIMEOUT 30
 #define DEFAULT_RESOLUTION 300
@@ -43,6 +45,9 @@ namespace SANE
     }image_type_t;
 }
 
+#include <thread>
+#include <future>
+#include <chrono>
 
 #pragma mark -
 
