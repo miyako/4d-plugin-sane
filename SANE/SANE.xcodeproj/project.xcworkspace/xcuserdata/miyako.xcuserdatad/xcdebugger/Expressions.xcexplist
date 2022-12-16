@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SANE_SCANNERS_LIST(PluginBlock*)::$_0::operator()() const:4DPlugin-SANE.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "PA_GetCollectionLength(&amp;scanners)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SANE_Scan(PluginBlock*)::$_1::operator()() const:4DPlugin-SANE.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "SANE_SCANNERS_LIST(PluginBlock*):4DPlugin-SANE.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "PA_GetCollectionLength(scanners)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PNG::write_data(C_BLOB&amp;, int, int, int, int, bool, int, int):4DPlugin-SANE.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "png.getBytesLength()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

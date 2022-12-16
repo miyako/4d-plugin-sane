@@ -14,7 +14,7 @@
         },
         {
             "theme": "SANE",
-            "syntax": "SANE SCAN OPTION VALUES(&T;&Y)",
+            "syntax": "SANE Scan option values(&T;&Y):C",
             "threadSafe": false
         },
         {

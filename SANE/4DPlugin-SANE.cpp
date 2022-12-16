@@ -121,11 +121,10 @@ void get_resolution(SANE_Handle device,
 {
     int resolution = get_resoution_i(device, resolution_option_index);
     int dpi = resolution ? resolution : DEFAULT_RESOLUTION;
-        
+    
     *dpi_x = dpi;
     *dpi_y = dpi;
 }
-
 
 }
 
@@ -222,17 +221,17 @@ void jpeg_memory_dest (j_compress_ptr cinfo, unsigned char **bufptr, size_t *buf
     dest->pub.term_destination = jpeg_memory_term_destination;
 }
 
-PA_Picture write_data(C_BLOB &data,
-                      int width,
-                      int height,
-                      int depth,
-                      int bytes_per_line,
-                      BOOL isColor = TRUE,
-                      int dpi_x = DEFAULT_RESOLUTION,
-                      int dpi_y = DEFAULT_RESOLUTION,
-                      int quality = 100)
+void write_data(std::vector<unsigned char>& image_data,
+                C_BLOB &data,
+                int width,
+                int height,
+                int depth,
+                int bytes_per_line,
+                BOOL isColor = TRUE,
+                int dpi_x = DEFAULT_RESOLUTION,
+                int dpi_y = DEFAULT_RESOLUTION,
+                int quality = 100)
 {
-    PA_Picture picture;
     
     //        JSAMPARRAY buf = 0;
     struct jpeg_compress_struct cinfo;
@@ -284,8 +283,6 @@ PA_Picture write_data(C_BLOB &data,
         {
             for(int y = 0; y < height; y++)
             {
-                //                    if((y % 0x2000)==0) PA_YieldAbsolute();
-                
                 if(depth == 1)
                 {
                     JSAMPLE *buf8 = (JSAMPLE *)malloc(bytes_per_line * 8);
@@ -311,21 +308,14 @@ PA_Picture write_data(C_BLOB &data,
         jpeg_finish_compress(&cinfo);
         jpeg_destroy_compress(&cinfo);
         
-        //            NSData *buf = [[NSData alloc]initWithBytes:(const void *)outbuffer
-        //                                                                                    length:outbuffersize];
-        //            [buf writeToFile:@"/Users/miyako/Desktop/test.jpeg" atomically:NO];
-        //            [buf release];
-        
-        picture = PA_CreatePicture((void *)outbuffer, (PA_long32)outbuffersize);
+        image_data.resize(outbuffersize);
+        memcpy(&image_data[0], outbuffer, outbuffersize);
         free(outbuffer);
     }//outbuffer
     else
     {
-        unsigned char nodata = 0;
-        picture = PA_CreatePicture((void *)&nodata, 0);
+        image_data.clear();
     }
-    
-    return picture;
 }
 }
 
@@ -344,14 +334,15 @@ void output_flush_fn(png_structp png_ptr)
     
 }
 
-PA_Picture write_data(C_BLOB &data,
-                      int width,
-                      int height,
-                      int depth,
-                      int bytes_per_line,
-                      BOOL isColor = TRUE,
-                      int dpi_x = DEFAULT_RESOLUTION,
-                      int dpi_y = DEFAULT_RESOLUTION)
+void write_data(std::vector<unsigned char>& image_data,
+                C_BLOB &data,
+                int width,
+                int height,
+                int depth,
+                int bytes_per_line,
+                BOOL isColor = TRUE,
+                int dpi_x = DEFAULT_RESOLUTION,
+                int dpi_y = DEFAULT_RESOLUTION)
 {
     C_BLOB png;
     
@@ -391,21 +382,8 @@ PA_Picture write_data(C_BLOB &data,
                 
                 unsigned char *p = (unsigned char *)data.getBytesPtr();
                 
-                /*
-                 //takes as much time, with no way to yield
-                 std::vector<png_byte *>rows(height);
-                 for(int y = 0; y < height; y++)
-                 {
-                 rows[y] = p;
-                 p += bytes_per_line;
-                 }//height
-                 png_write_image(png_ptr, &rows[0]);
-                 */
-                
                 for(int y = 0; y < height; y++)
                 {
-                    //                        if((y % 0x2000)==0) PA_YieldAbsolute();
-                    
                     //byteswap for depth 16
                     if (depth == 16)
                     {
@@ -428,16 +406,12 @@ PA_Picture write_data(C_BLOB &data,
                 
                 png_write_end(png_ptr, info_ptr);
                 png_destroy_write_struct(&png_ptr, &info_ptr);
-                
-                //                    NSData *buf = [[NSData alloc]initWithBytes:(const void *)png.getBytesPtr()
-                //                                                                                            length:png.getBytesLength()];
-                //                    [buf writeToFile:@"/Users/miyako/Desktop/test.png" atomically:NO];
-                //                    [buf release];
-                
+                                
             }
         }
     }
-    return PA_CreatePicture((void *)png.getBytesPtr(), png.getBytesLength());
+    image_data.resize(png.getBytesLength());
+    memcpy(&image_data[0], png.getBytesPtr(), png.getBytesLength());
 }
 }
 
@@ -555,16 +529,12 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
 #pragma mark -
 
 void SANE_SCANNERS_LIST(PA_PluginParameters params) {
-
-    /*
-     
-     based on scanimage --help
-     
-     */
     
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
-    PA_CollectionRef scanners = PA_CreateCollection();
+    Json::Value json_scanners(Json::arrayValue);
+    
+    CUTF16String json;
     
     ARRAY_TEXT Param1;
     Param1.setSize(1);
@@ -573,32 +543,21 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
     
     if(SANE::isReady) {
         
-        auto func = [scanners, &Param1]() {
+        auto func = [&Param1, &json_scanners, &json](PA_PluginParameters params) {
             
-            Json::Value json_scanners(Json::arrayValue);
             const SANE_Device **device_list;
+            
             if(SANE_STATUS_GOOD == sane_get_devices(&device_list, SANE_FALSE)) {
+                
                 for(unsigned int i = 0; device_list[i]; ++i) {
-
+                    
                     const SANE_Device *device_list_item = device_list[i];
-
                     Json::Value json_scanner(Json::objectValue);
                     json_scanner["name"] = (char *)device_list_item->name;
                     json_scanner["vendor"] = (char *)device_list_item->vendor;
                     json_scanner["model"] = (char *)device_list_item->model;
                     json_scanner["type"] = (char *)device_list_item->type;
-
                     json_scanners.append(json_scanner);
-                    
-                    PA_ObjectRef o = PA_CreateObject();
-                    ob_set_s(o, L"name", (const char *)device_list_item->name);
-                    ob_set_s(o, L"vendor", (const char *)device_list_item->vendor);
-                    ob_set_s(o, L"model", (const char *)device_list_item->model);
-                    ob_set_s(o, L"type", (const char *)device_list_item->type);
-                    
-                    PA_Variable v = PA_CreateVariable(eVK_Object);
-                    PA_SetObjectVariable(&v, o);
-                    PA_SetCollectionElement(scanners, PA_GetCollectionLength(scanners), v);
 
                     CUTF8String scanner = (const uint8_t *)device_list_item->name;
                     Param1.appendUTF8String(&scanner);
@@ -613,13 +572,11 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
             C_TEXT t;
             t.setUTF8String((const uint8_t *)scannersJson.c_str(), (uint32_t)scannersJson.length());
             
-            CUTF16String json;
             t.copyUTF16String(&json);
             Param1.setUTF16StringAtIndex(&json, 0);
-            
         };
         
-        std::future<void> future = std::async(std::launch::async, func);
+        std::future<void> future = std::async(std::launch::async, func, params);
         
         do {
             PA_YieldAbsolute();
@@ -627,9 +584,12 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
             
     }
 
+    PA_Unistring u = PA_CreateUnistring((PA_Unichar *)json.c_str());
+    PA_Variable v = PA_JsonParse(&u, eVK_Collection);
+    PA_ReturnCollection(params, PA_GetCollectionVariable(v));
+    PA_DisposeUnistring(&u);
+
     Param1.toParamAtIndex(pParams, 1);
-    
-    PA_ReturnCollection(params, scanners);
 }
 
 void SANE_Scan(PA_PluginParameters params) {
@@ -655,20 +615,22 @@ void SANE_Scan(PA_PluginParameters params) {
     
     PackagePtr pParams = (PackagePtr)params->fParameters;
     
-    PA_CollectionRef images = PA_CreateCollection();
-    
     C_TEXT Param1_scanner_id;
     Param1_scanner_id.fromParamAtIndex(pParams, 1);
-    SANE_Handle device = SANE::get_device(Param1_scanner_id);
     
     C_LONGINT Param2_format;
     Param2_format.fromParamAtIndex(pParams, 2);
-    SANE::image_type_t image_type = (SANE::image_type_t)Param2_format.getIntValue();
     
-    auto func = [images, device, image_type]() {
-      
+    std::vector< std::vector<unsigned char> >pictures(0);
+        
+    auto func = [&Param1_scanner_id, &Param2_format, &pictures]() {
+        
+        SANE_Handle device = SANE::get_device(Param1_scanner_id);
+        
         if(device)
         {
+            SANE::image_type_t image_type = (SANE::image_type_t)Param2_format.getIntValue();
+
             //per session
             SANE_Bool end_of_scan = false;
             SANE_Int option_index = 0;
@@ -718,12 +680,14 @@ void SANE_Scan(PA_PluginParameters params) {
                 
                 if (SANE_STATUS_GOOD == sane_start_status)
                 {
-                    if(first_frame) {
-                        //can be called only after sane_start
-                        sane_set_io_mode(device, SANE_FALSE);
-                    }
                     
                     do {
+                        
+                        if(first_frame) {
+                            //can be called only after sane_start
+                            sane_set_io_mode(device, SANE_FALSE);
+                        }
+                        
                         //per page
                         //call sane_get_parameters after sane_start for accurate measurements
                         SANE_Parameters params;
@@ -766,25 +730,19 @@ void SANE_Scan(PA_PluginParameters params) {
                                 pixels_per_line= params.pixels_per_line;
                                 lines = params.lines;
                                 depth = params.depth;
-                                
-                                if (lines >= 0) {
-                                    height = lines;
-                                    /*
-                                     width:pixels_per_line
-                                     height:lines
-                                     depth:(format == SANE_FRAME_RGB ? 3 : 1)
-                                     */
-                                }else{
-                                    height = 0;
-                                    /*
-                                     width:pixels_per_line
-                                     height:variable
-                                     depth:(format == SANE_FRAME_RGB ? 3 : 1)
-                                     */
-                                }
-
+ 
                                 if (first_frame)
                                 {
+                                    rgb.clear();
+                                    
+                                    if (lines < 0)
+                                    {
+                                        must_buffer = 1;
+                                        height = 0;
+                                    }else{
+                                        height = lines;
+                                    }
+                                    
                                     switch (format)
                                     {
                                         case SANE_FRAME_RED:
@@ -792,30 +750,16 @@ void SANE_Scan(PA_PluginParameters params) {
                                         case SANE_FRAME_BLUE:
                                             if (depth == 8) {
                                                 must_buffer = 1;//3-frame RGB
-                                                /*
-                                                 red  :0
-                                                 green:1
-                                                 blue :2
-                                                 */
-                                                rgb.clear();
                                                 supported_format = true;
                                             }
                                             break;
                                         case SANE_FRAME_RGB:
                                             if ((depth == 8) || (depth == 16)) {
-                                                if (lines < 0)
-                                                {
-                                                    must_buffer = 1;
-                                                }
                                                 supported_format = true;
                                             }
                                             break;
                                         case SANE_FRAME_GRAY:
                                             if ((depth == 1) || (depth == 8) || (depth == 16)) {
-                                                if (lines < 0)
-                                                {
-                                                    must_buffer = 1;
-                                                }
                                                 supported_format = true;
                                             }
                                             break;
@@ -868,8 +812,9 @@ void SANE_Scan(PA_PluginParameters params) {
                                                 }
                                                 break;
                                             case SANE_STATUS_EOF:
-                                            case SANE_STATUS_NO_DOCS:
+                                                //end of page
                                                 break;
+                                            case SANE_STATUS_NO_DOCS:
                                             default:
                                                 end_of_scan = true;
                                                 break;
@@ -902,43 +847,44 @@ void SANE_Scan(PA_PluginParameters params) {
                                                                  resolution_option_index,
                                                                  resolution_option_index_x,
                                                                  resolution_option_index_y, &dpi_x, &dpi_y);
-                                            
-                                            PA_Picture image;
+                                                                                        
+                                            std::vector<unsigned char> image_data;
                                             
                                             switch (image_type)
                                             {
                                                 case SANE::image_type_jpg:
                                                 {
-                                                    image = JPG::write_data(
-                                                                            data,
-                                                                            pixels_per_line,
-                                                                            height,
-                                                                            depth,
-                                                                            bytes_per_line,
-                                                                            format,
-                                                                            dpi_x,
-                                                                            dpi_y);
+                                                    JPG::write_data(
+                                                                    image_data,
+                                                                    data,
+                                                                    pixels_per_line,
+                                                                    height,
+                                                                    depth,
+                                                                    bytes_per_line,
+                                                                    format,
+                                                                    dpi_x,
+                                                                    dpi_y);
+                                                    pictures.push_back(image_data);
                                                 }
                                                     break;
                                                 case SANE::image_type_png:
                                                 default:
                                                 {
-                                                    image = PNG::write_data(
-                                                                            data,
-                                                                            pixels_per_line,
-                                                                            height,
-                                                                            depth,
-                                                                            bytes_per_line,
-                                                                            format,
-                                                                            dpi_x,
-                                                                            dpi_y);
+                                                    PNG::write_data(
+                                                                    image_data,
+                                                                    data,
+                                                                    pixels_per_line,
+                                                                    height,
+                                                                    depth,
+                                                                    bytes_per_line,
+                                                                    format,
+                                                                    dpi_x,
+                                                                    dpi_y);
+                                                    pictures.push_back(image_data);
                                                 }
                                                     break;
                                             }//switch
-                                            
-                                            PA_Variable v = PA_CreateVariable(eVK_Picture);
-                                            PA_SetPictureVariable(&v, image);
-                                            PA_SetCollectionElement(images, PA_GetCollectionLength(images), v);
+ 
                                         }
                                         
                                     }
@@ -947,15 +893,22 @@ void SANE_Scan(PA_PluginParameters params) {
                                 
                             } while (!last_frame);
                             
-                        }
+                        }else{
+                            last_frame = true;
+                            end_of_scan = true;
+                        }//sane_get_parameters()
                         first_frame = false;
                     } while(!last_frame);
-                    sane_cancel (device);
+                    
+                }else{
+                    end_of_scan = true;
                 }//sane_start
-                sane_close(device);
+
             } while(!end_of_scan);
             
-        }
+            sane_cancel (device);
+            sane_close(device);
+        }//get_device == sane_open()
         
     };
 
@@ -965,6 +918,21 @@ void SANE_Scan(PA_PluginParameters params) {
         PA_YieldAbsolute();
     } while (future.wait_for(std::chrono::seconds(1)) != std::future_status::ready);
     
+    
+    PA_CollectionRef images = PA_CreateCollection();
+    
+    for (std::vector< std::vector<unsigned char> >::iterator it = pictures.begin(); it != pictures.end(); ++it) {
+        
+        std::vector<unsigned char> image_data = *it;
+
+        PA_Picture picture = PA_CreatePicture(image_data.data(), (PA_long32)image_data.size());
+        PA_Variable v = PA_CreateVariable(eVK_Picture);
+        PA_SetPictureVariable(&v, picture);
+        PA_SetCollectionElement(images, PA_GetCollectionLength(images), v);
+        PA_ClearVariable(&v);
+        
+    }
+
     PA_ReturnCollection(params, images);
 }
 
@@ -977,14 +945,16 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     
     ARRAY_TEXT Param2_options;
     Param2_options.setSize(1);
-        
-    //SANE::isReady is tested in get_device
-    SANE_Handle device = SANE::get_device(Param1_scanner_id);
-        
-    auto func = [device, &Param2_options]() {
-   
-        Json::Value json_scanner_options(Json::arrayValue);
+  
+    Json::Value json_scanner_options(Json::arrayValue);
     
+    CUTF16String json;
+    
+    auto func = [&Param1_scanner_id, &Param2_options, &json_scanner_options, &json]() {
+   
+        //SANE::isReady is tested in get_device
+        SANE_Handle device = SANE::get_device(Param1_scanner_id);
+        
         SANE_Int option_index = 0;
         
         if(device)
@@ -1131,9 +1101,8 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
         C_TEXT t;
         t.setUTF8String((const uint8_t *)scannersJson.c_str(),
                         (unsigned int)scannersJson.length());
-        CUTF16String json;
+        
         t.copyUTF16String(&json);
-    
         Param2_options.setUTF16StringAtIndex(&json, 0);
         
     };
@@ -1143,6 +1112,11 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     do {
         PA_YieldAbsolute();
     } while (future.wait_for(std::chrono::seconds(1)) != std::future_status::ready);
+    
+    PA_Unistring u = PA_CreateUnistring((PA_Unichar *)json.c_str());
+    PA_Variable v = PA_JsonParse(&u, eVK_Collection);
+    PA_ReturnCollection(params, PA_GetCollectionVariable(v));
+    PA_DisposeUnistring(&u);
     
     Param2_options.toParamAtIndex(pParams, 2);
 }
@@ -1190,16 +1164,20 @@ void SANE_SET_SCAN_OPTION(PA_PluginParameters params) {
                         break;
                     case SANE_TYPE_STRING:
                     {
-                        SANE_Char *value = (SANE_Char *)valueString.c_str();
+                        std::vector<char>buf(option->size);
+                        memcpy (&buf[0], valueString.c_str(), valueString.length());
+                        buf[option->size - 1] = 0;
+//                        SANE_Char *value = (SANE_Char *)valueString.c_str();
                         if(SANE_STATUS_GOOD !=
                            sane_control_option(device,
                                                option_index,
                                                SANE_ACTION_SET_VALUE,
-                                               value,
+                                               &buf[0],
                                                0))
                         {
                             printf ("failed to set %s\n", option->name);
                         }
+                        
                     }
                         break;
                     case SANE_TYPE_INT:
