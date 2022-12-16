@@ -328,784 +328,784 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			dLMZ0pCQGvc9QDk1Jk5yh3FpGqI=
+			ElJHCZmFNDRTDw63dVwaxcZLzHY=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libjpeg.9" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libjpeg.9" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-abaton.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			1aFGETWkjHcMoRwTRaKrw7qu0GQ=
+			Zq8x0DaZufNkx/a94n9oU7Fp+m8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-abaton.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-abaton.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-agfafocus.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			PsmsqZN6HNmM8L3T8dx86vkwpCY=
+			cRRp1we/JC75FHe7TyFlC9yYupM=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-agfafocus.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-agfafocus.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-apple.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			I71NHP4K0SerwmmIQwO0NuBUrdQ=
+			s0qiQPVDcxgOez4c7aPA/6fcZSY=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-apple.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-apple.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-artec.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Ua7HPx06avYj7LrQ6JBqZ0LCU3k=
+			19eu9wV3lBOZtW7YiVFDiFuDgJE=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-artec.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-artec.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-artec_eplus48u.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			jXUMjvXg//xovXTXzrbzl+0gjDY=
+			UyAdXtY3SZm9AqpxAO3GeGDg1+U=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-artec_eplus48u.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-artec_eplus48u.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-as6e.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			UXeqhdrBy+JkV/fOVlhXuYJIvco=
+			i/8fZzSeAZyBkp7r9DqUIs4tNnA=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-as6e.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-as6e.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-avision.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			wu+Eikr2yj5WlBZ22o95Hi7GXt4=
+			IGkB3OWs41L3QgykeKpVnden0jw=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-avision.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-avision.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-bh.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			+de8dqsoVuOE7UXx7Tb2GHn3BNw=
+			38/P4kur36InEtomz6z3fA4a7To=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-bh.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-bh.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-canon.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			FdO1CBDWdy4DzTkD6/KJYHMJwq0=
+			gJY43FLWhXc6iAU2FremHYINlq0=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-canon.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-canon.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-canon630u.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			5foWOZhxsYmOd17dygCSs2Nw/jE=
+			gugcbtTzyGkF9sRvcjVG7RFC6No=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-canon630u.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-canon630u.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-canon_dr.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			SSsLYTZgGlLOeGP8hz39BViYV7E=
+			t9sBgsA2qrtohLyBmZHXDK/lBgQ=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-canon_dr.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-canon_dr.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-canon_lide70.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			RxFMLogv1MKkYDCGfCUJbN33n1Y=
+			/SCDEVYAuZdb2dBN4Pml24QA4G8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-canon_lide70" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-canon_lide70" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-cardscan.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			VBOBW8BwCL+GO49vDo9QVycxqvA=
+			wwHTon+55Oc9/NIKQKwLuHa7pbw=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-cardscan.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-cardscan.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-coolscan.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			BLUtaBa16b9GNN/yJvXNs3Tr3X0=
+			wuXB06J7YlHmZjftkN0HrOdBrsI=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-coolscan.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-coolscan.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-coolscan2.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			SCN48/bCqZALHK+C8NXG53mOCtk=
+			CLitMdOIMN1rTuBMLTyMdNDRRqM=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-coolscan2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-coolscan2" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-coolscan3.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			BDqeQkpiYZIlaDOfLvx0qNXDD88=
+			3D0hfmt6s11M5cqUlU3A06fUCH8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-coolscan3" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-coolscan3" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-dc210.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			JftmPfEsmDnHFlSsrWSmLZGS8rw=
+			3SzUsxsflyBGcEsh+tRld022WlQ=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-dc210" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-dc210" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-dc240.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			VSXfacW0dUZriPRNnBTf+Be7na8=
+			ojqAMpPYccZBniyvf3oGM6WgQGE=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-dc240" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-dc240" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-dc25.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			jRbrESlEN6w+MA33iwGInHtr+Og=
+			XjZIAAfXSeJbrOd03uo2vHc3zAE=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-dc25" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-dc25" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-dll.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			3/XawLGXl4Z4HlHRhJQXToMXKl8=
+			Z2iuALIKIINKINV7XlbD5KeLUkM=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-dll.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-dll.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-dmc.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			x+X/kz0O5O5mXAlgn1PVH5l9Qls=
+			nkNtw32RXIvWyCBcMCjDcEvo7Kg=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-dmc.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-dmc.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-epjitsu.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			mWQfUY3JqzIUCcf7k7mUE6S21Fk=
+			ioxuioJxlFdj5MuJfLDszCNmlD8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-epjitsu.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-epjitsu.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-epson.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			SZxOeUJkDM7a3o2qP7iup6+3D9Y=
+			TNoX4ZfEHznlPLj6o6hPfJunFRw=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-epson.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-epson.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-epson2.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ccm0IQJ1VsUl5nCujQFZA7b1WKQ=
+			L8yBNcIRNcYKU1+uyCf74a8D4Ms=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-epson2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-epson2" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-epsonds.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			oh4ohIxrI0JPEzg2zBM1UK1y+F4=
+			lL+nY+dYFFvxsk8jWNY+4Hy5iKg=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-epsonds.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-epsonds.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-fujitsu.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ELhh863R+iuDHdZhVD9rKW6ewHk=
+			Bir4I79g7RTl3W52FLZJRY0G5Dk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-fujitsu.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-fujitsu.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-genesys.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			cGQaxHMwPJtfWHumwMucN954H1Y=
+			q6h+0nZ9u6ipGO6yTmVuG7o+iDU=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-genesys.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-genesys.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-gt68xx.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			wDkPYgMCpDLL6egrTaPWaY1fEDE=
+			UpFuV2ihwpiNRMMtq34hywnlLms=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-gt68xx.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-gt68xx.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hp.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			nnW8WFV1Xzaqs3XJ07ZvSOPBCS4=
+			8t8c/DdDR1VFCmCO+M1iW11kAN4=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hp.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hp.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hp3500.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			abzWEVoYm91Fmv3Wz2I9buIOyZU=
+			KE/GZ9cPJYy4IjUXUUgMrEzY6iA=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hp3500" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hp3500" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hp3900.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			IEj84ohYNQqxdkG+qi1gHj6ST6w=
+			OLG4Ospotv9QeSbtNhSCKHFEwIs=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hp3900" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hp3900" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hp4200.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			hxQqjMU+rC8wpcUOgmWFaf7f7WA=
+			BPh6MJiPxHL+iwPIhxHPzCmB6BY=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hp4200" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hp4200" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hp5400.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			P1rc7moMflcNBUyn7Lf0+JCw1SQ=
+			B5i8ckEvFMWFU7HzXFxmVmdVeL4=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hp5400" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hp5400" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hp5590.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			brHdt4JU3bakc3W2R+4Xn9kfIT8=
+			8JoHF3Bwxbr0ioHVJEXUc9D+PtU=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hp5590" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hp5590" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hpljm1005.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			jWawKupT+B2uZtcKY/TuegBdROs=
+			sXRmHxChdBnvRKb4ImCwio69r94=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hpljm1005" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hpljm1005" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-hs2p.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			P53V3EZaH/gKFBhwBfQJuRgnuXQ=
+			h3uXwXe/5sovSJ3M+0hgUGgAGDk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-hs2p.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-hs2p.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-ibm.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			QFsV1RLUt5BU6GCMPo/PqXR+RY8=
+			iCSM+Sq+5ZEo0MOGFypTMLOwSl4=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-ibm.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-ibm.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-kodak.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			yMumCiOH6IYSx8h4P9VBBx2dj7I=
+			JbDBeIid4Ef4gxiAL+QNzEfNRoE=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-kodak.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-kodak.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-kodakaio.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			awP7hlYb0R2pdtPG3bKqnqyWs+Q=
+			h6MQJ9Bmw5KurvE+UjXz/ryYbUQ=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-kodakaio.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-kodakaio.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-kvs1025.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			cJ1sTQLGHL666lqsMo9AyK0LKZs=
+			KhmahTEZDIRr8/3z3CnYXw9z3Qk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-kvs1025" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-kvs1025" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-kvs20xx.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			0X0JAEE3uSQKykUUK2R5fkD/nH0=
+			r/BcZ2qALtwHKaileWt4EBTTwHk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-kvs20xx.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-kvs20xx.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-kvs40xx.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			2wKrzEtqq7i27itcyfDULvaPIRw=
+			mAxqJEycr6qvLP6eOCjHz/HtzxY=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-kvs40xx.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-kvs40xx.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-leo.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			NI/67dgrAWM7YnGVOkfEUVflIYc=
+			kdkNyL1HlTgW5Q4hbjj8piC8ORU=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-leo.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-leo.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-lexmark.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			fEJhTYK5wcUKGewWtd5InSn5zZI=
+			8u2PmHeqTMnKxFQ05ExAidCGHwQ=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-lexmark.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-lexmark.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-ma1509.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			xZEPPgRemV8DuHONPO8xbgyGAuA=
+			YPJ03JfqLGtsTMjAdSE+W53Ogw8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-ma1509" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-ma1509" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-magicolor.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			U9Zw6OdCdnPE3Kh0OTqh5ed0JaM=
+			5rPnsJdmWKzhGodHrhyOHcVZiQ8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-magicolor.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-magicolor.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-matsushita.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			iA8EyZ/l1LeYcJJAPVsS/RpfZVY=
+			IeA3qocYyObADQK7lcPf0YbdhN4=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-matsushita.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-matsushita.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-microtek.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			nZ/E9ZJexVaMT+Im35XFHgMnup8=
+			IEPSEpYr7SAkikS4KjggOtP7HPA=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-microtek.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-microtek.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-microtek2.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			GCviD7f0iHok8L4y5sD+y3O/8X0=
+			o6wKJImT+LSnHcnjcFGK7EAO16s=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-microtek2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-microtek2" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-mustek.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			yVRs2stxu4hHWbKULSA5oa5DNPo=
+			nu/oy2peJJCX/cUCjax77BLSCFk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-mustek.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-mustek.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-mustek_usb.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			01s2rzes/X914Z49SQVSdqVVsMA=
+			7T8GH59Q84U9KWOAjP1H90xW1wo=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-mustek_usb.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-mustek_usb.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-mustek_usb2.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Rt2PNc2ZDIJbx6ymGAmrzXkJk0I=
+			S1Vtcq3v+P3+KPlJJOUVhmHIujk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-mustek_usb2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-mustek_usb2" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-nec.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			rPaei5ncpzRuzMfQJIi4mmeBrk4=
+			fxpVcZHWMdnEwqoahj2xKUsJCJk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-nec.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-nec.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-net.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			xIOhfI1+Y+MNoCrA8B/uIL6MEV4=
+			WC1qxeOWqi91F7pc3fdPhIF+A2g=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-net.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-net.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-niash.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			gDgHfBAyM9ZeSkW+PG1h0BLxzNI=
+			Mw19Vsvh3jMTZGDVTlVKqDX5Fkk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-niash.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-niash.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-p5.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			82z/SVm+9m6RWqVNJJJz1YMG0L0=
+			G1KqNNxpjOp4C6rXKlvTPnNbQiY=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-p5" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-p5" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-pie.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			6JHFszvcfOFSlQDJbXBhhXD1Anc=
+			CtaaF3E3SzLUXNLeRY0pj7Mp3zU=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-pie.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-pie.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-pieusb.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			UAG/tMNiyP9fz0WgtzuKx4tSVW8=
+			yOttzo7JgwE1aZGuliUTvAWzajQ=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-pieusb.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-pieusb.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-pixma.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			DG6PWVxvq2JXzU3rKBhcEAvL7eI=
+			Uo3Ku+SRgB4tHCa0BH/XHnfAyUg=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-pixma.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-pixma.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-plustek.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ZMDx3qY4Y9kwe915vQnUVigGY3Q=
+			Q3NcYDW7qEQ54h2ysbTQTP42pXs=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-plustek.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-plustek.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-plustek_pp.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			giD5CwFR/gxBibskxhbJxsFoFg0=
+			tUXi0bHUucKibCcorUU0Pyu7ZUo=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-plustek_pp.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-plustek_pp.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-ricoh.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			OBnS3L8Tgi/GdXKC0KPfxnXhggQ=
+			cgh9zGuXf3g4Kkq1Ie7wWLT/LHI=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-ricoh.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-ricoh.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-ricoh2.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			UU3r2Chec1JTwelV8dlJcKy/y5g=
+			CK8ypiZbv0kaCeTk1NzVuLWrX6g=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-ricoh2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-ricoh2" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-rts8891.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			KZKveIeJp29n/JOntv1OtjE7eOE=
+			PixFF2xbxojFg0R+derGp3HKYKs=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-rts8891" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-rts8891" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-s9036.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			BUddP7HbSkvn8tMFFcrg1vkoybg=
+			bLp7tkZJ8+IUHHx1RcRi2yO7iSY=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-s9036" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-s9036" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-sceptre.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			C+6mPLotU1eru3Tcej7fSiYyyVM=
+			EfnHWmqSmpwNAiaLAOCRYcqIyps=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-sceptre.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-sceptre.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-sharp.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			bHihq0/TeFlAlURmyQrvVvlCw9g=
+			YiXUs9uNKWQd7UikRQ2zJ8D0ygo=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-sharp.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-sharp.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-sm3600.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			cROkjkecf2K9JGIGcz2nCnj0SvU=
+			1Vi5ndG+meqLzhHtpECaCg/94dc=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-sm3600" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-sm3600" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-sm3840.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			mTdCaIVWbtoezZeJPKl4tQnyFNs=
+			nJgTzJEW1qQsCecj/a4zShAhj90=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-sm3840" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-sm3840" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-snapscan.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			oQTg6ClLafphbyMTPqc8UaI5Tlg=
+			PMe2o2fgQKtbDk902bFBZBqU+3w=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-snapscan.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-snapscan.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-sp15c.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			yEtov8uGlLRyWd250q77MSUPsSA=
+			mQARxCs/wuziv5zup3be8djsU1c=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-sp15c.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-sp15c.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-st400.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			CdoseMMLmH2PK562qrwlOuN6MWE=
+			MeLWiylYOoADUKybBzBHyuBc+KE=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-st400" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-st400" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-stv680.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			D/04bdYOEResxPXkhKedPXHLcUo=
+			qHMz/gdWv348WiRtQPAzoqC0w5Q=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-stv680" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-stv680" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-tamarack.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			W1pBr3Icjs3EB90jxgrOeaNHMOg=
+			Zsy3a3ZROURscrCMhakI/UOXjCE=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-tamarack.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-tamarack.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-teco1.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			BQSjWrE2OyRTE46Tzy53idD2JBQ=
+			vlUVzAHr8L7fnkoWs79OJIJBUBs=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-teco1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-teco1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-teco2.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			2SL4d/LWpip5Nd4Da9DbY7le0sk=
+			H2oZrLUQy5FaBym7gN4qyk12iA0=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-teco2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-teco2" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-teco3.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			zxrMMKWoHdG5ke0GUFjN5egFtcU=
+			Wo3ecNWo9bdlzoBcdYPFRPmrR0s=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-teco3" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-teco3" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-test.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			21Ljxbj7iZ5/h+QG0AJ7t/0GYnY=
+			pnoM0sFEp/Ox+xdZt96jpIiYsjk=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-test.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-test.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-u12.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			OorL0Wx5RJKdj/Ta5xsZDJGfciA=
+			AQqCaYU1puUZOugDdRc6lKzsUbc=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-u12" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-u12" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-umax.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			3UsjvIVbluKmN67Is3miydwdJm8=
+			/tPBcIVEmRXhenIn2T1R588X3VY=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-umax.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-umax.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-umax1220u.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			6yvKSoyIQ58czqgxLcNCThZlajY=
+			SlY8GjTXQUGXv3z3Bj4/tewdRPQ=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-umax1220u.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-umax1220u.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-umax_pp.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			kc4G8eXN7rB6c2hCd+nqXOpAsb8=
+			hdFPVhtDeDx1x14vHFAW7G0lvXw=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-umax_pp.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-umax_pp.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libsane-xerox_mfp.1.so</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			TNufW6uhpT4+gzRzaBpPG7H5aEQ=
+			STuXXPMb1wonjOWJ8YlX4NooKIs=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libsane-xerox_mfp.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libsane-xerox_mfp.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libtiff.5.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			xCdUR1zV+gzFqWgtgGvvMTHAzF8=
+			+xmiTDDafrtaV84Lg9DzAHJWoq8=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libtiff.5" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libtiff.5" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libusb-1.0.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			OOBhSbYpoHfu9VEN/qRUEibF7t0=
+			ccYSpQK2rU20Qh9VuvnxgPx3wec=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libusb-1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libusb-1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>PlugIns/libzstd.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			KSTP4dzZ8YqCG+Eb6Dw8eRsosnM=
+			/vmyqW1j7FMqGkf0BzzPf4/JgDU=
 			</data>
 			<key>requirement</key>
-			<string>identifier "libzstd.1" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
+			<string>identifier "libzstd.1" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: keisuke miyako (4W9UT59D3B)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>QuickLook/Thumbnail.png</key>
 		<dict>
