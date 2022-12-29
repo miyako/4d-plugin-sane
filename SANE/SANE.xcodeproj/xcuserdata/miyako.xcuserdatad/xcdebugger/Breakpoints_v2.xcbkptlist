@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6B759D94-57A7-4872-928D-5048F1F55781"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../Downloads/sane-backends-1.1.1/backend/dll.c"
@@ -18,6 +18,101 @@
             endingLineNumber = "1107"
             landmarkName = "sane_get_devices(device_list, local_only)"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "6B759D94-57A7-4872-928D-5048F1F55781 - 9fe9867e87a6ce89"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "sane_dll_get_devices"
+                  moduleName = "SANE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyako/Downloads/sane-backends-1.1.1/backend/dll.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1107"
+                  endingLineNumber = "1107"
+                  offsetFromSymbolStart = "335">
+               </Location>
+               <Location
+                  uuid = "6B759D94-57A7-4872-928D-5048F1F55781 - 9fe9867e87a6ce4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "sane_dll_get_devices"
+                  moduleName = "SANE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyako/Downloads/sane-backends-1.1.1/backend/dll.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1109"
+                  endingLineNumber = "1109"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DBE12B2-4DEB-49FD-8A71-8C59F6FF9B6F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "4DPlugin-SANE.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "579"
+            endingLineNumber = "579"
+            landmarkName = "SANE_SCANNERS_LIST(params)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "3DBE12B2-4DEB-49FD-8A71-8C59F6FF9B6F - ff1e6bb135a9acf"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SANE_SCANNERS_LIST(PluginBlock*)::$_0::operator()(PluginBlock*) const"
+                  moduleName = "SANE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyako/Documents/GitHub/4d-plugin-sane/SANE/4DPlugin-SANE.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "576"
+                  endingLineNumber = "576"
+                  offsetFromSymbolStart = "1045">
+               </Location>
+               <Location
+                  uuid = "3DBE12B2-4DEB-49FD-8A71-8C59F6FF9B6F - ff1e6bb135a9acf"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SANE_SCANNERS_LIST(PluginBlock*)::$_0::operator()(PluginBlock*) const"
+                  moduleName = "SANE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyako/Documents/GitHub/4d-plugin-sane/SANE/4DPlugin-SANE.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "576"
+                  endingLineNumber = "576"
+                  offsetFromSymbolStart = "836">
+               </Location>
+               <Location
+                  uuid = "3DBE12B2-4DEB-49FD-8A71-8C59F6FF9B6F - ff1e6bb135a9aac"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SANE_SCANNERS_LIST(PluginBlock*)::$_0::operator()(PluginBlock*) const"
+                  moduleName = "SANE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyako/Documents/GitHub/4d-plugin-sane/SANE/4DPlugin-SANE.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "579"
+                  endingLineNumber = "579"
+                  offsetFromSymbolStart = "1045">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,10 +18,7 @@
 		D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D130064E12F02D9700702C0E /* Cocoa.framework */; };
 		D13116A91A03ACB700DE1322 /* 4DPluginAPI.c in Sources */ = {isa = PBXBuildFile; fileRef = D13116A81A03ACB700DE1322 /* 4DPluginAPI.c */; settings = {COMPILER_FLAGS = "-Wno-multichar"; }; };
 		D134D4AC1A030BA0008D14EF /* manifest.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = D134D4A91A030B06008D14EF /* manifest.json */; };
-		D143E90D29343CAB00E908DB /* libtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90929343CAB00E908DB /* libtiff.a */; };
 		D143E90E29343CAB00E908DB /* libjsoncpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90A29343CAB00E908DB /* libjsoncpp.a */; };
-		D143E90F29343CAB00E908DB /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90B29343CAB00E908DB /* libjpeg.a */; };
-		D143E91029343CAB00E908DB /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90C29343CAB00E908DB /* libpng16.a */; };
 		D143E91429343D2B00E908DB /* C_TEXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143E91129343D2B00E908DB /* C_TEXT.cpp */; };
 		D143E91529343D2B00E908DB /* C_TEXT.h in Headers */ = {isa = PBXBuildFile; fileRef = D143E91229343D2B00E908DB /* C_TEXT.h */; };
 		D143E91629343D2B00E908DB /* C_TYPES.h in Headers */ = {isa = PBXBuildFile; fileRef = D143E91329343D2B00E908DB /* C_TYPES.h */; };
@@ -32,13 +29,16 @@
 		D143E9212934400300E908DB /* C_LONGINT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143E91F2934400300E908DB /* C_LONGINT.cpp */; };
 		D143E9222934400300E908DB /* C_LONGINT.h in Headers */ = {isa = PBXBuildFile; fileRef = D143E9202934400300E908DB /* C_LONGINT.h */; };
 		D143E9242934475E00E908DB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E9232934475E00E908DB /* libz.tbd */; };
-		D14CFFC629354C1D002A614E /* libusb-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEB029345D4700FA32A4 /* libusb-1.0.a */; };
+		D1457B4E295D19FB00B5440D /* libusb-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1457B4B295D18C600B5440D /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1457B4F295D1BD500B5440D /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1457B4B295D18C600B5440D /* libusb-1.0.0.dylib */; };
+		D1457B50295D1BFC00B5440D /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90B29343CAB00E908DB /* libjpeg.a */; };
+		D1457B51295D1BFC00B5440D /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90C29343CAB00E908DB /* libpng16.a */; };
+		D1457B52295D1BFC00B5440D /* libtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D143E90929343CAB00E908DB /* libtiff.a */; };
 		D14CFFC729354C25002A614E /* libsane.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FCBEA629345B8E00FA32A4 /* libsane.a */; };
 		D19BC9EB29480ECF00D728C3 /* 4DPlugin-JSON.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D19BC9E929480ECF00D728C3 /* 4DPlugin-JSON.cpp */; };
 		D19BC9EC29480ECF00D728C3 /* 4DPlugin-JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D19BC9EA29480ECF00D728C3 /* 4DPlugin-JSON.h */; };
 		D1A93E5129379C530045B2DE /* libzstd.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E4C29379C530045B2DE /* libzstd.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D1A93E5529379C530045B2DE /* libtiff.5.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E4E29379C530045B2DE /* libtiff.5.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		D1A93E5729379C530045B2DE /* libusb-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D1A93E5A2937A2BA0045B2DE /* libjpeg.9.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E592937A2BA0045B2DE /* libjpeg.9.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D1A93EAE2937A3090045B2DE /* libsane-sharp.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E5B2937A3080045B2DE /* libsane-sharp.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D1A93EAF2937A3090045B2DE /* libsane-fujitsu.1.so in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D1A93E5C2937A3080045B2DE /* libsane-fujitsu.1.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -145,6 +145,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				D1457B4E295D19FB00B5440D /* libusb-1.0.0.dylib in Embed Libraries */,
 				D1A93EAE2937A3090045B2DE /* libsane-sharp.1.so in Embed Libraries */,
 				D1A93EAF2937A3090045B2DE /* libsane-fujitsu.1.so in Embed Libraries */,
 				D1A93EB02937A3090045B2DE /* libsane-dc210.1.so in Embed Libraries */,
@@ -231,7 +232,6 @@
 				D1A93E5A2937A2BA0045B2DE /* libjpeg.9.dylib in Embed Libraries */,
 				D1A93E5529379C530045B2DE /* libtiff.5.dylib in Embed Libraries */,
 				D1A93E5129379C530045B2DE /* libzstd.1.dylib in Embed Libraries */,
-				D1A93E5729379C530045B2DE /* libusb-1.0.0.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,12 +266,12 @@
 		D143E91F2934400300E908DB /* C_LONGINT.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = C_LONGINT.cpp; path = "4D Plugin API/Classes/C_LONGINT.cpp"; sourceTree = "<group>"; };
 		D143E9202934400300E908DB /* C_LONGINT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = C_LONGINT.h; path = "4D Plugin API/Classes/C_LONGINT.h"; sourceTree = "<group>"; };
 		D143E9232934475E00E908DB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D1457B4B295D18C600B5440D /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "lib/libusb-1.0.0.dylib"; sourceTree = "<group>"; };
 		D14D10DD1A03A8A5008B3411 /* constants.xlf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = constants.xlf; sourceTree = "<group>"; };
 		D19BC9E929480ECF00D728C3 /* 4DPlugin-JSON.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = "4DPlugin-JSON.cpp"; path = "support/4DPlugin-JSON.cpp"; sourceTree = "<group>"; };
 		D19BC9EA29480ECF00D728C3 /* 4DPlugin-JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "4DPlugin-JSON.h"; path = "support/4DPlugin-JSON.h"; sourceTree = "<group>"; };
 		D1A93E4C29379C530045B2DE /* libzstd.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzstd.1.dylib; path = lib/libzstd.1.dylib; sourceTree = "<group>"; };
 		D1A93E4E29379C530045B2DE /* libtiff.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtiff.5.dylib; path = lib/libtiff.5.dylib; sourceTree = "<group>"; };
-		D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "lib/libusb-1.0.0.dylib"; sourceTree = "<group>"; };
 		D1A93E592937A2BA0045B2DE /* libjpeg.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.9.dylib; path = lib/libjpeg.9.dylib; sourceTree = "<group>"; };
 		D1A93E5B2937A3080045B2DE /* libsane-sharp.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-sharp.1.so"; path = "sane/libsane-sharp.1.so"; sourceTree = "<group>"; };
 		D1A93E5C2937A3080045B2DE /* libsane-fujitsu.1.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; name = "libsane-fujitsu.1.so"; path = "sane/libsane-fujitsu.1.so"; sourceTree = "<group>"; };
@@ -369,13 +369,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D14CFFC629354C1D002A614E /* libusb-1.0.a in Frameworks */,
-				D143E9242934475E00E908DB /* libz.tbd in Frameworks */,
-				D143E90F29343CAB00E908DB /* libjpeg.a in Frameworks */,
-				D143E90D29343CAB00E908DB /* libtiff.a in Frameworks */,
-				D143E91029343CAB00E908DB /* libpng16.a in Frameworks */,
+				D1457B50295D1BFC00B5440D /* libjpeg.a in Frameworks */,
+				D1457B51295D1BFC00B5440D /* libpng16.a in Frameworks */,
+				D1457B52295D1BFC00B5440D /* libtiff.a in Frameworks */,
+				D1457B4F295D1BD500B5440D /* libusb-1.0.0.dylib in Frameworks */,
 				D143E90E29343CAB00E908DB /* libjsoncpp.a in Frameworks */,
 				D14CFFC729354C25002A614E /* libsane.a in Frameworks */,
+				D143E9242934475E00E908DB /* libz.tbd in Frameworks */,
 				D1FCBEAE29345BE900FA32A4 /* libxml2.tbd in Frameworks */,
 				D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */,
 				D1FCBEAC29345BD200FA32A4 /* Security.framework in Frameworks */,
@@ -471,11 +471,11 @@
 		D16FBB3C22A4C07E008F0416 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1457B4B295D18C600B5440D /* libusb-1.0.0.dylib */,
 				D1FCBEAF29345BF300FA32A4 /* libexpat.1.tbd */,
 				D1FCBEAD29345BDE00FA32A4 /* libxml2.tbd */,
 				D1A93E592937A2BA0045B2DE /* libjpeg.9.dylib */,
 				D1A93E4E29379C530045B2DE /* libtiff.5.dylib */,
-				D1A93E4F29379C530045B2DE /* libusb-1.0.0.dylib */,
 				D1A93E4C29379C530045B2DE /* libzstd.1.dylib */,
 				D143E9232934475E00E908DB /* libz.tbd */,
 				D1FCBEB029345D4700FA32A4 /* libusb-1.0.a */,
@@ -615,8 +615,9 @@
 				8D01CCCB0486CAD60068D4B7 /* Sources */,
 				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
 				8D01CCCF0486CAD60068D4B7 /* Rez */,
-				D1292E7B22C4A91E00CB5A8C /* ShellScript */,
 				D1A93E5829379C530045B2DE /* Embed Libraries */,
+				D1457B53295D1CAC00B5440D /* ShellScript */,
+				D1292E7B22C4A91E00CB5A8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -695,7 +696,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if test \"$CONFIGURATION\" == 'Deployment'; then\n\n    USER_NAME=keisuke.miyako@4d.com\n    UUID=`uuidgen | tr -d - | tr -d '\\n' | tr '[:upper:]' '[:lower:]'`\n    DEVELOPER_ID=`security find-identity -p codesigning -v | egrep 'Developer ID Application[^\"]+' -o`\n    PRODUCT_PATH=\"$CODESIGNING_FOLDER_PATH\"\n    \n    #clean\n    xattr -cr \"$PRODUCT_PATH\"\n    codesign --remove-signature \"$PRODUCT_PATH\"\n    \n    #sign\n    codesign --verbose --deep --timestamp --force --sign \"$DEVELOPER_ID\" \"$PRODUCT_PATH\"\n    \n    #archive\n    DMG_PATH=\"$PROJECT_DIR/$PRODUCT_NAME.dmg\"\n    ZIP_PATH=\"$PROJECT_DIR/$PRODUCT_NAME.zip\" #for windows\n    rm -f \"$DMG_PATH\"\n    hdiutil create -format UDBZ -plist -srcfolder \"$PRODUCT_PATH\" \"$DMG_PATH\"\n    rm -f \"$ZIP_PATH\"\n    ditto -c -k --keepParent \"$PRODUCT_PATH\" \"$ZIP_PATH\"\n    \n    xcrun notarytool submit \"$ZIP_PATH\" --keychain-profile \"notarytool\" --wait\n    xcrun notarytool submit \"$DMG_PATH\" --keychain-profile \"notarytool\" --wait\n        \n    xcrun stapler staple \"$DMG_PATH\"\n\nelse\n    echo \"No notarization performed as this is not a release build.\"\nfi\n";
+			shellScript = "if test \"$CONFIGURATION\" == 'Deployment'; then\n\n    USER_NAME=keisuke.miyako@4d.com\n    UUID=`uuidgen | tr -d - | tr -d '\\n' | tr '[:upper:]' '[:lower:]'`\n    DEVELOPER_ID=`security find-identity -p codesigning -v | egrep 'Developer ID Application[^\"]+' -o`\n    PRODUCT_PATH=\"$CODESIGNING_FOLDER_PATH\"\n    \n    #clean\n    xattr -cr \"$PRODUCT_PATH\"\n    codesign --remove-signature \"$PRODUCT_PATH\"\n        \n    #sign\n    codesign --verbose --deep --timestamp --force --sign \"$DEVELOPER_ID\" \"$PRODUCT_PATH\"\n    \n    #archive\n    DMG_PATH=\"$PROJECT_DIR/$PRODUCT_NAME.dmg\"\n    ZIP_PATH=\"$PROJECT_DIR/$PRODUCT_NAME.zip\" #for windows\n    rm -f \"$DMG_PATH\"\n    hdiutil create -format UDBZ -plist -srcfolder \"$PRODUCT_PATH\" \"$DMG_PATH\"\n    rm -f \"$ZIP_PATH\"\n    ditto -c -k --keepParent \"$PRODUCT_PATH\" \"$ZIP_PATH\"\n    \n    xcrun notarytool submit \"$ZIP_PATH\" --keychain-profile \"notarytool\" --wait\n    xcrun notarytool submit \"$DMG_PATH\" --keychain-profile \"notarytool\" --wait\n        \n    xcrun stapler staple \"$DMG_PATH\"\n\nelse\n    echo \"No notarization performed as this is not a release build.\"\nfi\n";
+		};
+		D1457B53295D1CAC00B5440D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PRODUCT_PATH=\"$BUILD_DIR/$EXECUTABLE_PATH\"\n    \ninstall_name_tool -change @loader_path/libusb-1.0.0.dylib @loader_path/../Plugins/libusb-1.0.0.dylib \"$PRODUCT_PATH\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -769,7 +788,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -826,7 +845,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -881,7 +900,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -939,6 +958,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OBJROOT = "$(SRCROOT)/build";
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SYMROOT = "$(SRCROOT)/test/Plugins";
 				USER_HEADER_SEARCH_PATHS = "include/**";
@@ -985,6 +1005,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OBJROOT = "$(SRCROOT)/build";
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SYMROOT = "$(SRCROOT)/test/Plugins";
 				USER_HEADER_SEARCH_PATHS = "include/**";
@@ -1030,6 +1051,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SYMROOT = "$(SRCROOT)/test/Plugins";
 				USER_HEADER_SEARCH_PATHS = "include/**";

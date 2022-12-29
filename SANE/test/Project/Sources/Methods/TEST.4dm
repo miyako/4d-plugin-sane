@@ -1,4 +1,7 @@
 //%attributes = {}
+$macRosetta:=Get system info:C1571.macRosetta
+
+
 C_TEXT:C284(<>DEFAULT_SCANNER)
 If (<>DEFAULT_SCANNER="")
 	ARRAY TEXT:C222($scannerNames; 0)

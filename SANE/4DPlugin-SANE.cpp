@@ -468,6 +468,9 @@ void OnStartup()
             NSString *builtInPlugInsPath = [thisBundle builtInPlugInsPath];
             setenv("SANE_LD_LIBRARY_PATH", [builtInPlugInsPath UTF8String], 1);
             //dll.c was modified to use this env var
+            
+            setenv("LD_LIBRARY_PATH", [builtInPlugInsPath UTF8String], 1);
+              
             NSString *resourcePath = [thisBundle resourcePath];
             setenv("SANE_CONFIG_DIR", [[resourcePath stringByAppendingPathComponent:@"sane.d"]UTF8String], 1);
         }

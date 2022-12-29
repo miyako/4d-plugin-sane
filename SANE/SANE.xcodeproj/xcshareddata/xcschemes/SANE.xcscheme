@@ -49,7 +49,7 @@
          <EnvironmentVariable
             key = "DYLD_PRINT_LIBRARIES"
             value = ""
-            isEnabled = "NO">
+            isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "DYLD_PRINT_APIS"

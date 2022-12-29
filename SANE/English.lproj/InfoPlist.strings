@@ -1,1 +1,1 @@
-/* Localized versions of Info.plist keys */CFBundleName = "SANE";CFBundleShortVersionString = "3.0.0";CFBundleGetInfoString = "SANE version 3.0.0, Copyright 2022 miyako.";
+/* Localized versions of Info.plist keys */CFBundleName = "SANE";CFBundleShortVersionString = "3.0.1";CFBundleGetInfoString = "SANE version 3.0.1, Copyright 2022 miyako.";
