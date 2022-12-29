@@ -41,7 +41,7 @@ to compile sane via CLI
 
 libusb-1.0.0.dylib for the sane shared objects are compiled without hotplug.
 
-libusb.a for the main plugin is compiled with hotplug.
+~~libusb.a for the main plugin is compiled with hotplug.~~ the main plugin is also linked to the dynamic library.
 
 ```
 -> Network parameters:
