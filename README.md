@@ -16,6 +16,12 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 * libsub/darwin_usb: ignore hotplug to avoid ``pthread`` crash. 
 
+to compile sane via CLI
+
+* backend/Makefile: `-version-number "1:1:1"` because of`UNKNOWN`
+
+* sane-backends/backends/dll.c, net.c: `V_MAJOR`, etc. to literal `1` 
+
 ### Configure
 
 `--without-poppler-glib` `--enable-static`
