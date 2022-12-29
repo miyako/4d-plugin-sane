@@ -16,6 +16,8 @@ SANE talks directly to the scanner over USB. You can use devices that do not off
 
 * libsub/darwin_usb: ignore hotplug to avoid ``pthread`` crash. 
 
+* also set ``LD_LIBRARY_PATH`` for compatibility with standard libsane. `3.0.1`
+
 to compile sane via CLI
 
 * backend/Makefile: `-version-number "1:1:1"` because of`UNKNOWN`
@@ -41,7 +43,7 @@ to compile sane via CLI
 
 libusb-1.0.0.dylib for the sane shared objects are compiled without hotplug.
 
-~~libusb.a for the main plugin is compiled with hotplug.~~ the main plugin is also linked to the dynamic library.
+~~libusb.a for the main plugin is compiled with hotplug.~~ the main plugin is also linked to the dynamic library. `3.0.1`
 
 ```
 -> Network parameters:
