@@ -69,7 +69,7 @@ const SANE_Option_Descriptor *get_option(SANE_Handle device, C_TEXT &option_name
         
         do {
             option = sane_get_option_descriptor(device, option_index);
-            if(option)
+            if(option && option->name)
             {
                 std::string _name = (const char *)option->name;
                 if(name.length() == _name.length())
@@ -94,8 +94,9 @@ int get_resoution_i(SANE_Handle device,
                     SANE_Int resolution_option_index)
 {
     int resolution = 0;
+    if(resolution_option_index <= 0) return 0; //option 0 is the option count
     const SANE_Option_Descriptor *resopt = sane_get_option_descriptor(device, resolution_option_index);
-    if(resopt)
+    if(resopt && resopt->size >= (SANE_Int)sizeof(SANE_Word))
     {
         void *val = alloca(resopt->size);
         if(val)
@@ -155,9 +156,11 @@ typedef struct {
 
 typedef jpeg_memory_destination_mgr *jpeg_memory_destination_ptr;
 
+// libjpeg requires error_exit not to return: jump back to write_data
 void my_error_exit(j_common_ptr cinfo)
 {
-    
+    my_error_ptr err = (my_error_ptr)cinfo->err;
+    longjmp(err->setjmp_buffer, 1);
 }
 
 void my_output_message (j_common_ptr cinfo)
@@ -233,13 +236,25 @@ void write_data(std::vector<unsigned char>& image_data,
                 int quality = 100)
 {
     
-    //        JSAMPARRAY buf = 0;
+    image_data.clear();
+    
+    //never read past the scanned data (short or unknown-length page)
+    if((width <= 0) || (bytes_per_line <= 0)) return;
+    int available = (int)(data.getBytesLength() / (uint32_t)bytes_per_line);
+    if((height <= 0) || (height > available)) height = available;
+    if(height <= 0) return;
+    
     struct jpeg_compress_struct cinfo;
     struct my_error_mgr jcerr;
+    memset(&cinfo, 0, sizeof(cinfo));
+    
+    //modified after setjmp, read after longjmp
+    unsigned char * volatile outbuffer = NULL;
+    JSAMPLE * volatile jpegbuf = NULL;
+    JSAMPLE * volatile buf8 = NULL;
     
     /* initialize compression object */
     cinfo.err = jpeg_std_error(&jcerr.pub);
-    jpeg_create_compress(&cinfo);
     jcerr.pub.error_exit = my_error_exit;
     jcerr.pub.output_message = my_output_message;
     jcerr.jump_set = 0;
@@ -247,18 +262,26 @@ void write_data(std::vector<unsigned char>& image_data,
     if (setjmp(jcerr.setjmp_buffer))
     {
         /* error handler for compress failures */
-        jpeg_abort_compress(&cinfo);
-        jcerr.jump_set=0;
-    } else {
-        jcerr.jump_set=1;
+        jpeg_memory_destination_ptr dest = (jpeg_memory_destination_ptr)cinfo.dest;
+        unsigned char *buf = dest ? dest->buf : outbuffer; //realloc may have moved it
+        jpeg_destroy_compress(&cinfo);
+        free(buf);
+        free(jpegbuf);
+        free(buf8);
+        image_data.clear();
+        return;
     }
+    jcerr.jump_set=1;
+    
+    jpeg_create_compress(&cinfo);
     
     size_t outbuffersize = data.getBytesLength() + 32768;
-    unsigned char *outbuffer = (unsigned char *)malloc(outbuffersize);
+    outbuffer = (unsigned char *)malloc(outbuffersize);
     
     if(outbuffer)
     {
-        jpeg_memory_dest(&cinfo, &outbuffer, &outbuffersize, 65536);
+        unsigned char *outbuf = outbuffer;
+        jpeg_memory_dest(&cinfo, &outbuf, &outbuffersize, 65536);
         
         cinfo.in_color_space = isColor ? JCS_RGB : JCS_GRAYSCALE;
         cinfo.input_components = isColor ? 3 : 1;
@@ -277,44 +300,59 @@ void write_data(std::vector<unsigned char>& image_data,
         
         unsigned char *p = (unsigned char *)data.getBytesPtr();
         
-        JSAMPLE *jpegbuf = (JSAMPLE *)malloc(bytes_per_line);
+        jpegbuf = (JSAMPLE *)malloc(bytes_per_line);
+        if((depth == 1) && jpegbuf)
+        {
+            buf8 = (JSAMPLE *)malloc((size_t)bytes_per_line * 8);
+        }
         
-        if(jpegbuf)
+        if(jpegbuf && ((depth != 1) || buf8))
         {
             for(int y = 0; y < height; y++)
             {
                 if(depth == 1)
                 {
-                    JSAMPLE *buf8 = (JSAMPLE *)malloc(bytes_per_line * 8);
+                    JSAMPLE *row = buf8;
                     for(int col1 = 0; col1 < bytes_per_line; col1++)
                     {
                         for(int col8 = 0; col8 < 8; col8++)
                         {
-                            buf8[col1 * 8 + col8] = p[col1] & (1 << (8 - col8 - 1)) ? 0 : 0xff;
+                            row[col1 * 8 + col8] = p[col1] & (1 << (8 - col8 - 1)) ? 0 : 0xff;
                         }
                     }
-                    jpeg_write_scanlines(&cinfo, &buf8, 1);
-                    free(buf8);
+                    jpeg_write_scanlines(&cinfo, &row, 1);
                 }else
                 {
-                    memcpy(jpegbuf, p, bytes_per_line);
-                    jpeg_write_scanlines(&cinfo, &jpegbuf, 1);
+                    JSAMPLE *row = jpegbuf;
+                    memcpy(row, p, bytes_per_line);
+                    jpeg_write_scanlines(&cinfo, &row, 1);
                 }
                 p += bytes_per_line;
             }//height
-            free(jpegbuf);
+            
+            jpeg_finish_compress(&cinfo);
+            
+            //term_destination stored the final buffer and length in outbuf/outbuffersize
+            if(outbuffersize != 0)
+            {
+                image_data.resize(outbuffersize);
+                memcpy(&image_data[0], outbuf, outbuffersize);
+            }
+        }else
+        {
+            jpeg_abort_compress(&cinfo);
         }
         
-        jpeg_finish_compress(&cinfo);
+        free(buf8);
+        free(jpegbuf);
+        //the destination manager lives in the cinfo pool: read it before destroy
+        outbuf = ((jpeg_memory_destination_ptr)cinfo.dest)->buf;
         jpeg_destroy_compress(&cinfo);
-        
-        image_data.resize(outbuffersize);
-        memcpy(&image_data[0], outbuffer, outbuffersize);
-        free(outbuffer);
+        free(outbuf);
     }//outbuffer
     else
     {
-        image_data.clear();
+        jpeg_destroy_compress(&cinfo);
     }
 }
 }
@@ -346,6 +384,14 @@ void write_data(std::vector<unsigned char>& image_data,
 {
     C_BLOB png;
     
+    image_data.clear();
+    
+    //never read past the scanned data (short or unknown-length page)
+    if((width <= 0) || (bytes_per_line <= 0)) return;
+    int available = (int)(data.getBytesLength() / (uint32_t)bytes_per_line);
+    if((height <= 0) || (height > available)) height = available;
+    if(height <= 0) return;
+    
     png_structp png_ptr;
     png_infop info_ptr;
     
@@ -353,11 +399,17 @@ void write_data(std::vector<unsigned char>& image_data,
     if(png_ptr)
     {
         info_ptr = png_create_info_struct(png_ptr);
-        if(info_ptr)
+        if(!info_ptr)
+        {
+            png_destroy_write_struct(&png_ptr, NULL);
+        }
+        else
         {
             if(setjmp(png_jmpbuf(png_ptr)))
             {
+                //libpng error: discard the partial image
                 png_destroy_write_struct(&png_ptr, &info_ptr);
+                return;
             }else{
                 
                 png_set_write_fn(png_ptr, (png_voidp)&png, write_data_fn, output_flush_fn);
@@ -410,12 +462,27 @@ void write_data(std::vector<unsigned char>& image_data,
             }
         }
     }
-    image_data.resize(png.getBytesLength());
-    memcpy(&image_data[0], png.getBytesPtr(), png.getBytesLength());
+    if(png.getBytesLength() != 0)
+    {
+        image_data.resize(png.getBytesLength());
+        memcpy(&image_data[0], png.getBytesPtr(), png.getBytesLength());
+    }
 }
 }
 
 #pragma mark -
+
+// Wait for a worker thread without blocking the 4D (cooperative) thread:
+// future.wait_for(1 s) froze every 4D process for up to a second per loop.
+// Sleeping the current 4D process for 2 ticks lets the others run instead.
+static void wait_for_worker(std::future<void> &future)
+{
+    PA_long32 currentProcessNumber = PA_GetCurrentProcessNumber();
+    while (future.wait_for(std::chrono::milliseconds(0)) != std::future_status::ready)
+    {
+        PA_PutProcessToSleep(currentProcessNumber, 2);
+    }
+}
 
 bool isProcessOnExit()
 {
@@ -525,7 +592,24 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
     }
     catch(...)
     {
-        
+        // an exception (e.g. std::bad_alloc) must not leave a function
+        // command without a return value
+        switch(selector)
+        {
+            case 1 :
+            case 2 :
+            case 3 :
+                PA_ReturnCollection(params, PA_CreateCollection());
+                break;
+            case 5 :
+            {
+                C_TEXT returnValue;
+                returnValue.setReturn((sLONG_PTR *)params->fResult);
+            }
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -581,9 +665,7 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
         
         std::future<void> future = std::async(std::launch::async, func, params);
         
-        do {
-            PA_YieldAbsolute();
-        } while (future.wait_for(std::chrono::seconds(1)) != std::future_status::ready);
+        wait_for_worker(future);
             
     }
 
@@ -867,7 +949,7 @@ void SANE_Scan(PA_PluginParameters params) {
                                                                     format,
                                                                     dpi_x,
                                                                     dpi_y);
-                                                    pictures.push_back(image_data);
+                                                    if(!image_data.empty()) pictures.push_back(image_data);
                                                 }
                                                     break;
                                                 case SANE::image_type_png:
@@ -883,7 +965,7 @@ void SANE_Scan(PA_PluginParameters params) {
                                                                     format,
                                                                     dpi_x,
                                                                     dpi_y);
-                                                    pictures.push_back(image_data);
+                                                    if(!image_data.empty()) pictures.push_back(image_data);
                                                 }
                                                     break;
                                             }//switch
@@ -891,7 +973,23 @@ void SANE_Scan(PA_PluginParameters params) {
                                         }
                                         
                                     }
+                                    
+                                    if(!last_frame)
+                                    {
+                                        //3-pass (red/green/blue) frames: this loop never
+                                        //calls sane_start/sane_get_parameters for the next
+                                        //frame, so looping on !last_frame would never end.
+                                        //stop instead of hanging the 4D process.
+                                        last_frame = true;
+                                        end_of_scan = true;
+                                    }
                                         
+                                }else
+                                {
+                                    //unsupported format/depth: nothing is read,
+                                    //so looping on !last_frame would never end
+                                    last_frame = true;
+                                    end_of_scan = true;
                                 }
                                 
                             } while (!last_frame);
@@ -917,9 +1015,7 @@ void SANE_Scan(PA_PluginParameters params) {
 
     std::future<void> future = std::async(std::launch::async, func);
     
-    do {
-        PA_YieldAbsolute();
-    } while (future.wait_for(std::chrono::seconds(1)) != std::future_status::ready);
+    wait_for_worker(future);
     
     
     PA_CollectionRef images = PA_CreateCollection();
@@ -972,9 +1068,10 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
                     
                     json_scanner_option["option"] = (int)option_index;
                     
-                    json_scanner_option["name"] = (char *)option->name;
-                    json_scanner_option["title"] = (char *)option->title;
-                    json_scanner_option["desc"] = (char *)option->desc;
+                    // group options may leave name/title/desc NULL
+                    json_scanner_option["name"] = option->name ? (char *)option->name : "";
+                    json_scanner_option["title"] = option->title ? (char *)option->title : "";
+                    json_scanner_option["desc"] = option->desc ? (char *)option->desc : "";
                     
                     json_scanner_option["type"] = (int)option->type;
                     
@@ -1044,7 +1141,7 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
                         {
                             Json::Value json_constraint_string_list(Json::arrayValue);
                             const SANE_String_Const *sl = option->constraint.string_list;
-                            do {
+                            if(sl) do {
                                 if(*sl)
                                 {
                                     std::string constraint_str((char *)*sl++);
@@ -1072,6 +1169,7 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
                         }
                             break;
                         case SANE_CONSTRAINT_RANGE:
+                        if(option->constraint.range)
                         {
                             const SANE_Range *range = option->constraint.range;
                             
@@ -1089,7 +1187,7 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
                     
                     json_scanner_options.append(json_scanner_option);
                     
-                    CUTF8String name = (const uint8_t *)option->name;
+                    CUTF8String name = (const uint8_t *)(option->name ? option->name : "");
                     Param2_options.appendUTF8String(&name);
                 }
                 option_index++;
@@ -1112,9 +1210,7 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     
     std::future<void> future = std::async(std::launch::async, func);
     
-    do {
-        PA_YieldAbsolute();
-    } while (future.wait_for(std::chrono::seconds(1)) != std::future_status::ready);
+    wait_for_worker(future);
     
     PA_Unistring u = PA_CreateUnistring((PA_Unichar *)json.c_str());
     PA_Variable v = PA_JsonParse(&u, eVK_Collection);
@@ -1122,6 +1218,13 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     PA_DisposeUnistring(&u);
     
     Param2_options.toParamAtIndex(pParams, 2);
+}
+
+// number of SANE_Word needed to hold an option value (at least one)
+static size_t words_for(const SANE_Option_Descriptor *option)
+{
+    size_t size = option->size > 0 ? (size_t)option->size : 0;
+    return size > sizeof(SANE_Word) ? (size + sizeof(SANE_Word) - 1) / sizeof(SANE_Word) : 1;
 }
 
 void SANE_SET_SCAN_OPTION(PA_PluginParameters params) {
@@ -1149,16 +1252,21 @@ void SANE_SET_SCAN_OPTION(PA_PluginParameters params) {
         {
             if((option->cap & SANE_CAP_SOFT_SELECT) != 0)
             {
+                // sane_control_option reads option->size bytes from the value
+                // buffer: never hand it a buffer smaller than that
+                size_t size = option->size > 0 ? (size_t)option->size : 0;
                 switch (option->type)
                 {
                     case SANE_TYPE_BOOL:
+                    case SANE_TYPE_INT:
                     {
-                        SANE_Bool value = atoi((const char *)valueString.c_str());
+                        std::vector<SANE_Word>words(words_for(option), 0);
+                        words[0] = atoi((const char *)valueString.c_str());
                         if(SANE_STATUS_GOOD !=
                            sane_control_option(device,
                                                option_index,
                                                SANE_ACTION_SET_VALUE,
-                                               &value,
+                                               &words[0],
                                                0))
                         {
                             printf ("failed to set %s\n", option->name);
@@ -1167,33 +1275,21 @@ void SANE_SET_SCAN_OPTION(PA_PluginParameters params) {
                         break;
                     case SANE_TYPE_STRING:
                     {
-                        std::vector<char>buf(option->size);
-                        memcpy (&buf[0], valueString.c_str(), valueString.length());
-                        buf[option->size - 1] = 0;
-//                        SANE_Char *value = (SANE_Char *)valueString.c_str();
-                        if(SANE_STATUS_GOOD !=
-                           sane_control_option(device,
-                                               option_index,
-                                               SANE_ACTION_SET_VALUE,
-                                               &buf[0],
-                                               0))
+                        if(size != 0)
                         {
-                            printf ("failed to set %s\n", option->name);
-                        }
-                        
-                    }
-                        break;
-                    case SANE_TYPE_INT:
-                    {
-                        SANE_Int value = atoi((const char *)valueString.c_str());
-                        if(SANE_STATUS_GOOD !=
-                           sane_control_option(device,
-                                               option_index,
-                                               SANE_ACTION_SET_VALUE,
-                                               &value,
-                                               0))
-                        {
-                            printf ("failed to set %s\n", option->name);
+                            std::vector<char>buf(size, 0);
+                            size_t len = valueString.length();
+                            if(len > size - 1) len = size - 1;
+                            memcpy (&buf[0], valueString.c_str(), len);
+                            if(SANE_STATUS_GOOD !=
+                               sane_control_option(device,
+                                                   option_index,
+                                                   SANE_ACTION_SET_VALUE,
+                                                   &buf[0],
+                                                   0))
+                            {
+                                printf ("failed to set %s\n", option->name);
+                            }
                         }
                     }
                         break;
@@ -1218,15 +1314,21 @@ void SANE_SET_SCAN_OPTION(PA_PluginParameters params) {
                                 break;
                             default:
                             {
-                                SANE_Char *value = (SANE_Char *)valueString.c_str();
-                                if(SANE_STATUS_GOOD !=
-                                   sane_control_option(device,
-                                                       option_index,
-                                                       SANE_ACTION_SET_VALUE,
-                                                       value,
-                                                       0))
+                                if(size != 0)
                                 {
-                                    printf ("failed to set %s\n", option->name);
+                                    std::vector<SANE_Char>buf(size, 0);
+                                    size_t len = valueString.length();
+                                    if(len > size) len = size;
+                                    memcpy (&buf[0], valueString.c_str(), len);
+                                    if(SANE_STATUS_GOOD !=
+                                       sane_control_option(device,
+                                                           option_index,
+                                                           SANE_ACTION_SET_VALUE,
+                                                           &buf[0],
+                                                           0))
+                                    {
+                                        printf ("failed to set %s\n", option->name);
+                                    }
                                 }
                             }
                                 break;
@@ -1273,33 +1375,36 @@ void SANE_Get_scan_option(PA_PluginParameters params) {
                 {
                     case SANE_TYPE_BOOL:
                     {
-                        SANE_Bool value = false;
+                        // the backend writes option->size bytes: size the buffer for it
+                        std::vector<SANE_Word>words(words_for(option), 0);
                         if(SANE_STATUS_GOOD !=
                            sane_control_option(device,
                                                option_index,
                                                SANE_ACTION_GET_VALUE,
-                                               &value,
+                                               &words[0],
                                                0))
                         {
                             printf ("failed to get %s\n", option->name);
                         }
+                        SANE_Bool value = words[0];
                         valueString = (const uint8_t *)(value ? "true" : "false");
                     }
                         break;
                     case SANE_TYPE_INT:
                     {
-                        SANE_Int value = 0;
+                        std::vector<SANE_Word>words(words_for(option), 0);
                         if(SANE_STATUS_GOOD  !=
                            sane_control_option(device,
                                                option_index,
                                                SANE_ACTION_GET_VALUE,
-                                               &value,
+                                               &words[0],
                                                0))
                         {
                             printf ("failed to get %s\n", option->name);
                         }
+                        SANE_Int value = words[0];
                         char buf[11];
-                        sprintf(buf, "%u", (int)value);
+                        snprintf(buf, sizeof(buf), "%u", (int)value);
                         valueString = (const uint8_t *)buf;
                     }
                         break;
@@ -1336,7 +1441,7 @@ void SANE_Get_scan_option(PA_PluginParameters params) {
                                     printf ("failed to get %s\n", option->name);
                                 }
                                 char buf[11];
-                                sprintf(buf, "%u", (int)value);
+                                snprintf(buf, sizeof(buf), "%u", (int)value);
                                 valueString = (const uint8_t *)buf;
                             }
                                 break;
