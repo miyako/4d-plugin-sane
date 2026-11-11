@@ -1,3 +1,10 @@
-SANE/build/*
-SANE/test/userPreferences.*
+.DS_Store
+build/
 monterey/*
+test/Data/Logs/
+test/userPreferences.*
+test/Project/DerivedData/
+/SANE.dmg
+/SANE.zip
+test/Plugins/SANE.bundle/Contents/MacOS/SANE
+test/Plugins/SANE.bundle/Contents/_CodeSignature/

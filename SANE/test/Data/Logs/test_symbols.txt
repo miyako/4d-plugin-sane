@@ -1,1 +1,0 @@
-12/16/22	16:54<>DEFAULT_SCANNER	テキスト		(M)  TESTインタープロセス変数サイズ：40プロセス変数サイズ：216	(M)  TEST$scanners	コレクション		$images	コレクション		$scannerNames	テキスト	1 次元		(FM) TEST$scanners	コレクション		$event	Object		$options	テキスト	1 次元	$scannerNames	テキスト	1 次元		(OM)  TEST
