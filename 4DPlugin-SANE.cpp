@@ -9,6 +9,8 @@
  # --------------------------------------------------------------------------------*/
 
 #include "4DPlugin-SANE.h"
+#include <stdexcept>
+#include <memory>
 
 #pragma mark SANE
 
@@ -490,12 +492,18 @@ bool isProcessOnExit()
     
     PA_long32 currentProcessNumber = PA_GetCurrentProcessNumber();
     PA_Variable name = PA_GetProcessInfo_s(currentProcessNumber, &state, &time);
+    PA_ErrorCode error = PA_GetLastError();
+    if(error != eER_NoErr)
+        throw std::runtime_error("SANE process information failed: " + std::to_string(error));
+    std::unique_ptr<PA_Variable, decltype(&PA_ClearVariable)> owner(&name, PA_ClearVariable);
     PA_Unistring u = PA_GetStringVariable(name);
+    error = PA_GetLastError();
+    if(error != eER_NoErr)
+        throw std::runtime_error("SANE process name failed: " + std::to_string(error));
     CUTF16String procName(u.fString, u.fLength);
     PA_Unichar _exitProcName[] = {'$', 'x', 'x', 0};
     CUTF16String exitProcName((PA_Unichar *)_exitProcName);
     bool isProcessOnExit = (!procName.compare(exitProcName));
-    PA_ClearVariable(&name);
     
     return isProcessOnExit;
 }
@@ -554,46 +562,28 @@ void OnCloseProcess()
 
 #pragma mark -
 
-void PluginMain(PA_long32 selector, PA_PluginParameters params) {
-    
-    try
+static void return_json_collection(PA_PluginParameters params, const CUTF16String& json)
+{
+    PA_Unistring input = PA_CreateUnistring((PA_Unichar *)json.c_str());
+    PA_ErrorCode error = PA_GetLastError();
+    if(error != eER_NoErr)
+        throw std::runtime_error("SANE JSON input failed: " + std::to_string(error));
+    PA_Variable result = PA_JsonParse(&input, eVK_Collection);
+    error = PA_GetLastError();
+    PA_DisposeUnistring(&input);
+    if(error != eER_NoErr)
+        throw std::runtime_error("SANE JSON parse failed: " + std::to_string(error));
+    if(PA_GetVariableKind(result) != eVK_Collection)
     {
-        switch(selector)
-        {
-            case kInitPlugin :
-            case kServerInitPlugin :
-                OnStartup();
-                break;
-                
-            case kCloseProcess :
-                OnCloseProcess();
-                break;
-                
-                // --- SANE
-                
-            case 1 :
-                SANE_SCANNERS_LIST(params);
-                break;
-            case 2 :
-                SANE_Scan(params);
-                break;
-            case 3 :
-                SANE_SCAN_OPTION_VALUES(params);
-                break;
-            case 4 :
-                SANE_SET_SCAN_OPTION(params);
-                break;
-            case 5 :
-                SANE_Get_scan_option(params);
-                break;
-                
-        }
-        
+        PA_ClearVariable(&result);
+        throw std::runtime_error("SANE JSON parse returned a non-collection");
     }
-    catch(...)
-    {
-        // an exception (e.g. std::bad_alloc) must not leave a function
-        // command without a return value
+    // PA_ReturnCollection writes the reference directly: transfer, do not clear.
+    PA_ReturnCollection(params, PA_GetCollectionVariable(result));
+}
+
+void PluginMain(PA_long32 selector, PA_PluginParameters params) {
+    auto empty_result = [selector, params]() {
         switch(selector)
         {
             case 1 :
@@ -610,6 +600,44 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
             default:
                 break;
         }
+    };
+    try
+    {
+        switch(selector)
+        {
+            case kInitPlugin :
+            case kServerInitPlugin :
+                OnStartup();
+                break;
+            case kCloseProcess :
+                OnCloseProcess();
+                break;
+            case 1 :
+                SANE_SCANNERS_LIST(params);
+                break;
+            case 2 :
+                SANE_Scan(params);
+                break;
+            case 3 :
+                SANE_SCAN_OPTION_VALUES(params);
+                break;
+            case 4 :
+                SANE_SET_SCAN_OPTION(params);
+                break;
+            case 5 :
+                SANE_Get_scan_option(params);
+                break;
+        }
+    }
+    catch(const std::exception& error)
+    {
+        printf("SANE command %d failed: %s\n", selector, error.what());
+        empty_result();
+    }
+    catch(...)
+    {
+        printf("SANE command %d failed: unknown exception\n", selector);
+        empty_result();
     }
 }
 
@@ -669,12 +697,8 @@ void SANE_SCANNERS_LIST(PA_PluginParameters params) {
             
     }
 
-    PA_Unistring u = PA_CreateUnistring((PA_Unichar *)json.c_str());
-    PA_Variable v = PA_JsonParse(&u, eVK_Collection);
-    PA_ReturnCollection(params, PA_GetCollectionVariable(v));
-    PA_DisposeUnistring(&u);
-
     Param1.toParamAtIndex(pParams, 1);
+    return_json_collection(params, json);
 }
 
 void SANE_Scan(PA_PluginParameters params) {
@@ -1019,20 +1043,35 @@ void SANE_Scan(PA_PluginParameters params) {
     
     
     PA_CollectionRef images = PA_CreateCollection();
+    PA_ErrorCode error = PA_GetLastError();
+    if(error != eER_NoErr)
+        throw std::runtime_error("SANE collection creation failed: " + std::to_string(error));
+    std::unique_ptr<void, decltype(&PA_DisposeCollection)> owner(images, PA_DisposeCollection);
     
     for (std::vector< std::vector<unsigned char> >::iterator it = pictures.begin(); it != pictures.end(); ++it) {
         
-        std::vector<unsigned char> image_data = *it;
+        std::vector<unsigned char>& image_data = *it;
 
         PA_Picture picture = PA_CreatePicture(image_data.data(), (PA_long32)image_data.size());
-        PA_Variable v = PA_CreateVariable(eVK_Picture);
+        error = PA_GetLastError();
+        if(error != eER_NoErr)
+        {
+            throw std::runtime_error("SANE picture creation failed: " + std::to_string(error));
+        }
+        PA_Variable v = PA_CreateVariable(eVK_Undefined);
         PA_SetPictureVariable(&v, picture);
         PA_SetCollectionElement(images, PA_GetCollectionLength(images), v);
+        error = PA_GetLastError();
         PA_ClearVariable(&v);
+        if(error != eER_NoErr)
+        {
+            throw std::runtime_error("SANE picture insertion failed: " + std::to_string(error));
+        }
         
     }
 
     PA_ReturnCollection(params, images);
+    owner.release();
 }
 
 void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
@@ -1212,12 +1251,8 @@ void SANE_SCAN_OPTION_VALUES(PA_PluginParameters params) {
     
     wait_for_worker(future);
     
-    PA_Unistring u = PA_CreateUnistring((PA_Unichar *)json.c_str());
-    PA_Variable v = PA_JsonParse(&u, eVK_Collection);
-    PA_ReturnCollection(params, PA_GetCollectionVariable(v));
-    PA_DisposeUnistring(&u);
-    
     Param2_options.toParamAtIndex(pParams, 2);
+    return_json_collection(params, json);
 }
 
 // number of SANE_Word needed to hold an option value (at least one)

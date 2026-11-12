@@ -7,6 +7,7 @@
  */
 
 #include "ARRAY_TEXT.h"
+#include <stdexcept>
 
 void ARRAY_TEXT::fromParamAtIndex(PackagePtr pParams, uint32_t index)
 {	
@@ -49,7 +50,7 @@ void ARRAY_TEXT::toParamAtIndex(PackagePtr pParams, uint32_t index)
 			case eVK_Undefined:
 				PA_ClearVariable(&arr);				
 				arr = PA_CreateVariable(eVK_ArrayUnicode);
-				param->fType = arr.fType;
+				*param = arr;
 				break;				
 			
 			default:
@@ -59,13 +60,27 @@ void ARRAY_TEXT::toParamAtIndex(PackagePtr pParams, uint32_t index)
 		if(arr.fType == eVK_ArrayUnicode)
 		{
 			
-			PA_ResizeArray(&arr, this->_CUTF16StringArray->empty() ? 0 : (uint32_t)(this->_CUTF16StringArray->size() - 1));
+			PA_long32 count = this->_CUTF16StringArray->empty() ? 0 : (uint32_t)(this->_CUTF16StringArray->size() - 1);
+			PA_ErrorCode error = eER_NoErr;
+			if(arr.uValue.fArray.fNbElements != count && arr.uValue.fArray.fData)
+			{
+				PA_ResizeArray(&arr, count);
+				error = PA_GetLastError();
+				if(error != eER_NoErr)
+					throw std::runtime_error("ARRAY_TEXT resize failed: " + std::to_string(error));
+			}
+			if(!arr.uValue.fArray.fData)
+				throw std::runtime_error("ARRAY_TEXT destination has no data");
+			*param = arr;
 			
 			uint32_t i;
 			
 			for(i = 0; i < this->_CUTF16StringArray->size(); i++)
 			{
 				PA_Unistring str = PA_CreateUnistring((PA_Unichar *)this->_CUTF16StringArray->at(i).c_str());
+				error = PA_GetLastError();
+				if(error != eER_NoErr)
+					throw std::runtime_error("ARRAY_TEXT string creation failed: " + std::to_string(error));
 				PA_SetStringInArray(arr, i, &str);					
 			}
 			
@@ -88,7 +103,7 @@ void ARRAY_TEXT::convertFromUTF8(const CUTF8String* fromString, CUTF16String* to
 	if(len){
 		std::vector<uint8_t> buf((len + 1) * sizeof(PA_Unichar));
 		if(MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)fromString->c_str(), fromString->length(), (LPWSTR)&buf[0], len)){
-			*toString = CUTF16String((const PA_Unichar *)&buf[0]);
+			*toString = CUTF16String((const PA_Unichar *)&buf[0], (size_t)len);
 		}
     }else{
 			*toString = CUTF16String((const PA_Unichar *)L"");
@@ -100,7 +115,7 @@ void ARRAY_TEXT::convertFromUTF8(const CUTF8String* fromString, CUTF16String* to
                int len = CFStringGetLength(str);
                std::vector<uint8_t> buf((len+1) * sizeof(PA_Unichar));
                CFStringGetCharacters(str, CFRangeMake(0, len), (UniChar *)&buf[0]);
-               *toString = CUTF16String((const PA_Unichar *)&buf[0]);
+               *toString = CUTF16String((const PA_Unichar *)&buf[0], (size_t)len);
                CFRelease(str);
            }
 #endif	
@@ -114,7 +129,7 @@ void ARRAY_TEXT::convertToUTF8(const CUTF16String* fromString, CUTF8String* toSt
 	if(len){
 		std::vector<uint8_t> buf(len + 1);
 		if(WideCharToMultiByte(CP_UTF8, 0, (LPCWSTR)fromString->c_str(), fromString->length(), (LPSTR)&buf[0], len, NULL, NULL)){
-			*toString = CUTF8String((const uint8_t *)&buf[0]);
+			*toString = CUTF8String((const uint8_t *)&buf[0], (size_t)len);
 		}
 	}else{
 			*toString = CUTF8String((const uint8_t *)"");
@@ -225,7 +240,7 @@ void ARRAY_TEXT::appendUTF16String(const PA_Unichar* pString, uint32_t len)
 void ARRAY_TEXT::setUTF16StringAtIndex(const PA_Unichar* pString, uint32_t index)
 {
 	CUTF16String u = CUTF16String(pString);
-	this->_CUTF16StringArray->push_back(u);		
+	this->setUTF16StringAtIndex(&u, index);
 }
 
 void ARRAY_TEXT::appendUTF16String(CUTF16String* pString)
