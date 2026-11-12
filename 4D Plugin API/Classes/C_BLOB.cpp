@@ -7,11 +7,13 @@
  */
 
 #include "C_BLOB.h"
+#include <stdexcept>
 
 void CBytes::fromParamAtIndex(PA_PluginParameters params, uint32_t index)
 {
 	if(index)
 	{
+		this->_CBytes.clear();
 		void *bytes = NULL;
 		PA_long32 len = PA_GetBlobParameter(params, index, bytes);
 		if(len)
@@ -28,6 +30,7 @@ void CBytes::fromParamAtIndex(PackagePtr pParams, uint32_t index)
 {
 	if(index)
 	{		
+		this->_CBytes.clear();
 		PA_Handle h = *(PA_Handle *)(pParams[index - 1]);
 		if(h)//	the handle could be NULL if the BLOB is empty on windows
 		{
@@ -46,9 +49,10 @@ void CBytes::toParamAtIndex(PackagePtr pParams, uint32_t index)
 	{
 		PA_Handle *h = (PA_Handle *)(pParams[index - 1]);
 		
-		if (*h) PA_DisposeHandle(*h);
-				
 		PA_Handle d = PA_NewHandle((unsigned int)this->_CBytes.size());
+		PA_ErrorCode error = PA_GetLastError();
+		if(error != eER_NoErr)
+			throw std::runtime_error("C_BLOB allocation failed: " + std::to_string(error));
 		/* PA_NewHandle can fail before ACI0098388 */
 		if(eER_NoErr == PA_GetLastError())
 		{
@@ -58,6 +62,7 @@ void CBytes::toParamAtIndex(PackagePtr pParams, uint32_t index)
 				PA_UnlockHandle(d);
 			}
 			
+			if (*h) PA_DisposeHandle(*h);
 			*h = d;
 		}
 	}
@@ -88,6 +93,9 @@ void CBytes::setReturn(sLONG_PTR *pResult)
 	PA_Handle *h = (PA_Handle *)pResult;
 	
 	PA_Handle d = PA_NewHandle((unsigned int)this->_CBytes.size());
+	PA_ErrorCode error = PA_GetLastError();
+	if(error != eER_NoErr)
+		throw std::runtime_error("C_BLOB allocation failed: " + std::to_string(error));
 	/* PA_NewHandle can fail before ACI0098388 */
 	if(eER_NoErr == PA_GetLastError())
 	{
@@ -224,6 +232,7 @@ static const char reverse_table[128] = {
 
 void CBytes::fromB64Text(C_TEXT *b64)
 {
+	this->_CBytes.clear();
 	CUTF8String t;
 	b64->copyUTF8String(&t);
 	

@@ -19,6 +19,9 @@ SANE ([Scanner Access Now Easy](http://www.sane-project.org)) for macOS. The plu
 
 Releases: [GitHub releases](https://github.com/miyako/4d-plugin-sane/releases)
 
+Native ownership contracts, synthetic regression instructions and audit
+limitations: [ownership audit](tests/ownership/README.md).
+
 ---
 
 ## Requirements & platform notes
@@ -59,7 +62,7 @@ SANE Scanners list ( names ) -> Collection
 
 `names` receives the same device names from element 1 on. Element 0 holds the whole result as JSON text.
 
-If SANE can't be initialised, the command has no list to return and parses an empty string as JSON instead. Whether that gives `Null` or a JSON parse error depends on your 4D version (not verified), so test the result before using `.length`.
+If SANE can't be initialised, JSON parsing fails, or parsing returns a non-collection, the command returns an empty collection and logs the error to standard output. Allocation failures are likewise logged; output arrays may be only partially updated.
 
 Because the command restarts SANE, don't call it while another process is scanning (see [Error handling & troubleshooting](#error-handling--troubleshooting)).
 
